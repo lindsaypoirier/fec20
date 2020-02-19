@@ -108,7 +108,7 @@ ggplot(cand_cmte, aes(x = committee_type, y = n, fill = cand_pty_aff)) +
        x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation")
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-cand-plot-1.png" width="100%" />
 
 ## Contributors
 

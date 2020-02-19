@@ -81,7 +81,7 @@ head(cand_cmte)
 ### Data Visualization 
 
 And extending that to create a visualization to see the results easily.
-```{r message=FALSE, warning=FALSE}
+```{r cand-plot, message=FALSE, warning=FALSE}
 ggplot(cand_cmte, aes(x = committee_type, y = n, fill = cand_pty_aff)) + 
   geom_col(position = "dodge") +
   labs(title = "Bar Chart of Total Committees by Type and Party", 
