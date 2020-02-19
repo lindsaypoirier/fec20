@@ -1,6 +1,6 @@
 Package: fec16
 Title: Data Package for the 2016 Election
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Marium",
            family = "Tapal",
@@ -14,7 +14,8 @@ Authors@R:
            family = "Ryan",
            role = c("aut", "cre"),
            email = "ryan.irene3@gmail.com")
-Description: This package loads data pertaining to the 2016 general election from the Federal Election Commission's website.
+Description: Easily analyze relational data from the 2016 federal 
+    election cycle as reported by the Federal Election Commission.
 License: GPL-3
 Depends: R (>= 2.10)
 Suggests: 

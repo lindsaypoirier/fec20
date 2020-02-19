@@ -15,5 +15,5 @@
 #'   \item{general_percent}{The percent of people }
 #'   \item{winner_indicator}{If candidate won, then it's "W", other wise it is NA}
 #'}
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last editted Feb 2018
+#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
 "results"
