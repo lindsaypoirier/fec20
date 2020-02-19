@@ -10,7 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 [![CRAN
 status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/package=fec16)
 [![Travis-CI Build
-Status](https://travis-ci.org/ranawg/fec16.svg?branch=master)](https://travis-ci.org/ranawg/fec16)
+Status](https://travis-ci.org/baumer-lab/fec16.svg?branch=master)](https://travis-ci.org/baumer-lab/fec16)
 <!-- badges: end -->
 
 **fec16** contains relational data from the Federal Election Commission
