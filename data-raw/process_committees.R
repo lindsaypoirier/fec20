@@ -23,14 +23,13 @@ committees <- read_csv("~/fec16pkg/data-raw/committee.csv") %>%
        cand_id  = V15)
 
 committees <- committees %>%
-  mutate(committee_designation = as.factor(committee_designation),
-         committee_type = as.factor(committee_type),
-         committee_party = as.factor(committee_party),
-         filing_frequency = as.factor(filing_frequency),
-         interest_group_category = as.factor(interest_group_category)) %>%
+  mutate(committee_designation = as.character(committee_designation),
+         committee_type = as.character(committee_type),
+         committee_party = as.character(committee_party),
+         zip_code = as.integer(zip_code)) #%>%
 
-   filter(committee_type %in% c("H", "S", "P")) %>%
+   #filter(committee_type %in% c("H", "S", "P")) %>%
 
-  select(-street_one, -street_two, -filing_frequency, -interest_group_category)
+  #select(-street_one, -street_two, -filing_frequency, -interest_group_category)
 
 usethis::use_data(committees, overwrite = TRUE)

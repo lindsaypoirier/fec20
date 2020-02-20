@@ -11,10 +11,10 @@ results <- read_csv("data-raw/results16.csv") %>%
   select(-state, -total_votes, -total_votes_number) %>%
   rename( state = state_abbreviation,
           cand_id = fec_id ) %>%
-  mutate(state                 = as.factor(state),
-         winner_indicator      = as.factor(winner_indicator),
-         general_election_date = as.Date(general_election_date),
-         party                 = as.factor(party),
+  mutate(state                 = as.character(state),
+         winner_indicator      = as.character(winner_indicator),
+         general_election_date = as.Date(general_election_date, "%m/%d/%y"),
+         party                 = as.character(party),
          #remove percent sign
          general_percent       = map(general_percent, ~gsub("%", "", .x)),
          general_percent       = as.numeric(general_percent)
