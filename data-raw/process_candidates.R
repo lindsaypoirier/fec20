@@ -24,14 +24,13 @@ candidates <- read_csv("data-raw/candidates.csv") %>%
          cand_st          = V14,
          cand_zip         = V15
   ) %>%
-  mutate(cand_pty_aff     = as.factor(cand_pty_aff),
-         cand_election_yr = as.factor(cand_election_yr),
-         cand_office_st   = as.factor(cand_office_st),
-         cand_office      = as.factor(cand_office),
-         cand_office_dis  = as.factor(cand_office_dis),
-         cand_ici         = as.factor(cand_ici),
-         cand_status      = as.factor(cand_status),
-         cand_st          = as.factor(cand_st)
-  )
+  mutate(cand_pty_aff     = as.character(cand_pty_aff),
+         cand_election_yr = as.integer(cand_election_yr),
+         cand_office_st   = as.character(cand_office_st),
+         cand_office      = as.character(cand_office),
+         cand_office_dis  = as.integer(cand_office_dis),
+         cand_ici         = as.character(cand_ici),
+         cand_status      = as.character(cand_status),
+         cand_st          = as.character(cand_st))
 
 usethis::use_data(candidates, overwrite = TRUE)
