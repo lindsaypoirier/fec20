@@ -1,6 +1,6 @@
 Package: fec16
 Title: Data Package for the 2016 Election
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
     person(given = "Marium",
            family = "Tapal",
