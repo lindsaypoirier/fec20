@@ -1,35 +1,21 @@
 library(tidyverse)
-library(stringr)
 library(usethis)
 
-committees<-read.delim("~/Desktop/cm.txt", header = FALSE, sep = "|", quote="") %>%
-  write_csv(path = "~/fec16pkg/data-raw/committee.csv")
+usethis::use_zip(
+  "https://www.fec.gov/files/bulk-downloads/2016/cm16.zip",
+  destdir = tempdir(), cleanup = TRUE
+)
 
-committees <- read_csv("~/fec16pkg/data-raw/committee.csv") %>%
-  rename(committee_id = V1,
-         comittee_name = V2,
-         treasurers_name  = V3,
-         street_one = V4,
-         street_two = V5,
-        city_or_town  = V6,
-        state  = V7,
-        zip_code = V8,
-       committee_designation  = V9,
-        committee_type = V10,
-       committee_party  = V11,
-       filing_frequency  = V12,
-        interest_group_category = V13,
-       connected_org_name  = V14,
-       cand_id  = V15)
+committee_path <- fs::path(tempdir(), "cm16", "cm.txt")
 
-committees <- committees %>%
-  mutate(committee_designation = as.character(committee_designation),
-         committee_type = as.character(committee_type),
-         committee_party = as.character(committee_party),
-         zip_code = as.integer(zip_code)) #%>%
+committee_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/cm_header_file.csv") %>%
+  names() %>%
+  tolower()
 
-   #filter(committee_type %in% c("H", "S", "P")) %>%
-
-  #select(-street_one, -street_two, -filing_frequency, -interest_group_category)
+committees <- read_delim(
+  committee_path,
+  col_names = committee_names,
+  delim = "|"
+)
 
 usethis::use_data(committees, overwrite = TRUE)

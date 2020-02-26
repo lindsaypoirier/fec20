@@ -1,8 +1,6 @@
 library(tidyverse)
 library(usethis)
 
-#reading files
-
 usethis::use_zip(
   "https://www.fec.gov/files/bulk-downloads/2016/cn16.zip",
   destdir = tempdir(), cleanup = TRUE
