@@ -1,23 +1,31 @@
 library(tidyverse)
 
-# individuals <- read.delim("~/Desktop/itcont_2016_20161130_92060702.txt", header = FALSE, sep = "|", quote="") %>%
-#
-#   filter(V4 == "G2016" | V4 == "P2016")%>%
-# sample_n(5000)
+dir <- usethis::use_zip(
+  "https://www.fec.gov/files/bulk-downloads/2016/indiv16.zip",
+  destdir = tempdir(), cleanup = TRUE
+)
 
-# individuals <- read_csv("data-raw/individuals.csv") %>%
-#   select(-c(V2, V3, V4, V5, V7, V6, V8, V9, V12, V13, V16, V18, V17, V19, V20, V21)) %>%
-#   rename(committee_id = V1,
-#         state = V10,
-#         zipcode  = V11,
-#          transaction_date = V14,
-#         transaction_amount  = V15
-# ) %>% mutate(transaction_date = as.Date(as.character(transaction_date), "%m%d%Y"))
+indiv_path <- fs::path(dir, "itcont.txt")
 
-individuals <- read_csv("data-raw/individuals.csv") %>%
-  mutate(state = as.character(state))
+indiv_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/indiv_header_file.csv") %>%
+  names() %>%
+  tolower()
 
+individuals_all <- read_delim(
+  indiv_path,
+  col_names = indiv_names,
+  col_types = cols(
+    zip_code = col_character(),
+    other_id = col_character(),
+    memo_cd = col_character(),
+    memo_text = col_character(),
+    sub_id = col_character()
+  ),
+  delim = "|"
+)
 
+individuals <- individuals_all %>%
+#  select(-sub_id) %>%
+  sample_n(1e3)
 
-#write_csv(individuals, path = "~/fec16pkg/data-raw/individuals.csv")
 usethis::use_data(individuals, overwrite = TRUE)

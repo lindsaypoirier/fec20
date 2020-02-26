@@ -1,12 +1,12 @@
 library(tidyverse)
 library(usethis)
 
-usethis::use_zip(
+dir <- usethis::use_zip(
   "https://www.fec.gov/files/bulk-downloads/2016/cm16.zip",
   destdir = tempdir(), cleanup = TRUE
 )
 
-committee_path <- fs::path(tempdir(), "cm16", "cm.txt")
+committee_path <- fs::path(dir, "cm.txt")
 
 committee_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/cm_header_file.csv") %>%
   names() %>%
