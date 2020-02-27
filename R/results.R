@@ -16,4 +16,4 @@
 #'   \item{winner_indicator}{A logical variable: TRUE if candidate won, FALSE if not}
 #'}
 #' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
-"results"
+"house_results"

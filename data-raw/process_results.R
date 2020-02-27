@@ -12,7 +12,7 @@ house_results <- readxl::read_excel(fs::path(tempdir(), "results16.xlsx"), sheet
    rename(
      state = state_abbreviation,
      cand_id = fec_id_number,
-     distict_id = d,
+     district_id = d,
      incumbent = i,
      won = ge_winner_indicator
    ) %>%
@@ -20,8 +20,9 @@ house_results <- readxl::read_excel(fs::path(tempdir(), "results16.xlsx"), sheet
   mutate(
     primary_votes = parse_number(primary_votes),
     general_votes = parse_number(general_votes),
-    won = won == "W"
+    won = won == "W",
+    incumbent = incumbent == "(I)"
   ) %>%
-  replace_na(list(won = FALSE))
+  replace_na(list(won = FALSE, incumbent = FALSE))
 
 usethis::use_data(house_results, overwrite = TRUE)
