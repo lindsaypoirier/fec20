@@ -5,7 +5,7 @@ camp_dir <- usethis::use_zip(
   destdir = tempdir(), cleanup = TRUE
 )
 
-camp_path <- fs::path(cand_dir, "webl16.txt")
+camp_path <- fs::path(camp_dir, "webl16.txt")
 
 # no header file therefore manually typed in
 camp_names <- c("CAND_ID", "CAND_NAME", "CAND_ICI", "PTY_CD", "CAND_PTY_AFFILIATION", "TTL_RECEIPTS",
@@ -15,10 +15,16 @@ camp_names <- c("CAND_ID", "CAND_NAME", "CAND_ICI", "PTY_CD", "CAND_PTY_AFFILIAT
                 "PRIM_ELECTION", "RUN_ELECTION", "GEN_ELECTION", "GEN_ELECTION_PRECENT",
                 "OTHER_POL_CMTE_CONTRIB", "POL_PTY_CONTRIB", "CVG_END_DT", "INDIV_REFUNDS", "CMTE_REFUNDS") %>% tolower()
 
-campaigns <- read_delim(
+campaigns_all <- read_delim(
   camp_path,
   col_names = camp_names,
   delim = "|"
 )
+
+campaigns <- campaigns_all %>%
+  select(-spec_election, -prim_election, -run_election, -gen_election, -gen_election_precent) %>%
+  mutate(
+    cvg_end_dt = lubridate::mdy(cvg_end_dt)
+  )
 
 usethis::use_data(campaigns, overwrite = TRUE)

@@ -11,6 +11,7 @@
 #'   \item House Results: [house_results]
 #'   \item Individual Contributions: [individuals]
 #'   \item Committee Contributions: [committee_contributions]
+#'   \item House/Senate Current Campaigns: [campaigns]
 #' }
 #'
 #' @section Authors:
