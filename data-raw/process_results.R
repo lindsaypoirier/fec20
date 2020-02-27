@@ -8,7 +8,7 @@ downloader::download(
 house_results <- readxl::read_excel(fs::path(tempdir(), "results16.xlsx"), sheet = 13) %>%
    janitor::clean_names() %>%
    # delete unneccesary variables
-   select(-x1, -state, -total_votes, -contains("combined")) %>%
+   select(-x1, -state, -total_votes, -candidate_name, -contains("combined"), -ends_with("_la")) %>%
    rename(
      state = state_abbreviation,
      cand_id = fec_id_number,
