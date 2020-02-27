@@ -4,9 +4,11 @@
 \name{candidates}
 \alias{candidates}
 \title{Candidates Master metadata}
-\format{A data frame with 7398 rows and 15 columns, providing information for each candidate:
+\format{A data frame with 7398 rows and 15 columns, providing information
+for each candidate:
 \describe{
-\item{cand_id}{A code assigned to a candidate by the FEC, which remains the same across election cycles if running for the same office.}
+\item{cand_id}{A code assigned to a candidate by the FEC, which remains
+the same across election cycles if running for the same office.}
 \item{cand_name}{Candidate name.}
 \item{cand_pty_aff}{The political party affiliation reported by the candidate.}
 \item{cand_election_yr}{Candidate's election year from a Statement of Candidacy or state ballot list.}

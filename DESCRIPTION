@@ -1,23 +1,24 @@
 Package: fec16
 Title: Data Package for the 2016 Election
-Version: 0.0.0.9004
-Authors@R: 
+Version: 0.0.0.9005
+Authors@R: c(
     person(given = "Marium",
            family = "Tapal",
            role = c("aut", "cre"),
-           email = "mariumtapal@gmail.com")
-     person(given = "Rana",
+           email = "mariumtapal@gmail.com"),
+    person(given = "Rana",
            family = "Gahwagy",
-           role = c("aut", "cre"),
-           email = "r.w.g1@hotmail.com")
+           role = c("aut"),
+           email = "r.w.g1@hotmail.com"),
     person(given = "Irene",
            family = "Ryan",
-           role = c("aut", "cre"),
-           email = "ryan.irene3@gmail.com")
+           role = c("aut"),
+           email = "ryan.irene3@gmail.com"),
     person(given = "Benjamin S.",
            family = "Baumer",
            role = c("aut"),
            email = "ben.baumer@gmail.com")
+           )
 Description: Easily analyze relational data from the 2016 federal 
     election cycle as reported by the Federal Election Commission.
 License: GPL-3

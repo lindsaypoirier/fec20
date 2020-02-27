@@ -20,9 +20,12 @@ contributions <- read_delim(
   ),
   delim = "|"
 ) %>%
-  select(-employer, -occupation, -memo_cd, -memo_text, -sub_id)
+  select(-employer, -occupation, -image_num, -memo_cd, -memo_text, -sub_id, -file_num) %>%
+  mutate(
+    transaction_dt = lubridate::mdy(transaction_dt)
+  )
 #  filter(primary_general_indicator == "G2016") %>%
 #  group_by(cand_id) %>%
 #  summarise(number_of_contributions = n(), total_contributions = sum(transaction_amount[transaction_amount>0]), net_contributions = sum(transaction_amount))
 
-usethis::use_data(committee_contributions, overwrite = TRUE)
+usethis::use_data(contributions, overwrite = TRUE)

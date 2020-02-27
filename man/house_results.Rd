@@ -4,7 +4,8 @@
 \name{house_results}
 \alias{house_results}
 \title{Presidential General Election Results}
-\format{A data frame with 2110 rows and 18 columns, providing information for results in each state :
+\format{A data frame with 2110 rows and 18 columns, providing information
+for results in each state :
 \describe{
 \item{cand_id}{A code assigned to a candidate by the FEC}
 \item{state}{The state of the votes}

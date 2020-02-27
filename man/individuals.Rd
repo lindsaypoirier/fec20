@@ -4,7 +4,7 @@
 \name{individuals}
 \alias{individuals}
 \title{Individual Contributions Master metadata}
-\format{A data frame with 5000 rows and 5 columns, providing information for each transaction:
+\format{A data frame with 100000 rows and 5 columns, providing information for each transaction:
 \describe{
 \item{committee_id}{A unique code assigned to a committee by the FEC}
 \item{state}{Individual's state}
@@ -19,6 +19,7 @@
 individuals
 }
 \description{
-Basic information for a sample of transactions from individuals to candidates/committees.
+Basic information for a random sample of transactions from
+individuals to candidates/committees.
 }
 \keyword{datasets}

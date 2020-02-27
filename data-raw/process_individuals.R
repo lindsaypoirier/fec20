@@ -25,7 +25,10 @@ individuals_all <- read_delim(
 )
 
 individuals <- individuals_all %>%
-#  select(-sub_id) %>%
-  sample_n(1e3)
+  select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
+  sample_n(1e5) %>%
+  mutate(
+    transaction_dt = lubridate::mdy(transaction_dt)
+  )
 
 usethis::use_data(individuals, overwrite = TRUE)
