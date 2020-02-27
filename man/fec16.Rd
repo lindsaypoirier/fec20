@@ -14,7 +14,7 @@ candidates, committees, results, individual contributions, and committee contrib
 \itemize{
 \item Candidates: \link{candidates}
 \item Committees: \link{committees}
-\item Results: \link{results}
+\item House Results: \link{house_results}
 \item Individual Contributions: \link{individuals}
 \item Committee Contributions: \link{committee_contributions}
 }

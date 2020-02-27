@@ -8,7 +8,7 @@
 #' \itemize{
 #'   \item Candidates: [candidates]
 #'   \item Committees: [committees]
-#'   \item Results: [results]
+#'   \item House Results: [house_results]
 #'   \item Individual Contributions: [individuals]
 #'   \item Committee Contributions: [committee_contributions]
 #' }
