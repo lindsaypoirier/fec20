@@ -1,6 +1,6 @@
 Package: fec16
-Title: Data Package for the 2016 Election
-Version: 0.0.0.9005
+Title: Data Package for 2016 Federal Elections
+Version: 0.0.0.9006
 Authors@R: c(
     person(given = "Marium",
            family = "Tapal",
@@ -21,7 +21,9 @@ Authors@R: c(
            )
 Description: Easily analyze relational data from the 2016 federal 
     election cycle as reported by the Federal Election Commission.
-License: GPL-3
+    This package contains data about candidates, commitees, and a
+    variety of different financial expenditures. 
+License: CC0
 Depends: R (>= 2.10)
 Suggests: 
     testthat (>= 2.1.0),
@@ -34,6 +36,8 @@ Suggests:
     ggrepel
 Encoding: UTF-8
 LazyData: true
+URL: http://github.com/baumer-lab/fec16
+BugReports: https://github.com/baumer-lab/fec16/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 VignetteBuilder: knitr
