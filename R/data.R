@@ -29,7 +29,7 @@
 #'
 #' @description Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
 #'
-#' @format A data frame with 1210 rows and 3 columns with information about candidate committee contibutions.
+#' @format A data frame with 1210 rows and 4 columns with information about candidate committee contibutions.
 #' \describe{
 #'   \item{cand_id}{Recipient Candidate ID. Candidate receiving money from the filing committee}
 #'   \item{number_of_contributions}{Total number of contibutions from committees}
@@ -43,7 +43,7 @@
 #'
 #' @description Provides data pertaining to each committee registered with the Federal Election Commission.
 #'
-#' @format A data frame with 17654 rows and 15 columns with information about FEC committees.
+#' @format A data frame with 17654 rows and 11 columns with information about FEC committees.
 #' \describe{
 #'   \item{committee_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission.}
 #'   \item{comittee_name}{Name of the committee}
@@ -82,7 +82,6 @@
 #'   \item{zipcode}{Individuals's zipcode}
 #'   \item{transaction_date}{Date of transaction}
 #'   \item{transaction_amount}{Amount of transaction, in dollars}
-
 #' }
 #' @source <https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/>, downloaded 2019-12-09
 "individuals"
@@ -91,8 +90,8 @@
 #'
 #' @description 2016 Presidential General Election Results for each state.
 #'
-#' @format A data frame with 2110 rows and 18 columns, providing information
-#' for results in each state :
+#' @format A data frame with 2110 rows and 10 columns, providing information
+#' for results in each state:
 #' \describe{
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{state}{The state of the votes}
@@ -103,7 +102,42 @@
 #'   \item{party}{Party of the candidates}
 #'   \item{general_results}{The number of people voted in that state}
 #'   \item{general_percent}{The percent of people}
-#'   \item{winner_indicator}{A logical variable: TRUE if candidate won, FALSE if not}
+#'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 #' }
 #' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
 "house_results"
+
+#' House/Senate Current Campaigns
+#'
+#'  @description Summary financial information for each campaign.
+#'
+#'  @format A data frame with 1898 rows and 25 columns, providing financial information for each House/Senate campaign:
+#'  \describe{
+#'    \item{cand_id}{A code assigned to a candidate by the FEC}
+#'    \item{cand_name}{Candidate name}
+#'    \item{cand_ici}{Incumbent challenger status with designation: C = Challenger, I = Incumbent, O = Open Seat}
+#'    \item)pty_cd}{Party code}
+#'    \item{cand_pty_aff}{The political party affiliation reported by the candidate}
+#'    \item{ttl_receipts}{Total receipts}
+#'    \item{trans_to_auth}{Transfers from authorized committees}
+#'    \item{ttl_disb}{Total disbursements}
+#'    \item{trans_to_auth}{Transfers to authorized committees}
+#'    \item{coh_bop}{Beginning cash}
+#'    \item{coh_cop}{Ending cash}
+#'    \item{cand_contrib}{Contributions from candidate}
+#'    \item{cand_loans}{Loans from candidate}
+#'    \item{other_loans}{Other loans}
+#'    \item{cand_loan_repay}{Candidate loan repayments}
+#'    \item{other_loan_repay}{Other loan repayments}
+#'    \item{debts_owed_by}{Debts owed by}
+#'    \item{ttl_indiv_contrib}{Total individual contribution}
+#'    \item{cand_office_st}{Candidate's state}
+#'    \item{cand_office_district}{Candidate's district}
+#'    \item{other_pol_cmte_contrib}{Contributions from other political committees}
+#'    \item{pol_pty_contrib}{Contributions from party committees}
+#'    \item{cvg_end_dt}{Coverage end date}
+#'    \item{indiv_refunds}{Refunds to individuals}
+#'    \item{cmte_refunds}{Refunds to committees}
+#'  }
+#'  @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
+"campaigns"

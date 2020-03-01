@@ -4,7 +4,7 @@
 \name{committees}
 \alias{committees}
 \title{Committees metadata}
-\format{A data frame with 17654 rows and 15 columns with information about FEC committees.
+\format{A data frame with 17654 rows and 11 columns with information about FEC committees.
 \describe{
 \item{committee_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission.}
 \item{comittee_name}{Name of the committee}

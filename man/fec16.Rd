@@ -17,6 +17,7 @@ candidates, committees, results, individual contributions, and committee contrib
 \item House Results: \link{house_results}
 \item Individual Contributions: \link{individuals}
 \item Committee Contributions: \link{committee_contributions}
+\item House/Senate Current Campaigns: \link{campaigns}
 }
 }
 

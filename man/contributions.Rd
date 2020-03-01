@@ -4,7 +4,7 @@
 \name{contributions}
 \alias{contributions}
 \title{Committee contributions metadata}
-\format{A data frame with 1210 rows and 3 columns with information about candidate committee contibutions.
+\format{A data frame with 1210 rows and 4 columns with information about candidate committee contibutions.
 \describe{
 \item{cand_id}{Recipient Candidate ID. Candidate receiving money from the filing committee}
 \item{number_of_contributions}{Total number of contibutions from committees}

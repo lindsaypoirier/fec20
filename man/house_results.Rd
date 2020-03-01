@@ -4,8 +4,8 @@
 \name{house_results}
 \alias{house_results}
 \title{Presidential General Election Results}
-\format{A data frame with 2110 rows and 18 columns, providing information
-for results in each state :
+\format{A data frame with 2110 rows and 10 columns, providing information
+for results in each state:
 \describe{
 \item{cand_id}{A code assigned to a candidate by the FEC}
 \item{state}{The state of the votes}
@@ -16,7 +16,7 @@ for results in each state :
 \item{party}{Party of the candidates}
 \item{general_results}{The number of people voted in that state}
 \item{general_percent}{The percent of people}
-\item{winner_indicator}{A logical variable: TRUE if candidate won, FALSE if not}
+\item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 }}
 \source{
 \url{https://transition.fec.gov/general/FederalElections2016.shtml}, last edited Feb 2018
