@@ -86,9 +86,9 @@
 #' @source <https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/>, downloaded 2019-12-09
 "individuals"
 
-#' Presidential General Election Results
+#' General Federal Election Results
 #'
-#' @description 2016 Presidential General Election Results for each state.
+#' @description 2016 House General Election Results.
 #'
 #' @format A data frame with 2110 rows and 10 columns, providing information
 #' for results in each state:
@@ -96,8 +96,8 @@
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{state}{The state of the votes}
 #'   \item{general_election_date}{The election date}
-#'   \item{first_name}{First name of candidate}
-#'   \item{last_name}{Last name of candidate}
+#'   \item{name_first}{First name of candidate}
+#'   \item{name_last}{Last name of candidate}
 #'   \item{last_name_first}{First and last name of candidate}
 #'   \item{party}{Party of the candidates}
 #'   \item{general_results}{The number of people voted in that state}
@@ -106,6 +106,14 @@
 #' }
 #' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
 "house_results"
+
+#' @rdname house_results
+#' @description 2016 House General Election Results.
+"senate_results"
+
+#' @rdname house_results
+#' @description 2016 Presidential General Election Results.
+"president_results"
 
 #' House/Senate Current Campaigns
 #'
