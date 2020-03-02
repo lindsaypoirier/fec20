@@ -25,6 +25,7 @@ library(ggrepel)
 The `fec16` package provides tamed datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. 
 
 ## Inspiration 
+
 We wanted to create a data package that is easy to use for people just beginning to learn R, for example, in introductory statistics and data science classes. For this purpose, this package is nice because students and instructors do not need to worry about the unnecessary data wrangling and can immediately use the data for analysis. 
 
 Our package is inspired by [Hadley Wickham's](https://github.com/hadley/nycflights13) `nycflights13` package. We used the data taming principles from [Albert Kim's](https://github.com/rudeboybert/fivethirtyeight) `fivethirtyeight` package, which are explained in detail [here](https://escholarship.org/uc/item/0rx1231m).
@@ -59,13 +60,13 @@ All the datasets are taken from [FEC](https://www.fec.gov/data/browse-data/?tab=
 
 `committees`: all committees registered with the FEC during the 2015-2016 election cycle
 
-`house_results`: the results of the 2016 general presidential election
+`house_results`: the results of the 2016 Congressional elections
 
 `individuals`: a sample of 5000 individual contributions to candidates/committees during the primary and general 2016 elections
 
 `committee_contributions`: total contributions, aggregated by candidate, from committees
 
-`campaigns`: Summary of financial information of the House/Senate Current Campaigns
+`campaigns`: summary of financial information of the House/Senate Current Campaigns
 
 ## Who should use this package? 
 
@@ -91,33 +92,39 @@ To answer our questions we can make use of some **data wrangling** and **data vi
 
 ### Example 1:
 
-**Which presidential candidate won a majority in more states?**
+**Which presidential candidate won a majority in more states, and how many votes did they get?**
 
-Using the `house_results` dataset, we can also see what actually happened in the 2016 elections.
+Using the `president_results` dataset, we can also see what actually happened in the 2016 elections.
 
 Here is how we can summarize the number of wins by candidate:
 ```{r}
-wins <- house_results %>%
-  filter(winner_indicator == "W") %>%
-  group_by(last_name) %>%
-  summarise(num_wins = n())
+wins <- president_results %>%
+  group_by(cand_id, name_last) %>%
+  summarise(
+    total_votes = sum(general_votes, na.rm = TRUE),
+    states_won = sum(won)
+  ) %>%
+  arrange(desc(total_votes))
 wins
 ```
 
+Compare these results to [those reported by the Wikipedia](https://en.wikipedia.org/wiki/2016_United_States_presidential_election).
 We can show the results using a simple bar chart:
 
 Each win is for a single state. There are 51 total wins for the 50 States and Washington, D.C.
 ```{r}
-ggplot(wins, aes(x = last_name, y = num_wins, fill = last_name)) + 
+ggplot(wins %>% head(6), aes(x = reorder(name_last, total_votes), y = total_votes, fill = cand_id)) + 
   geom_col() +
-  scale_fill_manual(values = c("blue", "red")) + 
+  scale_fill_discrete(guide = FALSE) + 
   labs(
-    title = "Number of States Won: Clinton vs. Trump",
-    x = "Candidate", y = "Count", fill = "Candidate"
-  )
+    title = "2016 Presidential Election",
+    subtitle = "Total votes",
+    x = NULL, y = "Number of Votes"
+  ) + 
+  coord_flip()
 ```
 
-We can see that Trump had majority in more states than Clinton.
+We can see that Hillary Clinton earned the most votes. 
 
 ### Example 2:
 
@@ -127,17 +134,16 @@ Here we investigate what kind of relationship, if any, the candidates with over 
 
 ```{r, eval=TRUE}
 results_by_cand <- house_results %>%
-  drop_na(general_results, cand_id) %>%
-  group_by(cand_id, last_name) %>%
-  summarise(sum_votes = sum(general_results)) %>%
+  group_by(cand_id, name_last) %>%
+  summarise(sum_votes = sum(general_votes)) %>%
   filter(sum_votes > 1000) %>%
-  inner_join(committee_contributions, by = "cand_id")
+  inner_join(contributions, by = "cand_id")
 results_by_cand
 ```
 
 Next, we plot the contributions and votes on a scatter plot and plot a trend line that would make it easy for us to see the relationship. Since there are outliers in the data, it is best to not use a continuous axis scale in order to see all of the points. 
 
-```{r eval=TRUE, message=FALSE}
+```{r eval=FALSE, message=FALSE}
 ggplot(results_by_cand, mapping = aes(x = total_contributions, y = sum_votes)) +
   geom_point() +
   scale_x_log10(labels = comma) +
@@ -153,24 +159,31 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 ### Example 3:
 
-**Which candidate got the most popular vote and how many?**
+**What is the distribution of number of votes across winners in the US House of Representatives?**
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-results_by_cand <- house_results %>%
-  drop_na(general_results, cand_id) %>%
-  group_by(cand_id, last_name) %>%
-  summarise(sum_votes = sum(general_results)) %>%
-  filter(sum_votes > 100000)
-
-ggplot(results_by_cand, mapping = aes(x = last_name, y = sum_votes, fill = last_name)) +
-  geom_col() +
-  xlab("Candidates") +
-  ylab("Number of Votes") + labs(title = "How Many People Voted?", fill = "Candidate") +
+house_winners <- house_results %>%
+  filter(won, state %in% state.abb) %>%
+  group_by(cand_id, name_last) %>%
+  summarize(
+    total_votes = sum(general_votes),
+    total_pct = sum(general_percent),
+    party = first(party)
+  ) %>%
+  filter(total_pct <= 1)
+  
+ggplot(house_winners, 
+       aes(x = total_votes, y = total_pct, 
+           color = party)) +
+  geom_point() +
+  labs(
+    title = "Not all Congressional Races are the same", 
+    fill = "Candidate") +
   scale_y_continuous(labels = comma)
 ```
 
-We can see that Clinton got more popular votes than Trump! It looks like Clinton has about 65 million votes.
+
 
 
 ### Example 4:
@@ -178,7 +191,7 @@ We can see that Clinton got more popular votes than Trump! It looks like Clinton
 **Is there a trend in the contributions to a candidate depending on their party?**
 
 We can create a scatter-plot of total contributions per candidate, colored by party (only including Democratic and Republican parties).
-```{r message = FALSE}
+```{r message = FALSE, eval=FALSE}
 joined_data <- candidates %>%
   full_join(committee_contributions, by = "cand_id") %>%
   filter(!is.na(total_contributions)) %>%
