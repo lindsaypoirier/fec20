@@ -85,7 +85,7 @@
 #'   \item{cmte_st2}{Street 2}
 #'   \item{cmte_city}{City}
 #'   \item{cmte_st}{State}
-#'   \iten{cmte_zip}{ZIP Code}
+#'   \item{cmte_zip}{ZIP Code}
 #'   \item{cmte_dsgn}{A = Authorized by a candidate
 #'
 #' B = Lobbyist/Registrant PAC
@@ -169,6 +169,8 @@
 #'   \item{occupation}{Occupation}
 #'   \item{transaction_dt}{Transaction date (YYYY-MM-DD)}
 #'   \item{transaction_amt}{Transaction Amount}
+#'   \item{other_id}{For contributions from individuals this column is null.
+#'   For contributions from candidates or other committees this column will contain that contributor's FEC ID.}
 #'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
 #'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
 #' }
@@ -264,7 +266,7 @@
 #'   report or a termination (T) report}
 #'   \item{rpt_yr}{Report year}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions]
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
 #'   \item{line_num}{ndicates FEC form line number}
 #'   \item{form_tp_cd}{Indicates FEC form type}
 #'   \item{sched_tp_cd}{Schedule type: Schedule B - Itemized disbursements}
@@ -294,8 +296,10 @@
 #'   PAC = Political Action Committee
 #'
 #'   PTY = Party Organization}
+#'
 #'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
 #'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
+#'
 #'   \item{back_ref_tran_id}{Back reference transaction ID: Used to associate one transaction with another transaction in the same report
 #'   (using file number, transaction ID and back reference transaction ID).
 #'   For example, a credit card payment and the subitemization of specific purchases.
@@ -314,7 +318,7 @@
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
 #'   report or a termination (T) report}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
 #'   \item{transaction_pgi}{Primary general indicator:This code indicates the election for which the contribution was made.
 #'   EYYYY (election Primary, General, Other plus election year)}
 #'   \item{transaction_tp}{Transaction type, listed here: https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}
@@ -369,6 +373,7 @@
 #' P = Principal campaign committee of a candidate
 #'
 #' U = Unauthorized}
+#'
 #'   \item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
 #'
 #'   D = Debt
@@ -380,6 +385,7 @@
 #'   T = Terminated
 #'
 #'   W = Waived}
+#'
 #'   \item{ttl_receipts}{Total receipts}
 #'   \item{trans_from_aff}{Transfers from affiliates}
 #'   \item{indv_contrib}{Contributions from individuals}

@@ -4,15 +4,17 @@
 \name{committees}
 \alias{committees}
 \title{Committees metadata}
-\format{A data frame with 17654 rows and 11 columns with information about FEC committees.
+\format{A data frame with 17654 rows and 15 columns with information about FEC committees.
 \describe{
-\item{committee_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission.}
-\item{comittee_name}{Name of the committee}
-\item{treasurers_name}{The officially registered treasurer for the committee.}
-\item{city_or_town}{City or town of office}
-\item{state}{State of office}
-\item{zip_code}{Zip code of office}
-\item{committee_designation}{A = Authorized by a candidate
+\item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+\item{cmte_nm}{Name of the committee}
+\item{tres_nm}{The officially registered treasurer for the committee}
+\item{cmte_st1}{Street 1}
+\item{cmte_st2}{Street 2}
+\item{cmte_city}{City}
+\item{cmte_st}{State}
+\item{cmte_zip}{ZIP Code}
+\item{cmte_dsgn}{A = Authorized by a candidate
 
 B = Lobbyist/Registrant PAC
 
@@ -23,13 +25,38 @@ J = Joint fundraiser
 P = Principal campaign committee of a candidate
 
 U = Unauthorized}
-\item{committee_type}{FEC committee type, listed here: https://classic.fec.gov/finance/disclosure/metadata/CommitteeTypeCodes.shtml}
-\item{committee_party}{Party affiliation, listed here: https://classic.fec.gov/finance/disclosure/metadata/DataDictionaryPartyCodeDescriptions.shtml}
-\item{connected_org_name}{Organization connected to the committee}
-\item{cand_id}{A code assigned to a candidate by the FEC, which remains the same across election cycles if running for the same office; Included if committee type has designation H, S, P}
+\item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
+\item{cmte_pty_affiliation}{Committee Party, listed here: https://www.fec.gov/campaign-finance-data/party-code-descriptions/}
+\item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
+
+D = Debt
+
+M = Monthly filer
+
+Q = Quarterly filer
+
+T = Terminated
+
+W = Waived}
+\item{org_tp}{Interest group category:
+
+C = Corporation
+
+L = Labor organization
+
+M = Membership organization
+
+T = Trade association
+
+V = Cooperative
+
+W = Corporation without capital stock}
+\item{connected_org_nm}{Connected organization's name}
+\item{cand_id}{Candidate identification:When a committee has a committee type designation of H, S, or P,
+the candidate's identification number will be entered in this field.}
 }}
 \source{
-\url{https://classic.fec.gov/finance/disclosure/metadata/DataDictionaryCommitteeMaster.shtml}, downloaded 2019-12-04
+\url{https://www.fec.gov/campaign-finance-data/committee-master-file-description/}, updated 2020-03-02
 }
 \usage{
 committees

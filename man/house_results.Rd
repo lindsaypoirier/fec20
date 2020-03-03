@@ -6,11 +6,22 @@
 \alias{senate_results}
 \alias{president_results}
 \title{General Federal Election Results}
-\format{A data frame with 2110 rows and 10 columns, providing information
+\format{A data frame with 2110 rows and 15 columns, providing information
 for results in each state:
 \describe{
-\item{cand_id}{A code assigned to a candidate by the FEC}
 \item{state}{The state of the votes}
+\item{district_id}{District ID}
+\item{cand_id}{A code assigned to a candidate by the FEC}
+\item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
+\item{candidate_name_first}{Candidate's First Name}
+\item{candidate_name_last}{Candidates's Last Name}
+\item{party}{Party of the candidate}
+\item{primary_votes}{Number of votes in the primary electiom}
+\item{primary_percent}{Percentage of votes in the primary election}
+\item{runoff_votes}{Number of runoff votes}
+\item{runoff_percent}{Percentage of runoff votes}
+\item{general_votes}{Number of votes in the general election}
+\item{general_percent}{Percentage of votes in the general election}
 \item{general_election_date}{The election date}
 \item{name_first}{First name of candidate}
 \item{name_last}{Last name of candidate}
@@ -19,9 +30,10 @@ for results in each state:
 \item{general_results}{The number of people voted in that state}
 \item{general_percent}{The percent of people}
 \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
+\item{footnotes}{Footnotes}
 }}
 \source{
-\url{https://transition.fec.gov/general/FederalElections2016.shtml}, last edited Feb 2018
+\url{https://transition.fec.gov/general/FederalElections2016.shtml}, updated 2020-03-02
 }
 \usage{
 house_results
@@ -31,10 +43,10 @@ senate_results
 president_results
 }
 \description{
-2016 House General Election Results.
+2016 House General Election Results
 
-2016 House General Election Results.
+2016 Senate General Election Results
 
-2016 Presidential General Election Results.
+2016 Presidential General Election Results
 }
 \keyword{datasets}

@@ -15,9 +15,14 @@ candidates, committees, results, individual contributions, and committee contrib
 \item Candidates: \link{candidates}
 \item Committees: \link{committees}
 \item House Results: \link{house_results}
+\item Senate Results: \link{senate_results}
+\item Presidential Results: \link{president_results}
 \item Individual Contributions: \link{individuals}
-\item Committee Contributions: \link{committee_contributions}
+\item Committee Contributions: \link{contributions}
 \item House/Senate Current Campaigns: \link{campaigns}
+\item Operating Expenditures: \link{oppexp}
+\item Transactions From One Committee To Another: \link{transactions}
+\item PAC and Party Summary Financial Information: \link{pac}
 }
 }
 
@@ -27,6 +32,7 @@ candidates, committees, results, individual contributions, and committee contrib
 \item Irene Ryan: \url{https://github.com/ireneryan}
 \item Marium Tapal: \url{https://github.com/mariumtapal}
 \item Rana Gahwagy: \url{https://github.com/ranawg}
+\item Ben Baumer: \url{https://github.com/beanumber}
 }
 }
 
