@@ -177,13 +177,12 @@
 
 #' General Federal Election Results
 #'
-#' @description 2016 House General Election Results.
+#' @description 2016 House General Election Results
 #'
 #' @format A data frame with 2110 rows and 15 columns, providing information
 #' for results in each state:
 #' \describe{
 #'   \item{state}{The state of the votes}
-<<<<<<< HEAD
 #'   \item{district_id}{District ID}
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
@@ -196,7 +195,6 @@
 #'   \item{runoff_percent}{Percentage of runoff votes}
 #'   \item{general_votes}{Number of votes in the general election}
 #'   \item{general_percent}{Percentage of votes in the general election}
-=======
 #'   \item{general_election_date}{The election date}
 #'   \item{name_first}{First name of candidate}
 #'   \item{name_last}{Last name of candidate}
@@ -204,7 +202,6 @@
 #'   \item{party}{Party of the candidates}
 #'   \item{general_results}{The number of people voted in that state}
 #'   \item{general_percent}{The percent of people}
->>>>>>> upstream/master
 #'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 #'   \item{footnotes}{Footnotes}
 #' }
@@ -212,11 +209,11 @@
 "house_results"
 
 #' @rdname house_results
-#' @description 2016 House General Election Results.
+#' @description 2016 Senate General Election Results
 "senate_results"
 
 #' @rdname house_results
-#' @description 2016 Presidential General Election Results.
+#' @description 2016 Presidential General Election Results
 "president_results"
 
 #' House/Senate Current Campaigns
