@@ -132,7 +132,7 @@
 
 #' Individual Contributions Master metadata
 #'
-#' @description Information for a random sample of transactions from
+#' @description Information for a simple random sample of transactions from
 #' individuals to candidates/committees.
 #'
 #' @format A data frame with 100000 rows and 16 columns providing information for each transaction:
@@ -257,7 +257,8 @@
 
 #' Operating Expenditures
 #'
-#' @description Operating expenditure information for a sample of 100000 entries
+#' @description Operating expenditure information for a simple random sample
+#' of 100000 entries
 #'
 #' @format A data frame with 100000 rows and 20 columns:
 #' \describe{
@@ -310,7 +311,8 @@
 
 #' Any Transaction From One Committee To Another
 #'
-#' @description Transaction information between committees of a sample of 100000 entries
+#' @description Transaction information between committees of a simple random
+#' sample of 100000 entries
 #'
 #' @format A data frame with 100000 rows and 16 columns:
 #' \describe{
@@ -355,9 +357,9 @@
 
 #' PAC and Party Summary Financial Information
 #'
-#' @description PAC and party summary finanicial information of a sample of 100000 entries
+#' @description PAC and party summary finanicial information
 #'
-#' @format A data frame with 100000 rows and 27 columns:
+#' @format A data frame with 12,049 rows and 27 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}

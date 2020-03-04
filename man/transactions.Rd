@@ -49,6 +49,7 @@ appearing in an FEC electronic file. A transaction ID is unique for a specific c
 transactions
 }
 \description{
-Transaction information between committees of a sample of 100000 entries
+Transaction information between committees of a simple random
+sample of 100000 entries
 }
 \keyword{datasets}

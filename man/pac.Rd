@@ -4,7 +4,7 @@
 \name{pac}
 \alias{pac}
 \title{PAC and Party Summary Financial Information}
-\format{A data frame with 100000 rows and 27 columns:
+\format{A data frame with 12,049 rows and 27 columns:
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{cmte_nm}{Name of the committee}
@@ -63,6 +63,6 @@ W = Waived}
 pac
 }
 \description{
-PAC and party summary finanicial information of a sample of 100000 entries
+PAC and party summary finanicial information
 }
 \keyword{datasets}

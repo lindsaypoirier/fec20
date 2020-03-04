@@ -57,6 +57,7 @@ The back reference transaction ID of the specific purchases will equal the trans
 expenditures
 }
 \description{
-Operating expenditure information for a sample of 100000 entries
+Operating expenditure information for a simple random sample
+of 100000 entries
 }
 \keyword{datasets}
