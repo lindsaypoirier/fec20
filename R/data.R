@@ -5,53 +5,88 @@
 #' @format A data frame with 7398 rows and 15 columns, providing information
 #' for each candidate:
 #' \describe{
-#'   \item{cand_id}{A code assigned to a candidate by the FEC, which remains
-#'   the same across election cycles if running for the same office.}
-#'   \item{cand_name}{Candidate name.}
-#'   \item{cand_pty_aff}{The political party affiliation reported by the candidate.}
-#'   \item{cand_election_yr}{Candidate's election year from a Statement of Candidacy or state ballot list.}
-#'   \item{cand_office_st}{Candidate's state.}
-#'   \item{cand_office}{Candidate office with designation: H = House, P = President, S = Senate.}
-#'   \item{cand_office_dis}{Candidate's district.}
+#'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
+#'   the same across election cycles if running for the same office}
+#'   \item{cand_name}{Candidate name}
+#'   \item{cand_pty_affiliation}{The political party affiliation reported by the candidate}
+#'   \item{cand_election_yr}{Candidate's election year from a Statement of Candidacy or state ballot list}
+#'   \item{cand_office_st}{Candidate's state}
+#'   \item{cand_office}{Candidate office with designation: H = House, P = President, S = Senate}
+#'   \item{cand_office_district}{Congressional district number; Congressional at-large 00, Senate 00, Presidential 00}
 #'   \item{cand_ici}{Incumbent challenger status with designation: C = Challenger, I = Incumbent, O = Open Seat}
-#'   \item{cand_status}{Candidate status with designation:C = Statutory candidate, F = Statutory candidate for future election, N = Not yet a statutory candidate, P = Statutory candidate in prior cycle }
-#'   \item{cand_pcc}{ID of the candidate's principal campaign committee assigned by FEC.}
-#'   \item{cand_sti}{Candidate's street address.}
-#'   \item{cand_st2}{Candidate's second street address.}
-#'   \item{cand_city}{Candidate's city address.}
-#'   \item{cand_st}{Candidate's state address.}
-#'   \item{cand_zip}{Candidate's zipcode address.}
+#'   \item{cand_status}{Candidate status with designation:C = Statutory candidate, F = Statutory candidate for future election,
+#'   N = Not yet a statutory candidate, P = Statutory candidate in prior cycle}
+#'   \item{cand_pcc}{ID of the candidate's principal campaign committee assigned by FEC}
+#'   \item{cand_st1}{Candidate's Mailing address - street 1}
+#'   \item{cand_st2}{Candidate's Mailing address - street 2}
+#'   \item{cand_city}{Candidate's Mailing address - city}
+#'   \item{cand_st}{Candidate's Mailing address - state}
+#'   \item{cand_zip}{Candidate's Mailing address - ZIP code}
 #' }
-#' @source <https://www.fec.gov/campaign-finance-data/candidate-master-file-description/>, downloaded 2019-12-04
+#' @source <https://www.fec.gov/campaign-finance-data/candidate-master-file-description/>, updated 2020-03-02
 "candidates"
 
 #' Committee contributions metadata
 #'
 #' @description Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
 #'
-#' @format A data frame with 1210 rows and 4 columns with information about candidate committee contibutions.
+#' @format A data frame with 516639 rows and 15 columns with information about candidate committee contibutions.
 #' \describe{
-#'   \item{cand_id}{Recipient Candidate ID. Candidate receiving money from the filing committee}
-#'   \item{number_of_contributions}{Total number of contibutions from committees}
-#'   \item{total_contributions}{Sum of all contributions made to committees in support of each candidate; in dollars}
-#'   \item{net_contributions}{Sum of contributions made both for candidates as well as against them, to rival committees; in dollars}
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
+#'   report or a termination (T) report}
+#'   \item{rpt_tp}{Indicates the type of report filed, listed here:
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}
+#'   \item{transaction_pgi}{This code indicates the election for which the contribution was made.
+#'   EYYYY (election Primary, General, Other plus election year)}
+#'   \item{transaction_tp}{Transaction types, listed here:
+#'   https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}
+#'   \item{entity_tp}{Entity Type:
+#'
+#'   CAN = Candidate
+#'
+#'   CCM = Candidate Committee
+#'
+#'   COM = Committee
+#'
+#'   IND = Individual (a person)
+#'
+#'   ORG = Organization (not a committee and not a person)
+#'
+#'   PAC = Political Action Committee
+#'
+#'   PTY = Party Organization}
+#'   \item{name}{Contributor/lender/transfer Name}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip_code}{ZIP Code}
+#'   \item{transaction_dt}{Transaction date (YYYY-MM-DD)}
+#'   \item{transaction_amt}{Transaction Amount}
+#'   \item{other_id}{For contributions from individuals this column is null.
+#'   For contributions from candidates or other committees this column will contain that contributor's FEC ID}
+#'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
+#'   the same across election cycles if running for the same office}
+#'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
+#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.
 #' }
-#' @source <https://classic.fec.gov/finance/disclosure/metadata/DataDictionaryContributionstoCandidates.shtml>, downloaded 2019-12-09
+#' @source <https://www.fec.gov/campaign-finance-data/contributions-committees-candidates-file-description/>, Updated 2020-03-02
 "contributions"
 
 #' Committees metadata
 #'
 #' @description Provides data pertaining to each committee registered with the Federal Election Commission.
 #'
-#' @format A data frame with 17654 rows and 11 columns with information about FEC committees.
+#' @format A data frame with 17654 rows and 15 columns with information about FEC committees.
 #' \describe{
-#'   \item{committee_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission.}
-#'   \item{comittee_name}{Name of the committee}
-#'   \item{treasurers_name}{The officially registered treasurer for the committee.}
-#'   \item{city_or_town}{City or town of office}
-#'   \item{state}{State of office}
-#'   \item{zip_code}{Zip code of office}
-#'   \item{committee_designation}{A = Authorized by a candidate
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{cmte_nm}{Name of the committee}
+#'   \item{tres_nm}{The officially registered treasurer for the committee}
+#'   \item{cmte_st1}{Street 1}
+#'   \item{cmte_st2}{Street 2}
+#'   \item{cmte_city}{City}
+#'   \item{cmte_st}{State}
+#'   \item{cmte_zip}{ZIP Code}
+#'   \item{cmte_dsgn}{A = Authorized by a candidate
 #'
 #' B = Lobbyist/Registrant PAC
 #'
@@ -62,39 +97,106 @@
 #' P = Principal campaign committee of a candidate
 #'
 #' U = Unauthorized}
-#'   \item{committee_type}{FEC committee type, listed here: https://classic.fec.gov/finance/disclosure/metadata/CommitteeTypeCodes.shtml}
-#'   \item{committee_party}{Party affiliation, listed here: https://classic.fec.gov/finance/disclosure/metadata/DataDictionaryPartyCodeDescriptions.shtml}
-#'   \item{connected_org_name}{Organization connected to the committee}
-#'   \item{cand_id}{A code assigned to a candidate by the FEC, which remains the same across election cycles if running for the same office; Included if committee type has designation H, S, P}
+#'   \item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
+#'   \item{cmte_pty_affiliation}{Committee Party, listed here: https://www.fec.gov/campaign-finance-data/party-code-descriptions/}
+#'   \item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
+#'
+#'   D = Debt
+#'
+#'   M = Monthly filer
+#'
+#'   Q = Quarterly filer
+#'
+#'   T = Terminated
+#'
+#'   W = Waived}
+#'   \item{org_tp}{Interest group category:
+#'
+#'   C = Corporation
+#'
+#'   L = Labor organization
+#'
+#'   M = Membership organization
+#'
+#'   T = Trade association
+#'
+#'   V = Cooperative
+#'
+#'   W = Corporation without capital stock}
+#'   \item{connected_org_nm}{Connected organization's name}
+#'   \item{cand_id}{Candidate identification:When a committee has a committee type designation of H, S, or P,
+#'   the candidate's identification number will be entered in this field.}
 #' }
-#' @source <https://classic.fec.gov/finance/disclosure/metadata/DataDictionaryCommitteeMaster.shtml>, downloaded 2019-12-04
+#' @source <https://www.fec.gov/campaign-finance-data/committee-master-file-description/>, updated 2020-03-02
 "committees"
 
 #' Individual Contributions Master metadata
 #'
-#' @description Basic information for a random sample of transactions from
+#' @description Information for a random sample of transactions from
 #' individuals to candidates/committees.
 #'
-#' @format A data frame with 100000 rows and 5 columns, providing information for each transaction:
+#' @format A data frame with 100000 rows and 16 columns providing information for each transaction:
 #' \describe{
-#'   \item{committee_id}{A unique code assigned to a committee by the FEC}
-#'   \item{state}{Individual's state}
-#'   \item{zipcode}{Individuals's zipcode}
-#'   \item{transaction_date}{Date of transaction}
-#'   \item{transaction_amount}{Amount of transaction, in dollars}
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
+#'   report or a termination (T) report}
+#'   \item{rpt_tp}{Indicates the type of report filed, listed here:
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}
+#'   \item{transaction_pgi}{This code indicates the election for which the contribution was made.
+#'   EYYYY (election Primary, General, Other plus election year)}
+#'   \item{transaction_tp}{Transaction types, listed here:
+#'   https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}
+#'   \item{entity_tp}{Entity Type:
+#'
+#'   CAN = Candidate
+#'
+#'   CCM = Candidate Committee
+#'
+#'   COM = Committee
+#'
+#'   IND = Individual (a person)
+#'
+#'   ORG = Organization (not a committee and not a person)
+#'
+#'   PAC = Political Action Committee
+#'
+#'   PTY = Party Organization}
+#'   \item{name}{Contributor/lender/Transfer Name}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip_code}{ZIP Code}
+#'   \item{employer}{Employer}
+#'   \item{occupation}{Occupation}
+#'   \item{transaction_dt}{Transaction date (YYYY-MM-DD)}
+#'   \item{transaction_amt}{Transaction Amount}
+#'   \item{other_id}{For contributions from individuals this column is null.
+#'   For contributions from candidates or other committees this column will contain that contributor's FEC ID.}
+#'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
+#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
 #' }
-#' @source <https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/>, downloaded 2019-12-09
+#' @source <https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/>, updated 2020-03-02
 "individuals"
 
 #' General Federal Election Results
 #'
-#' @description 2016 House General Election Results.
+#' @description 2016 House General Election Results
 #'
-#' @format A data frame with 2110 rows and 10 columns, providing information
+#' @format A data frame with 2110 rows and 15 columns, providing information
 #' for results in each state:
 #' \describe{
-#'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{state}{The state of the votes}
+#'   \item{district_id}{District ID}
+#'   \item{cand_id}{A code assigned to a candidate by the FEC}
+#'   \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
+#'   \item{candidate_name_first}{Candidate's First Name}
+#'   \item{candidate_name_last}{Candidates's Last Name}
+#'   \item{party}{Party of the candidate}
+#'   \item{primary_votes}{Number of votes in the primary electiom}
+#'   \item{primary_percent}{Percentage of votes in the primary election}
+#'   \item{runoff_votes}{Number of runoff votes}
+#'   \item{runoff_percent}{Percentage of runoff votes}
+#'   \item{general_votes}{Number of votes in the general election}
+#'   \item{general_percent}{Percentage of votes in the general election}
 #'   \item{general_election_date}{The election date}
 #'   \item{name_first}{First name of candidate}
 #'   \item{name_last}{Last name of candidate}
@@ -103,16 +205,17 @@
 #'   \item{general_results}{The number of people voted in that state}
 #'   \item{general_percent}{The percent of people}
 #'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
+#'   \item{footnotes}{Footnotes}
 #' }
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
+#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
 "house_results"
 
 #' @rdname house_results
-#' @description 2016 House General Election Results.
+#' @description 2016 Senate General Election Results
 "senate_results"
 
 #' @rdname house_results
-#' @description 2016 Presidential General Election Results.
+#' @description 2016 Presidential General Election Results
 "president_results"
 
 #' House/Senate Current Campaigns
@@ -127,9 +230,9 @@
 #'   \item{cand_ici}{Incumbent challenger status with designation:
 #'    C = Challenger, I = Incumbent, O = Open Seat}
 #'   \item{pty_cd}{Party code}
-#'   \item{cand_pty_aff}{The political party affiliation reported by the candidate}
+#'   \item{cand_pty_affiliation}{The political party affiliation reported by the candidate}
 #'   \item{ttl_receipts}{Total receipts}
-#'   \item{trans_to_auth}{Transfers from authorized committees}
+#'   \item{trans_from_auth}{Transfers from authorized committees}
 #'   \item{ttl_disb}{Total disbursements}
 #'   \item{trans_to_auth}{Transfers to authorized committees}
 #'   \item{coh_bop}{Beginning cash}
@@ -145,9 +248,166 @@
 #'   \item{cand_office_district}{Candidate's district}
 #'   \item{other_pol_cmte_contrib}{Contributions from other political committees}
 #'   \item{pol_pty_contrib}{Contributions from party committees}
-#'   \item{cvg_end_dt}{Coverage end date}
+#'   \item{cvg_end_dt}{Coverage end date (YYYY-MM-DD)}
 #'   \item{indiv_refunds}{Refunds to individuals}
 #'   \item{cmte_refunds}{Refunds to committees}
 #' }
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, last edited Feb 2018
+#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
 "campaigns"
+
+#' Operating Expenditures
+#'
+#' @description Operating expenditure information for a sample of 100000 entries
+#'
+#' @format A data frame with 100000 rows and 20 columns:
+#' \describe{
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
+#'   report or a termination (T) report}
+#'   \item{rpt_yr}{Report year}
+#'   \item{rpt_tp}{Indicates the type of report filed, listed here:
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
+#'   \item{line_num}{ndicates FEC form line number}
+#'   \item{form_tp_cd}{Indicates FEC form type}
+#'   \item{sched_tp_cd}{Schedule type: Schedule B - Itemized disbursements}
+#'   \item{name}{Contributor/lender/Transfer Name}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip_code}{ZIP Code}
+#'   \item{transaction_dt}{Transaction date (YYYY-MM-DD)}
+#'   \item{transaction_amt}{Transaction Amount}
+#'   \item{transaction_pgi}{Primary general indicator}
+#'   \item{purpose}{Purpose}
+#'   \item{category}{Disbursement category code: 001-012 and 101-107}
+#'   \item{category_desc}{Disbursement Category Code Description,
+#'   listed here: https://www.fec.gov/campaign-finance-data/disbursement-category-code-descriptions}
+#'   \item{entity_tp}{Entity Type:
+#'
+#'   CAN = Candidate
+#'
+#'   CCM = Candidate Committee
+#'
+#'   COM = Committee
+#'
+#'   IND = Individual (a person)
+#'
+#'   ORG = Organization (not a committee and not a person)
+#'
+#'   PAC = Political Action Committee
+#'
+#'   PTY = Party Organization}
+#'
+#'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
+#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
+#'
+#'   \item{back_ref_tran_id}{Back reference transaction ID: Used to associate one transaction with another transaction in the same report
+#'   (using file number, transaction ID and back reference transaction ID).
+#'   For example, a credit card payment and the subitemization of specific purchases.
+#'   The back reference transaction ID of the specific purchases will equal the transaction ID of the payment to the credit card company.}
+#'   }
+#' @source <https://www.fec.gov/campaign-finance-data/operating-expenditures-file-description/>, updated 2020-03-02
+"oppexp"
+
+#' Any Transaction From One Committee To Another
+#'
+#' @description Transaction information between committees of a sample of 100000 entries
+#'
+#' @format A data frame with 100000 rows and 16 columns:
+#' \describe{
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
+#'   report or a termination (T) report}
+#'   \item{rpt_tp}{Indicates the type of report filed, listed here:
+#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
+#'   \item{transaction_pgi}{Primary general indicator:This code indicates the election for which the contribution was made.
+#'   EYYYY (election Primary, General, Other plus election year)}
+#'   \item{transaction_tp}{Transaction type, listed here: https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}
+#'   \item{entity_tp}{Entity Type:
+#'
+#'   CAN = Candidate
+#'
+#'   CCM = Candidate Committee
+#'
+#'   COM = Committee
+#'
+#'   IND = Individual (a person)
+#'
+#'   ORG = Organization (not a committee and not a person)
+#'
+#'   PAC = Political Action Committee
+#'
+#'   PTY = Party Organization}
+#'   \item{name}{Contributor/lender/Transfer Name}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip_code}{ZIP Code}
+#'   \item{employer}{Employer}
+#'   \item{occupation}{Occupation}
+#'   \item{transaction_dt}{Transaction date (YYYY-MM-DD)}
+#'   \item{transaction_amt}{Transaction Amount}
+#'   \item{other_id}{For contributions from individuals this column is null.
+#'   For contributions from candidates or other committees this column will contain that contributor's FEC ID}
+#'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
+#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
+#'   }
+#' @source <https://www.fec.gov/campaign-finance-data/any-transaction-one-committee-another-file-description/>, updated 2020-03-02
+"transactions"
+
+#' PAC and Party Summary Financial Information
+#'
+#' @description PAC and party summary finanicial information of a sample of 100000 entries
+#'
+#' @format A data frame with 100000 rows and 27 columns:
+#' \describe{
+#'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
+#'   \item{cmte_nm}{Name of the committee}
+#'   \item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
+#'   \item{cmte_dsgn}{A = Authorized by a candidate
+#'
+#' B = Lobbyist/Registrant PAC
+#'
+#' D = Leadership PAC
+#'
+#' J = Joint fundraiser
+#'
+#' P = Principal campaign committee of a candidate
+#'
+#' U = Unauthorized}
+#'
+#'   \item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
+#'
+#'   D = Debt
+#'
+#'   M = Monthly filer
+#'
+#'   Q = Quarterly filer
+#'
+#'   T = Terminated
+#'
+#'   W = Waived}
+#'
+#'   \item{ttl_receipts}{Total receipts}
+#'   \item{trans_from_aff}{Transfers from affiliates}
+#'   \item{indv_contrib}{Contributions from individuals}
+#'   \item{other_pol_cmte_contrib}{Contributions from other political committees}
+#'   \item{cand_contrib}{Contributions from candidate}
+#'   \item{cand_loans}{Candidate loans}
+#'   \item{ttl_loans_received}{Total loans received}
+#'   \item{ttl_disb}{Total disbursements}
+#'   \item{tranf_to_aff}{Transfers to affiliates}
+#'   \item{indv_refunds}{Refunds to individuals}
+#'   \item{other_pol_cmte_refunds}{Refunds to other political committees}
+#'   \item{cand_loan_repay}{Candidate loan repayments}
+#'   \item{loan_repay}{Loan repayments}
+#'   \item{coh_bop}{Cash beginning of period}
+#'   \item{coh_cop}{Cash close of period}
+#'   \item{debts_owed_by}{Debts owed by}
+#'   \item{nonfed_trans_received}{Nonfederal transfers received}
+#'   \item{contrib_to_other_cmte}{Contributions to other committees}
+#'   \item{ind_exp}{Independent expenditures}
+#'   \item{pty_coord_exp}{Party coordinated expenditures}
+#'   \item{nonfed_share_exp}{Nonfederal share expenditures}
+#'   \item{cvg_end_dt}{Coverage end date (YYYY-MM-DD)}
+#'   }
+#' @source <https://www.fec.gov/campaign-finance-data/pac-and-party-summary-file-description/>, updated 2020-03-02
+"pac"

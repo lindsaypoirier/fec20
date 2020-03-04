@@ -12,9 +12,9 @@ information for each House/Senate campaign:
 \item{cand_ici}{Incumbent challenger status with designation:
 C = Challenger, I = Incumbent, O = Open Seat}
 \item{pty_cd}{Party code}
-\item{cand_pty_aff}{The political party affiliation reported by the candidate}
+\item{cand_pty_affiliation}{The political party affiliation reported by the candidate}
 \item{ttl_receipts}{Total receipts}
-\item{trans_to_auth}{Transfers from authorized committees}
+\item{trans_from_auth}{Transfers from authorized committees}
 \item{ttl_disb}{Total disbursements}
 \item{trans_to_auth}{Transfers to authorized committees}
 \item{coh_bop}{Beginning cash}
@@ -30,12 +30,12 @@ C = Challenger, I = Incumbent, O = Open Seat}
 \item{cand_office_district}{Candidate's district}
 \item{other_pol_cmte_contrib}{Contributions from other political committees}
 \item{pol_pty_contrib}{Contributions from party committees}
-\item{cvg_end_dt}{Coverage end date}
+\item{cvg_end_dt}{Coverage end date (YYYY-MM-DD)}
 \item{indiv_refunds}{Refunds to individuals}
 \item{cmte_refunds}{Refunds to committees}
 }}
 \source{
-\url{https://transition.fec.gov/general/FederalElections2016.shtml}, last edited Feb 2018
+\url{https://transition.fec.gov/general/FederalElections2016.shtml}, updated 2020-03-02
 }
 \usage{
 campaigns

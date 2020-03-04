@@ -9,9 +9,14 @@
 #'   \item Candidates: [candidates]
 #'   \item Committees: [committees]
 #'   \item House Results: [house_results]
+#'   \item Senate Results: [senate_results]
+#'   \item Presidential Results: [president_results]
 #'   \item Individual Contributions: [individuals]
-#'   \item Committee Contributions: [committee_contributions]
+#'   \item Committee Contributions: [contributions]
 #'   \item House/Senate Current Campaigns: [campaigns]
+#'   \item Operating Expenditures: [oppexp]
+#'   \item Transactions From One Committee To Another: [transactions]
+#'   \item PAC and Party Summary Financial Information: [pac]
 #' }
 #'
 #' @section Authors:
@@ -19,6 +24,7 @@
 #'   \item Irene Ryan: \url{https://github.com/ireneryan}
 #'   \item Marium Tapal: \url{https://github.com/mariumtapal}
 #'   \item Rana Gahwagy: \url{https://github.com/ranawg}
+#'   \item Ben Baumer: \url{https://github.com/beanumber}
 #' }
 #'
 #' @docType package
