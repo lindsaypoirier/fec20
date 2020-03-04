@@ -10,10 +10,10 @@
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
 report or a termination (T) report}
 \item{rpt_tp}{Indicates the type of report filed, listed here:
-https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
+\url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}}
 \item{transaction_pgi}{Primary general indicator:This code indicates the election for which the contribution was made.
 EYYYY (election Primary, General, Other plus election year)}
-\item{transaction_tp}{Transaction type, listed here: https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}
+\item{transaction_tp}{Transaction type, listed here: \url{https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}}
 \item{entity_tp}{Entity Type:
 
 CAN = Candidate

@@ -8,7 +8,7 @@
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{cmte_nm}{Name of the committee}
-\item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
+\item{cmte_tp}{Committee Type, listed here: \url{https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}}
 \item{cmte_dsgn}{A = Authorized by a candidate
 
 B = Lobbyist/Registrant PAC

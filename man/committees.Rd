@@ -25,8 +25,8 @@ J = Joint fundraiser
 P = Principal campaign committee of a candidate
 
 U = Unauthorized}
-\item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
-\item{cmte_pty_affiliation}{Committee Party, listed here: https://www.fec.gov/campaign-finance-data/party-code-descriptions/}
+\item{cmte_tp}{Committee Type, listed here: \url{https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}}
+\item{cmte_pty_affiliation}{Committee Party, listed here: \url{https://www.fec.gov/campaign-finance-data/party-code-descriptions/}}
 \item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
 
 D = Debt
