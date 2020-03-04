@@ -67,7 +67,7 @@
 #'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
 #'   the same across election cycles if running for the same office}
 #'   \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
-#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.
+#'   appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
 #' }
 #' @source <https://www.fec.gov/campaign-finance-data/contributions-committees-candidates-file-description/>, Updated 2020-03-02
 "contributions"
