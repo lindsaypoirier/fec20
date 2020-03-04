@@ -36,11 +36,11 @@
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
 #'   report or a termination (T) report}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}
+#'   \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}}
 #'   \item{transaction_pgi}{This code indicates the election for which the contribution was made.
 #'   EYYYY (election Primary, General, Other plus election year)}
 #'   \item{transaction_tp}{Transaction types, listed here:
-#'   https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}
+#'   \url{https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}}
 #'   \item{entity_tp}{Entity Type:
 #'
 #'   CAN = Candidate
@@ -97,8 +97,8 @@
 #' P = Principal campaign committee of a candidate
 #'
 #' U = Unauthorized}
-#'   \item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
-#'   \item{cmte_pty_affiliation}{Committee Party, listed here: https://www.fec.gov/campaign-finance-data/party-code-descriptions/}
+#'   \item{cmte_tp}{Committee Type, listed here: \url{https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}}
+#'   \item{cmte_pty_affiliation}{Committee Party, listed here: \url{https://www.fec.gov/campaign-finance-data/party-code-descriptions/}}
 #'   \item{cmte_filing_freq}{Filing frequency: A = Administratively terminated,
 #'
 #'   D = Debt
@@ -141,11 +141,11 @@
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
 #'   report or a termination (T) report}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}
+#'   \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions/}}
 #'   \item{transaction_pgi}{This code indicates the election for which the contribution was made.
 #'   EYYYY (election Primary, General, Other plus election year)}
 #'   \item{transaction_tp}{Transaction types, listed here:
-#'   https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}
+#'   \url{https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions/}}
 #'   \item{entity_tp}{Entity Type:
 #'
 #'   CAN = Candidate
@@ -266,7 +266,7 @@
 #'   report or a termination (T) report}
 #'   \item{rpt_yr}{Report year}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
+#'   \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}}
 #'   \item{line_num}{ndicates FEC form line number}
 #'   \item{form_tp_cd}{Indicates FEC form type}
 #'   \item{sched_tp_cd}{Schedule type: Schedule B - Itemized disbursements}
@@ -280,7 +280,7 @@
 #'   \item{purpose}{Purpose}
 #'   \item{category}{Disbursement category code: 001-012 and 101-107}
 #'   \item{category_desc}{Disbursement Category Code Description,
-#'   listed here: https://www.fec.gov/campaign-finance-data/disbursement-category-code-descriptions}
+#'   listed here: \url{https://www.fec.gov/campaign-finance-data/disbursement-category-code-descriptions}}
 #'   \item{entity_tp}{Entity Type:
 #'
 #'   CAN = Candidate
@@ -306,7 +306,7 @@
 #'   The back reference transaction ID of the specific purchases will equal the transaction ID of the payment to the credit card company.}
 #'   }
 #' @source <https://www.fec.gov/campaign-finance-data/operating-expenditures-file-description/>, updated 2020-03-02
-"oppexp"
+"expenditures"
 
 #' Any Transaction From One Committee To Another
 #'
@@ -318,10 +318,10 @@
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
 #'   report or a termination (T) report}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
-#'   https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}
+#'   \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}}
 #'   \item{transaction_pgi}{Primary general indicator:This code indicates the election for which the contribution was made.
 #'   EYYYY (election Primary, General, Other plus election year)}
-#'   \item{transaction_tp}{Transaction type, listed here: https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}
+#'   \item{transaction_tp}{Transaction type, listed here: \url{https://www.fec.gov/campaign-finance-data/transaction-type-code-descriptions}}
 #'   \item{entity_tp}{Entity Type:
 #'
 #'   CAN = Candidate
@@ -361,7 +361,7 @@
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}
-#'   \item{cmte_tp}{Committee Type, listed here: https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}
+#'   \item{cmte_tp}{Committee Type, listed here: \url{https://www.fec.gov/campaign-finance-data/committee-type-code-descriptions/}}
 #'   \item{cmte_dsgn}{A = Authorized by a candidate
 #'
 #' B = Lobbyist/Registrant PAC

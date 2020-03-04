@@ -1,19 +1,19 @@
 library(tidyverse)
 
 dir <- usethis::use_zip(
-  "https://www.fec.gov/files/bulk-downloads/2016/oppexp16.zip",
+  "https://www.fec.gov/files/bulk-downloads/2016/oth16.zip",
   destdir = tempdir(), cleanup = TRUE
 )
 
-oppexp_path <- fs::path(dir, "oppexp.txt")
+oth_path <- fs::path(dir, "itoth.txt")
 
-oppexp_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/oppexp_header_file.csv") %>%
+oth_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/oth_header_file.csv") %>%
   names() %>%
   tolower()
 
-oppexp_all <- read_delim(
-  oppexp_path,
-  col_names = oppexp_names,
+oth_all <- read_delim(
+  oth_path,
+  col_names = oth_names,
   col_types = cols(
     zip_code = col_character(),
     other_id = col_character(),
