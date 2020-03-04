@@ -19,7 +19,8 @@ individuals_all <- read_delim(
     other_id = col_character(),
     memo_cd = col_character(),
     memo_text = col_character(),
-    sub_id = col_character()
+    sub_id = col_character(),
+    transaction_tp = col_character()
   ),
   delim = "|"
 )
