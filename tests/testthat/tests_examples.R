@@ -1,4 +1,5 @@
 library(testthat)
+library(tidyverse)
 context("Dimensions of data")
 
 # candidates
@@ -43,26 +44,13 @@ test_that("house results are accurate", {
 #
 #
 # #committee_contributions
-test_that("Minumum number of contributions from a committee is 1", {
-  expect_equal(min(committee_contributions$number_of_contributions), 1)
+test_that("contributions is the right size", {
+  expect_equal(nrow(contributions), 516639)
+  expect_equal(ncol(contributions), 15)
 })
-#
-test_that("Maximum number of contributions from a committee is 63047", {
-  expect_equal(max(committee_contributions$number_of_contributions), 63047)
-})
-#
+
 # #individuals
 
 test_that("number of rows in individuals df is correct", {
   expect_gt(nrow(individuals), 0)
 })
-#
-#
-# #Tests from Vignettes
-#
-#
-#
-# #Join tests
-# #candidates and committees
-# #individuals and committees
-# #results and committee contributions
