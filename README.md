@@ -25,7 +25,7 @@ included.
 following:
 
 ``` r
-devtools::install_github("ranawg/fec16")
+devtools::install_github("baumer-lab/fec16")
 ```
 
 ``` r
@@ -53,17 +53,17 @@ are running for elections (in all offices) for the two major parties:
 
 ``` r
 library(fec16)
-library(tidyverse)
+library(dplyr)
 
 candidates %>%
-  filter(cand_pty_aff == "REP" | cand_pty_aff == "DEM") %>%
-  group_by(cand_pty_aff) %>%
+  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+  group_by(cand_pty_affiliation) %>%
   summarise(size = n())
 #> # A tibble: 2 x 2
-#>   cand_pty_aff  size
-#>   <fct>        <int>
-#> 1 DEM           2242
-#> 2 REP           2678
+#>   cand_pty_affiliation  size
+#>   <chr>                <int>
+#> 1 DEM                   2242
+#> 2 REP                   2677
 ```
 
 #### Joining Data
@@ -79,30 +79,30 @@ committee type:
 ``` r
 cand_cmte <- candidates %>%
   full_join(committees, by = "cand_id") %>%
-  filter(cand_pty_aff == "REP" | cand_pty_aff == "DEM") %>%
-  group_by(cand_pty_aff, committee_type) %>%
+  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+  group_by(cand_pty_affiliation, cmte_tp) %>%
   summarise(n = n()) %>%
-  drop_na(committee_type)
+  tidyr::drop_na(cmte_tp)
 head(cand_cmte)
 #> # A tibble: 6 x 3
-#> # Groups:   cand_pty_aff [109]
-#>   cand_pty_aff committee_type     n
-#>   <fct>        <fct>          <int>
-#> 1 DEM          H               1540
-#> 2 DEM          P                147
-#> 3 DEM          S                278
-#> 4 REP          H               1715
-#> 5 REP          P                218
-#> 6 REP          S                399
+#> # Groups:   cand_pty_affiliation [1]
+#>   cand_pty_affiliation cmte_tp     n
+#>   <chr>                <chr>   <int>
+#> 1 DEM                  H        1540
+#> 2 DEM                  N         127
+#> 3 DEM                  O           3
+#> 4 DEM                  P         147
+#> 5 DEM                  Q           7
+#> 6 DEM                  S         278
 ```
 
 ### Data Visualization
 
-And extending that to create a visualization to see the results
-easily.
+And extending that to create a visualization to see the results easily.
 
 ``` r
-ggplot(cand_cmte, aes(x = committee_type, y = n, fill = cand_pty_aff)) + 
+library(ggplot2)
+ggplot(cand_cmte, aes(x = cmte_tp, y = n, fill = cand_pty_affiliation)) + 
   geom_col(position = "dodge") +
   labs(title = "Bar Chart of Total Committees by Type and Party", 
        x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation")

@@ -14,7 +14,7 @@
 #'   \item Individual Contributions: [individuals]
 #'   \item Committee Contributions: [contributions]
 #'   \item House/Senate Current Campaigns: [campaigns]
-#'   \item Operating Expenditures: [oppexp]
+#'   \item Operating Expenditures: [expenditures]
 #'   \item Transactions From One Committee To Another: [transactions]
 #'   \item PAC and Party Summary Financial Information: [pac]
 #' }

@@ -20,7 +20,7 @@ candidates, committees, results, individual contributions, and committee contrib
 \item Individual Contributions: \link{individuals}
 \item Committee Contributions: \link{contributions}
 \item House/Senate Current Campaigns: \link{campaigns}
-\item Operating Expenditures: \link{oppexp}
+\item Operating Expenditures: \link{expenditures}
 \item Transactions From One Committee To Another: \link{transactions}
 \item PAC and Party Summary Financial Information: \link{pac}
 }

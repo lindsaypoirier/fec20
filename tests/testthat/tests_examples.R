@@ -1,5 +1,5 @@
 library(testthat)
-library(tidyverse)
+library(dplyr)
 context("Dimensions of data")
 
 # candidates
