@@ -21,8 +21,8 @@
 #'
 #' @section Authors:
 #' \itemize{
-#'   \item Irene Ryan: \url{https://github.com/ireneryan}
 #'   \item Marium Tapal: \url{https://github.com/mariumtapal}
+#'   \item Irene Ryan: \url{https://github.com/ireneryan}
 #'   \item Rana Gahwagy: \url{https://github.com/ranawg}
 #'   \item Ben Baumer: \url{https://github.com/beanumber}
 #' }
