@@ -8,9 +8,9 @@
 #' \itemize{
 #'   \item Candidates: [candidates]
 #'   \item Committees: [committees]
-#'   \item House Results: [house_results]
-#'   \item Senate Results: [senate_results]
-#'   \item Presidential Results: [president_results]
+#'   \item House Results: [results_house]
+#'   \item Senate Results: [results_senate]
+#'   \item Presidential Results: [results_president]
 #'   \item Individual Contributions: [individuals]
 #'   \item Committee Contributions: [contributions]
 #'   \item House/Senate Current Campaigns: [campaigns]

@@ -60,7 +60,11 @@ All the datasets are taken from [FEC](https://www.fec.gov/data/browse-data/?tab=
 
 `committees`: all committees registered with the FEC during the 2015-2016 election cycle
 
-`house_results`: the results of the 2016 Congressional elections
+`results_house`: the results of the 2016 Congressional elections
+
+`results_senate`: the senate results of the 2016 general presidential election
+
+`results_president`: the final results of the 2016 general presidential election
 
 `individuals`: a sample of 5000 individual contributions to candidates/committees during the primary and general 2016 elections
 
@@ -74,9 +78,9 @@ Mainly, anyone interested in US politics and elections and wants to use actual d
 
 ## What does the data look like?
 
-The first six rows of the `house_results` dataset look like:
+The first six rows of the `results_house` dataset look like:
 ```{r}
-head(house_results)
+head(results_house)
 ```
 
 ## What can we do with this data?
@@ -94,11 +98,11 @@ To answer our questions we can make use of some **data wrangling** and **data vi
 
 **Which presidential candidate won a majority in more states, and how many votes did they get?**
 
-Using the `president_results` dataset, we can also see what actually happened in the 2016 elections.
+Using the `results_president` dataset, we can also see what actually happened in the 2016 elections.
 
 Here is how we can summarize the number of wins by candidate:
 ```{r}
-wins <- president_results %>%
+wins <- results_president %>%
   group_by(cand_id, name_last) %>%
   summarise(
     total_votes = sum(general_votes, na.rm = TRUE),
@@ -133,7 +137,7 @@ We can see that Hillary Clinton earned the most votes.
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
 ```{r, eval=TRUE}
-results_by_cand <- house_results %>%
+results_by_cand <- results_house %>%
   group_by(cand_id, name_last) %>%
   summarise(sum_votes = sum(general_votes)) %>%
   filter(sum_votes > 1000) %>%
@@ -163,7 +167,7 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-house_winners <- house_results %>%
+house_winners <- results_house %>%
   filter(won, state %in% state.abb) %>%
   group_by(cand_id, name_last) %>%
   summarize(

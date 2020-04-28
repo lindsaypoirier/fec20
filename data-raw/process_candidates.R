@@ -15,6 +15,6 @@ candidates <- read_delim(
   cand_path,
   col_names = cand_names,
   delim = "|"
-)
+) %>% sample_n(1000)
 
 usethis::use_data(candidates, overwrite = TRUE)

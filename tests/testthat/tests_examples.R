@@ -18,14 +18,14 @@ test_that("number of rows in committees df is correct", {
 # #results
 test_that("house results are accurate", {
   expect_equal(
-    house_results %>%
+    results_house %>%
       pull(cand_id) %>%
       unique() %>%
       length(),
     1972
   )
   expect_gt(
-     house_results %>%
+    results_house %>%
         group_by(state, district_id) %>%
         count() %>%
         nrow(),
@@ -33,7 +33,7 @@ test_that("house results are accurate", {
   )
   # territories
   expect_equal(
-     house_results %>%
+    results_house %>%
         filter(!state %in% state.abb) %>%
         pull(state) %>%
         unique() %>%

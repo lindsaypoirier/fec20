@@ -20,6 +20,6 @@ pac <- read_delim(
   col_names = pac_names,
   delim = "|"
 ) %>% mutate(
-  cvg_end_dt = lubridate::mdy(cvg_end_dt))
+  cvg_end_dt = lubridate::mdy(cvg_end_dt)) %>% sample_n(1000)
 
 usethis::use_data(pac, overwrite = TRUE)

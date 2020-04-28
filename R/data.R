@@ -208,15 +208,15 @@
 #'   \item{footnotes}{Footnotes}
 #' }
 #' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
-"house_results"
+"results_house"
 
-#' @rdname house_results
+#' @rdname results_house
 #' @description 2016 Senate General Election Results
-"senate_results"
+"results_senate"
 
-#' @rdname house_results
+#' @rdname results_house
 #' @description 2016 Presidential General Election Results
-"president_results"
+"results_president"
 
 #' House/Senate Current Campaigns
 #'

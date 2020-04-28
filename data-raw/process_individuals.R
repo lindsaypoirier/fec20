@@ -1,3 +1,4 @@
+# have to run this
 library(tidyverse)
 
 dir <- usethis::use_zip(
@@ -27,7 +28,7 @@ individuals_all <- read_delim(
 
 individuals <- individuals_all %>%
   select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
-  sample_n(1e5) %>%
+  sample_n(1000) %>%
   mutate(
     transaction_dt = lubridate::mdy(transaction_dt)
   )

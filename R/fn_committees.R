@@ -1,0 +1,20 @@
+committees <- function(n_max = Inf) {
+  dir <- usethis::use_zip(
+    "https://www.fec.gov/files/bulk-downloads/2016/cm16.zip",
+    destdir = tempdir(), cleanup = TRUE
+  )
+
+  committee_path <- fs::path(dir, "cm.txt")
+
+  committee_names <- read_csv("https://www.fec.gov/files/bulk-downloads/data_dictionaries/cm_header_file.csv") %>%
+    names() %>%
+    tolower()
+
+  committees <- read_delim(
+    committee_path,
+    col_names = committee_names,
+    delim = "|",
+    n_max = n_max
+  )
+  return(committees)
+}

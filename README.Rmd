@@ -44,9 +44,9 @@ library(fec16)
 
 - `candidates`: all candidates registered with the FEC during the 2015-2016 election cycle
 - `committees`: all committees registered with the FEC during the 2015-2016 election cycle
-- `house_results`: the house results of the 2016 general presidential election
-- `senate_results`: the senate results of the 2016 general presidential election
-- `president_results`: the final results of the 2016 general presidential election
+- `results_house`: the house results of the 2016 general presidential election
+- `results_senate`: the senate results of the 2016 general presidential election
+- `results_president`: the final results of the 2016 general presidential election
 - `individuals`: a sample of 100000 individual contributions to candidates/committees during the 2016 general presidential election
 - `contributions`:  candidates and their contibutions from committees during the 2016 general election
 - `campaigns`: the house/senate current campaigns
@@ -63,10 +63,10 @@ library(fec16)
 library(fec16)
 library(dplyr)
 
-candidates %>%
-  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
-  group_by(cand_pty_affiliation) %>%
-  summarise(size = n())
+# candidates %>%
+#   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+#   group_by(cand_pty_affiliation) %>%
+#   summarise(size = n())
 ```
 
 #### Joining Data 
@@ -75,13 +75,13 @@ We can join any of the datasets using `cand_id`. Each dataset with the exception
 
 Here is an example of calculating how many candidates are in each of the two major parties: Democratic (DEM) and Republican (REP), based on their committee type:
 ```{r message=FALSE, warning=FALSE}
-cand_cmte <- candidates %>%
-  full_join(committees, by = "cand_id") %>%
-  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
-  group_by(cand_pty_affiliation, cmte_tp) %>%
-  summarise(n = n()) %>%
-  tidyr::drop_na(cmte_tp)
-head(cand_cmte)
+# cand_cmte <- candidates %>%
+#   full_join(committees, by = "cand_id") %>%
+#   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+#   group_by(cand_pty_affiliation, cmte_tp) %>%
+#   summarise(n = n()) %>%
+#   tidyr::drop_na(cmte_tp)
+# head(cand_cmte)
 ```
 
 ### Data Visualization 
@@ -89,12 +89,12 @@ head(cand_cmte)
 And extending that to create a visualization to see the results easily.
 ```{r cand-plot, message=FALSE, warning=FALSE}
 library(ggplot2)
-ggplot(cand_cmte, aes(x = cmte_tp, y = n, fill = cand_pty_affiliation)) +
-  geom_col(position = "dodge") +
-  labs(
-    title = "Bar Chart of Total Committees by Type and Party",
-    x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation"
-  )
+# ggplot(cand_cmte, aes(x = cmte_tp, y = n, fill = cand_pty_affiliation)) +
+#   geom_col(position = "dodge") +
+#   labs(
+#     title = "Bar Chart of Total Committees by Type and Party",
+#     x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation"
+#   )
 ```
 
 

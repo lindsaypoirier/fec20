@@ -26,7 +26,7 @@ transactions_all <- read_delim(
 
 transactions <- transactions_all %>%
   select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
-  sample_n(1e5) %>%
+  sample_n(1000) %>%
   mutate(
     transaction_dt = lubridate::mdy(transaction_dt)
   )
