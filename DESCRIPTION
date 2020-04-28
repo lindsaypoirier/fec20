@@ -26,8 +26,8 @@ Description: Easily analyze relational data from the 2016 federal
 License: CC0
 Depends: 
     R (>= 2.10),
-Suggests: 
     tidyverse
+Suggests:
     testthat (>= 2.1.0),
     knitr,
     rmarkdown,

@@ -1,4 +1,14 @@
-pac <- function(n_max = Inf) {
+#' Political Action Committee (PAC) and Party Summary Financial Information
+#'
+#' \code{all_pac} returns a dataframe about the committees master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?pac`.
+#' @examples
+#' all_pac()
+#' all_pac(n_max = 250)
+
+all_pac <- function(n_max = Inf) {
   pac_dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/webk16.zip",
     destdir = tempdir(), cleanup = TRUE

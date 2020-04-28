@@ -1,4 +1,14 @@
-committees <- function(n_max = Inf) {
+#' Committees metadata
+#'
+#' \code{all_committees} returns a dataframe about the committees master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?committees`.
+#' @examples
+#' all_committees()
+#' all_committees(n_max = 250)
+
+all_committees <- function(n_max = Inf) {
   dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/cm16.zip",
     destdir = tempdir(), cleanup = TRUE

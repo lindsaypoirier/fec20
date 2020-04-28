@@ -1,4 +1,14 @@
-transactions <- function(n_max = Inf) {
+#' Any Transaction From One Committee To Another
+#'
+#' \code{all_transactions} returns a dataframe about the committees master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?transactions`.
+#' @examples
+#' all_transactions()
+#' all_transactions(n_max = 250)
+
+all_transactions <- function(n_max = Inf) {
   transactions_dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/oth16.zip",
     destdir = tempdir(), cleanup = TRUE

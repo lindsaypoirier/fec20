@@ -1,5 +1,14 @@
-# 1747935 is the number of entries in the original dataset
-expenditures <- function(n_max = Inf) {
+#' Operating Expenditures
+#'
+#' \code{all_expenditures} returns a dataframe about the committees master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?expenditures`.
+#' @examples
+#' all_expenditures()
+#' all_expenditures(n_max = 250)
+
+all_expenditures <- function(n_max = Inf) {
   dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/oppexp16.zip",
     destdir = tempdir(), cleanup = TRUE

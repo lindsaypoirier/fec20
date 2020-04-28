@@ -1,7 +1,6 @@
-#' fec16: A Data Package for the 2016 Election
+#' fec16: A Data Package for the 2016 Elections
 #'
-#' The fec16 package provides Federal Election Commission data of:
-#' candidates, committees, results, individual contributions, and committee contributions.
+#' The fec16 package provides the following 9 datasets from the Federal Election Commission's 2015-2016 election cycle:
 #'
 #' @section Datasets:
 #' \if{html}{\figure{hex_fec16.png}{options: align = "right" width="45\%" alt="Figure: hex_fec16.png"}}
@@ -16,7 +15,18 @@
 #'   \item House/Senate Current Campaigns: [campaigns]
 #'   \item Operating Expenditures: [expenditures]
 #'   \item Transactions From One Committee To Another: [transactions]
-#'   \item PAC and Party Summary Financial Information: [pac]
+#'   \item Political Action Committee (PAC) and Party Summary Financial Information: [pac]}
+#'
+#' The entire [campaigns], [results_house], [results_senate], and [results_president] datasets and samples containing 1000 entries of the other datasets are available directly in the package.
+#' For the datasets comtaining samples, full versions can be retrieved via the following functions:
+#' \itemize{
+#'   \item Candidates: [all_candidates]
+#'   \item Committees: [all_committees]
+#'   \item Individual Contributions: [all_individuals]
+#'   \item Committee Contributions: [all_contributions]
+#'   \item Operating Expenditures: [all_expenditures]
+#'   \item Transactions From One Committee To Another: [all_transactions]
+#'   \item Political Action Committee (PAC) and Party Summary Financial Information: [all_pac]
 #' }
 #'
 #' @section Authors:

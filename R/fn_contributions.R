@@ -1,5 +1,14 @@
-# 516639 is the number of entries in the original dataset
-contributions <- function(n_max = Inf) {
+#' Committee contributions metadata
+#'
+#' \code{all_contributions} returns a dataframe about the committees master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?contributions`.
+#' @examples
+#' all_contributions()
+#' all_contributions(n_max = 250)
+
+all_contributions <- function(n_max = Inf) {
   dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/pas216.zip",
     destdir = tempdir(), cleanup = TRUE
@@ -17,9 +26,7 @@ contributions <- function(n_max = Inf) {
     col_types = cols(
       employer = col_character(),
       occupation = col_character()),
-      n_max = n_max,
-    delim = "|")
-    %>%
+    n_max = n_max, delim = "|") %>%
     select(-employer, -occupation, -image_num, -memo_cd, -memo_text, -sub_id, -file_num) %>%
     mutate(
       transaction_dt = lubridate::mdy(transaction_dt)

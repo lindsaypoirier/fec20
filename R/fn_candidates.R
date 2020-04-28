@@ -1,4 +1,14 @@
-candidates <- function(n_max = Inf) {
+#' Candidates Master metadata function
+#'
+#' \code{all_candidates} returns a dataframe about the candidates master data
+#'
+#' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
+#' @return The entire dataframe. More information about variables is at `?candidates`.
+#' @examples
+#' all_candidates()
+#' all_cadidates(n_max = 250)
+
+all_candidates <- function(n_max = Inf) {
 
   cand_dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/cn16.zip",
@@ -18,4 +28,3 @@ candidates <- function(n_max = Inf) {
   )
   return(candidates_all)
 }
-

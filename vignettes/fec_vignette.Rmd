@@ -102,14 +102,14 @@ Using the `results_president` dataset, we can also see what actually happened in
 
 Here is how we can summarize the number of wins by candidate:
 ```{r}
-wins <- results_president %>%
-  group_by(cand_id, name_last) %>%
-  summarise(
-    total_votes = sum(general_votes, na.rm = TRUE),
-    states_won = sum(won)
-  ) %>%
-  arrange(desc(total_votes))
-wins
+# wins <- results_president %>%
+#   group_by(cand_id, name_last) %>%
+#   summarise(
+#     total_votes = sum(general_votes, na.rm = TRUE),
+#     states_won = sum(won)
+#   ) %>%
+#   arrange(desc(total_votes))
+# wins
 ```
 
 Compare these results to [those reported by the Wikipedia](https://en.wikipedia.org/wiki/2016_United_States_presidential_election).
@@ -117,15 +117,15 @@ We can show the results using a simple bar chart:
 
 Each win is for a single state. There are 51 total wins for the 50 States and Washington, D.C.
 ```{r}
-ggplot(wins %>% head(6), aes(x = reorder(name_last, total_votes), y = total_votes, fill = cand_id)) + 
-  geom_col() +
-  scale_fill_discrete(guide = FALSE) + 
-  labs(
-    title = "2016 Presidential Election",
-    subtitle = "Total votes",
-    x = NULL, y = "Number of Votes"
-  ) + 
-  coord_flip()
+# ggplot(wins %>% head(6), aes(x = reorder(name_last, total_votes), y = total_votes, fill = cand_id)) + 
+#   geom_col() +
+#   scale_fill_discrete(guide = FALSE) + 
+#   labs(
+#     title = "2016 Presidential Election",
+#     subtitle = "Total votes",
+#     x = NULL, y = "Number of Votes"
+#   ) + 
+#   coord_flip()
 ```
 
 We can see that Hillary Clinton earned the most votes. 
@@ -137,25 +137,25 @@ We can see that Hillary Clinton earned the most votes.
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
 ```{r, eval=TRUE}
-results_by_cand <- results_house %>%
-  group_by(cand_id, name_last) %>%
-  summarise(sum_votes = sum(general_votes)) %>%
-  filter(sum_votes > 1000) %>%
-  inner_join(contributions, by = "cand_id")
-results_by_cand
+# results_by_cand <- results_house %>%
+#   group_by(cand_id, name_last) %>%
+#   summarise(sum_votes = sum(general_votes)) %>%
+#   filter(sum_votes > 1000) %>%
+#   inner_join(contributions, by = "cand_id")
+# results_by_cand
 ```
 
 Next, we plot the contributions and votes on a scatter plot and plot a trend line that would make it easy for us to see the relationship. Since there are outliers in the data, it is best to not use a continuous axis scale in order to see all of the points. 
 
 ```{r eval=FALSE, message=FALSE}
-ggplot(results_by_cand, mapping = aes(x = total_contributions, y = sum_votes)) +
-  geom_point() +
-  scale_x_log10(labels = comma) +
-  scale_y_sqrt(labels = comma) +
-  geom_smooth(method = "auto") +
-  labs(title = "Contributions vs. Votes in 2016", 
-       x = "Contributions in US Dollars", y = "Total Votes") + 
-  geom_text_repel(aes(label = last_name))
+# ggplot(results_by_cand, mapping = aes(x = total_contributions, y = sum_votes)) +
+#   geom_point() +
+#   scale_x_log10(labels = comma) +
+#   scale_y_sqrt(labels = comma) +
+#   geom_smooth(method = "auto") +
+#   labs(title = "Contributions vs. Votes in 2016", 
+#        x = "Contributions in US Dollars", y = "Total Votes") + 
+#   geom_text_repel(aes(label = last_name))
 ```
 
 As we can see, the highest contributors got the highest amount of votes so it has a positive correlation. 
@@ -167,24 +167,24 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-house_winners <- results_house %>%
-  filter(won, state %in% state.abb) %>%
-  group_by(cand_id, name_last) %>%
-  summarize(
-    total_votes = sum(general_votes),
-    total_pct = sum(general_percent),
-    party = first(party)
-  ) %>%
-  filter(total_pct <= 1)
-  
-ggplot(house_winners, 
-       aes(x = total_votes, y = total_pct, 
-           color = party)) +
-  geom_point() +
-  labs(
-    title = "Not all Congressional Races are the same", 
-    fill = "Candidate") +
-  scale_y_continuous(labels = comma)
+# house_winners <- results_house %>%
+#   filter(won, state %in% state.abb) %>%
+#   group_by(cand_id, name_last) %>%
+#   summarize(
+#     total_votes = sum(general_votes),
+#     total_pct = sum(general_percent),
+#     party = first(party)
+#   ) %>%
+#   filter(total_pct <= 1)
+#   
+# ggplot(house_winners, 
+#        aes(x = total_votes, y = total_pct, 
+#            color = party)) +
+#   geom_point() +
+#   labs(
+#     title = "Not all Congressional Races are the same", 
+#     fill = "Candidate") +
+#   scale_y_continuous(labels = comma)
 ```
 
 
