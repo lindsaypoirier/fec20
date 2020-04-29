@@ -61,7 +61,7 @@ library(fec16)
 
 ## Functions Included
 
-The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function are given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
+The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function is given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
 
 - `all_candidates()` ~ 272KB
 - `all_committees()` ~ 732KB
