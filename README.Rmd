@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 
-**fec16** contains sample data from the Federal Election Commission (FEC) website pertaining to candidates, committees, results, contributions from committees and individuals, and other financial data for the United States 2015-2016 election cycle. Additionally, for the datasets that are included as samples, the package includes functions that import the full versions.
+**fec16** contains data from the Federal Election Commission (FEC) website pertaining to candidates, committees, results, contributions from committees and individuals, and other financial data for the United States 2015-2016 election cycle. Additionally, for the datasets that are included as samples, the package includes functions that import the full versions.
 
 
 ## Installation
@@ -54,22 +54,22 @@ library(fec16)
 - `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
 - `committees`: committees registered with the FEC during the 2015-2016 election cycle
 - `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
-- `contributions`: candidates and their contibutions from committees during the 2016 general election
+- `contributions`: candidates and their contributions from committees during the 2016 general election
 - `expenditures`: the operating expenditures 
 - `transactions`: transactions between committees
 - `pac`: Political Action Committee (PAC) and party summary financial information
 
 ## Functions Included
 
-The following functions retrieve the entire datasets for the sampled ones listed above. Some of these datasets are > 3GB. They all have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
+The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function are given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
 
-- `all_candidates()`
-- `all_committees()`
-- `all_individuals()`
-- `all_contributions()`
-- `all_expenditures()`
-- `all_transactions()`
-- `all_pac()`
+- `all_candidates()` ~ 272KB
+- `all_committees()` ~ 732KB
+- `all_individuals()` ~ 1.45GB
+- `all_contributions()` ~ 15.4MB
+- `all_expenditures()` ~ 52.1MB
+- `all_transactions()` ~ 79.2MB
+- `all_pac()` ~ 399KB
 
 ## Examples
 
