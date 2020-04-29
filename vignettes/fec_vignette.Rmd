@@ -19,7 +19,7 @@ library(tidyverse)
 library(scales)
 ```
 
-The `fec16` package provides tamed datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. Some datasets are included in full, while a sample of the others is available with the option of retreiving the entire datasets through the functions built in the package. Details are given below.
+The `fec16` package provides tamed datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. Some datasets are included in full, while a sample of the others is available with the option of retrieving the entire datasets through the functions built in the package. Details are given below.
 
 ## Inspiration 
 
