@@ -217,3 +217,19 @@ ggplot(joined_data, aes(x = cand_id, y = total_contributions, color = cand_pty_a
 It doesn't look like there are any specific patterns in the contributions (for contributions under $ 10 million).
 
 
+
+#### Joining Data 
+
+We can join any of the datasets using `cand_id`. Each dataset with the exception of the `individuals` dataset contains a possible joining key: `cand_id`.
+
+Here is an example of calculating how many candidates are in each of the two major parties: Democratic (DEM) and Republican (REP), based on their committee type:
+```{r message=FALSE, warning=FALSE}
+# cand_cmte <- candidates %>%
+#   full_join(committees, by = "cand_id") %>%
+#   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+#   group_by(cand_pty_affiliation, cmte_tp) %>%
+#   summarise(n = n()) %>%
+#   tidyr::drop_na(cmte_tp)
+# head(cand_cmte)
+```
+
