@@ -26,16 +26,19 @@ Description: Easily analyze relational data from the 2016 federal
 License: CC0
 Depends: 
     R (>= 2.10),
-    tidyverse
+    dplyr,
+    readr
 Suggests:
     testthat (>= 2.1.0),
     knitr,
     rmarkdown,
-    dplyr,
     ggplot2,
     tidyr,
     scales,
-    ggrepel
+    ggrepel,
+    fs,
+    lubridate,
+    usethis
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16

@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?individuals}
 \code{all_individuals} returns a dataframe about the committees master data
 }
 \examples{
-all_individuals()
-all_individuals(n_max = 250)
+\dontrun{all_individuals()}
+\dontrun{all_individuals(n_max = 250)}
 }

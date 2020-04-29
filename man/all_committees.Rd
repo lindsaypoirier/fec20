@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?committees}.
 \code{all_committees} returns a dataframe about the committees master data
 }
 \examples{
-all_committees()
-all_committees(n_max = 250)
+\dontrun{all_committees()}
+\dontrun{all_committees(n_max = 250)}
 }

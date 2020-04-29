@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?expenditures
 \code{all_expenditures} returns a dataframe about the committees master data
 }
 \examples{
-all_expenditures()
-all_expenditures(n_max = 250)
+\dontrun{all_expenditures()}
+\dontrun{all_expenditures(n_max = 250)}
 }

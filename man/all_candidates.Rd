@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?candidates}.
 \code{all_candidates} returns a dataframe about the candidates master data
 }
 \examples{
-all_candidates()
-all_cadidates(n_max = 250)
+\dontrun{all_candidates()}
+\dontrun{all_candidates(n_max = 250)}
 }

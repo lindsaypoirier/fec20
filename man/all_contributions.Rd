@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?contribution
 \code{all_contributions} returns a dataframe about the committees master data
 }
 \examples{
-all_contributions()
-all_contributions(n_max = 250)
+\dontrun{all_contributions()}
+\dontrun{all_contributions(n_max = 250)}
 }

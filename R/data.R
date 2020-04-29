@@ -181,15 +181,12 @@
 #'
 #' @description 2016 House General Election Results
 #'
-#' @format A data frame with 2110 rows and 15 columns, providing information
-#' for results in each state:
+#' @format 3 data frames with information about the House, Senate, and Presidential Election results:
 #' \describe{
 #'   \item{state}{The state of the votes}
 #'   \item{district_id}{District ID}
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
-#'   \item{candidate_name_first}{Candidate's First Name}
-#'   \item{candidate_name_last}{Candidates's Last Name}
 #'   \item{party}{Party of the candidate}
 #'   \item{primary_votes}{Number of votes in the primary electiom}
 #'   \item{primary_percent}{Percentage of votes in the primary election}

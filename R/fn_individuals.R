@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?individuals`.
 #' @examples
-#' all_individuals()
-#' all_individuals(n_max = 250)
+#' \dontrun{all_individuals()}
+#' \dontrun{all_individuals(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_individuals <- function(n_max = Inf){
   dir <- usethis::use_zip(

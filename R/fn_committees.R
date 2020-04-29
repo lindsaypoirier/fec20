@@ -5,8 +5,9 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?committees`.
 #' @examples
-#' all_committees()
-#' all_committees(n_max = 250)
+#' \dontrun{all_committees()}
+#' \dontrun{all_committees(n_max = 250)}
+#' @export
 
 all_committees <- function(n_max = Inf) {
   dir <- usethis::use_zip(

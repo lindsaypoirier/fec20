@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?transactions`.
 #' @examples
-#' all_transactions()
-#' all_transactions(n_max = 250)
+#' \dontrun{all_transactions()}
+#' \dontrun{all_transactions(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_transactions <- function(n_max = Inf) {
   transactions_dir <- usethis::use_zip(

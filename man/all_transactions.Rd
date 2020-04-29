@@ -16,6 +16,6 @@ The entire dataframe. More information about variables is at \code{?transactions
 \code{all_transactions} returns a dataframe about the committees master data
 }
 \examples{
-all_transactions()
-all_transactions(n_max = 250)
+\dontrun{all_transactions()}
+\dontrun{all_transactions(n_max = 250)}
 }

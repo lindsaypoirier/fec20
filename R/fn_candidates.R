@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?candidates`.
 #' @examples
-#' all_candidates()
-#' all_cadidates(n_max = 250)
+#' \dontrun{all_candidates()}
+#' \dontrun{all_candidates(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_candidates <- function(n_max = Inf) {
 

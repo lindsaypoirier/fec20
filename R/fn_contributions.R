@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?contributions`.
 #' @examples
-#' all_contributions()
-#' all_contributions(n_max = 250)
+#' \dontrun{all_contributions()}
+#' \dontrun{all_contributions(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_contributions <- function(n_max = Inf) {
   dir <- usethis::use_zip(

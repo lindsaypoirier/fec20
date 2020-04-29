@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?pac`.
 #' @examples
-#' all_pac()
-#' all_pac(n_max = 250)
+#' \dontrun{all_pac()}
+#' \dontrun{all_pac(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_pac <- function(n_max = Inf) {
   pac_dir <- usethis::use_zip(

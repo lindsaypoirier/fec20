@@ -5,8 +5,11 @@
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?expenditures`.
 #' @examples
-#' all_expenditures()
-#' all_expenditures(n_max = 250)
+#' \dontrun{all_expenditures()}
+#' \dontrun{all_expenditures(n_max = 250)}
+#' @import dplyr
+#' @import readr
+#' @export
 
 all_expenditures <- function(n_max = Inf) {
   dir <- usethis::use_zip(
