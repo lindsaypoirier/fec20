@@ -31,16 +31,6 @@ devtools::install_github("baumer-lab/fec16")
 
 ``` r
 library(fec16)
-#> Loading required package: dplyr
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-#> Loading required package: readr
 ```
 
 ## Datasets Included
@@ -72,13 +62,18 @@ library(fec16)
 
 ## Functions Included
 
-  - `all_candidates`
-  - `all_committees`
-  - `all_individuals`
-  - `all_contributions`
-  - `all_expenditures`
-  - `all_transactions`
-  - `all_pac`
+The following functions retrieve the entire datasets for the sampled
+ones listed above. Some of these datasets are \> 3GB. They all have an
+argument `n_max` which defaults to the entire dataset but the user can
+specify the max length of the dataset to be loaded via this argument.
+
+  - `all_candidates()`
+  - `all_committees()`
+  - `all_individuals()`
+  - `all_contributions()`
+  - `all_expenditures()`
+  - `all_transactions()`
+  - `all_pac()`
 
 ## Examples
 
@@ -88,18 +83,21 @@ library(fec16)
 are running for elections (in all offices) for the two major parties:
 
 ``` r
-library(fec16)
 library(dplyr)
 
-all_candidates() %>%
+# load in the entire dataset and surpressing output
+#invisible(utils::capture.output(all_candidates <- all_candidates()))
+
+data <- all_candidates() %>%
   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
   group_by(cand_pty_affiliation) %>%
-  summarise(size = n())
+  summarize(size = n())
 #> ✔ Downloading from 'https://www.fec.gov/files/bulk-downloads/2016/cn16.zip'
-#> Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.03 MB  (12%)Downloaded: 0.03 MB  (12%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.06 MB  (25%)Downloaded: 0.06 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.08 MB  (31%)Downloaded: 0.08 MB  (31%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.11 MB  (44%)Downloaded: 0.11 MB  (44%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.16 MB  (63%)Downloaded: 0.16 MB  (63%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.20 MB  (76%)Downloaded: 0.20 MB  (76%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.21 MB  (83%)Downloaded: 0.21 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.25 MB  (95%)Downloaded: 0.25 MB  (95%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)
-#> ✔ Download stored in '/var/folders/g3/26yd9p2j2fj8yzr1lnqhnwmc0000gn/T/RtmpjpcmBD/cn16.zip'
+#> Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.02 MB  (6%)Downloaded: 0.03 MB  (12%)Downloaded: 0.03 MB  (12%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.03 MB  (13%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.05 MB  (19%)Downloaded: 0.06 MB  (25%)Downloaded: 0.06 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.07 MB  (25%)Downloaded: 0.08 MB  (31%)Downloaded: 0.08 MB  (31%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.08 MB  (32%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.10 MB  (38%)Downloaded: 0.11 MB  (44%)Downloaded: 0.11 MB  (44%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.12 MB  (45%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.13 MB  (51%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.15 MB  (57%)Downloaded: 0.16 MB  (63%)Downloaded: 0.16 MB  (63%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.17 MB  (64%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.18 MB  (70%)Downloaded: 0.20 MB  (76%)Downloaded: 0.20 MB  (76%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.20 MB  (77%)Downloaded: 0.21 MB  (83%)Downloaded: 0.21 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.22 MB  (83%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.23 MB  (89%)Downloaded: 0.25 MB  (95%)Downloaded: 0.25 MB  (95%)Downloaded: 0.25 MB  (96%)Downloaded: 0.25 MB  (96%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)Downloaded: 0.26 MB  (100%)
+#> ✔ Download stored in '/var/folders/g3/26yd9p2j2fj8yzr1lnqhnwmc0000gn/T/Rtmpt3nTKs/cn16.zip'
 #> ✔ Unpacking ZIP file into 'cn16/' (1 files extracted)
 #> ✔ Deleting 'cn16.zip'
+data
 #> # A tibble: 2 x 2
 #>   cand_pty_affiliation  size
 #>   <chr>                <int>
@@ -107,39 +105,21 @@ all_candidates() %>%
 #> 2 REP                   2677
 ```
 
-#### Joining Data
-
-We can join any of the datasets using `cand_id`. Each dataset with the
-exception of the `individuals` dataset contains a possible joining key:
-`cand_id`.
-
-Here is an example of calculating how many candidates are in each of the
-two major parties: Democratic (DEM) and Republican (REP), based on their
-committee type:
-
-``` r
-# cand_cmte <- candidates %>%
-#   full_join(committees, by = "cand_id") %>%
-#   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
-#   group_by(cand_pty_affiliation, cmte_tp) %>%
-#   summarise(n = n()) %>%
-#   tidyr::drop_na(cmte_tp)
-# head(cand_cmte)
-```
-
 ### Data Visualization
 
-And extending that to create a visualization to see the results easily.
+We can visualize the above data:
 
 ``` r
 library(ggplot2)
-# ggplot(cand_cmte, aes(x = cmte_tp, y = n, fill = cand_pty_affiliation)) +
-#   geom_col(position = "dodge") +
-#   labs(
-#     title = "Bar Chart of Total Committees by Type and Party",
-#     x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation"
-#   )
+
+ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation)) +
+  geom_col(position = "dodge") +
+  labs(
+    title = "Candidate Size of the Two Major Parties",
+    x = "Party", y = "Count", fill = "Candidate Party Affiliation")
 ```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Contributors
 

@@ -61,13 +61,15 @@ library(fec16)
 
 ## Functions Included
 
-- `all_candidates`
-- `all_committees`
-- `all_individuals`
-- `all_contributions`
-- `all_expenditures`
-- `all_transactions`
-- `all_pac`
+The following functions retrieve the entire datasets for the sampled ones listed above. Some of these datasets are > 3GB. They all have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
+
+- `all_candidates()`
+- `all_committees()`
+- `all_individuals()`
+- `all_contributions()`
+- `all_expenditures()`
+- `all_transactions()`
+- `all_pac()`
 
 ## Examples
 
@@ -78,13 +80,11 @@ library(fec16)
 ```{r, message=FALSE}
 library(dplyr)
 
-# load in the entire dataset and surpressing output
-#invisible(utils::capture.output(all_candidates <- all_candidates()))
-
 data <- all_candidates() %>%
   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
   group_by(cand_pty_affiliation) %>%
   summarize(size = n())
+
 data
 ```
 
