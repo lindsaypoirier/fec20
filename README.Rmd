@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 
-**fec16** contains relational data from the Federal Election Commission website pertaining to candidates and committees for the United States 2015-2016 election cycle. Additionally, result of the 2016 general election and contribution data both from committees and individuals are included. 
+**fec16** contains sample data from the Federal Election Commission (FEC) website pertaining to candidates, committees, results, contributions from committees and individuals, and other financial data for the United States 2015-2016 election cycle. Additionally, for the datasets that are included as samples, the package includes functions that import the full versions.
 
 
 ## Installation
@@ -40,33 +40,51 @@ library(fec16)
 ```
 
 
-## Data
+## Datasets Included
 
-- `candidates`: all candidates registered with the FEC during the 2015-2016 election cycle
-- `committees`: all committees registered with the FEC during the 2015-2016 election cycle
+### Full Datasets
+
+- `campaigns`: the house/senate current campaigns
 - `results_house`: the house results of the 2016 general presidential election
 - `results_senate`: the senate results of the 2016 general presidential election
 - `results_president`: the final results of the 2016 general presidential election
-- `individuals`: a sample of 100000 individual contributions to candidates/committees during the 2016 general presidential election
-- `contributions`:  candidates and their contibutions from committees during the 2016 general election
-- `campaigns`: the house/senate current campaigns
-- `expenditures`: the operating expenditures for the 
-- `transactions`: a sample of 100000 transactions between committees
+
+### Sample Datasets (with 1000 rows each)
+
+- `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
+- `committees`: committees registered with the FEC during the 2015-2016 election cycle
+- `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
+- `contributions`: candidates and their contibutions from committees during the 2016 general election
+- `expenditures`: the operating expenditures 
+- `transactions`: transactions between committees
 - `pac`: Political Action Committee (PAC) and party summary financial information
+
+## Functions Included
+
+- `all_candidates`
+- `all_committees`
+- `all_individuals`
+- `all_contributions`
+- `all_expenditures`
+- `all_transactions`
+- `all_pac`
 
 ## Examples
 
 ### Data Wrangling 
 
 `fec16` can be used to summarize data in order see how many candidates are running for elections (in all offices) for the two major parties:
-```{r example, message = FALSE}
-library(fec16)
+
+```{r example, message=FALSE}
 library(dplyr)
 
-# candidates %>%
-#   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
-#   group_by(cand_pty_affiliation) %>%
-#   summarise(size = n())
+# load in the entire dataset
+all_candidates <- all_candidates()
+
+all_candidates %>%
+  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
+  group_by(cand_pty_affiliation) %>%
+  summarise(size = n())
 ```
 
 #### Joining Data 
