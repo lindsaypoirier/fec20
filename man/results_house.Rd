@@ -19,13 +19,6 @@
 \item{runoff_percent}{Percentage of runoff votes}
 \item{general_votes}{Number of votes in the general election}
 \item{general_percent}{Percentage of votes in the general election}
-\item{general_election_date}{The election date}
-\item{name_first}{First name of candidate}
-\item{name_last}{Last name of candidate}
-\item{last_name_first}{First and last name of candidate}
-\item{party}{Party of the candidates}
-\item{general_results}{The number of people voted in that state}
-\item{general_percent}{The percent of people}
 \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 \item{footnotes}{Footnotes}
 }}

@@ -4,7 +4,7 @@
 \name{expenditures}
 \alias{expenditures}
 \title{Operating Expenditures}
-\format{A data frame with 100000 rows and 20 columns:
+\format{A data frame with 1000 rows and 20 columns:
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous

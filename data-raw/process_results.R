@@ -17,7 +17,7 @@ results_house <- readxl::read_excel(file, sheet = 13) %>%
      cand_id = fec_id_number,
      district_id = d,
      incumbent = i,
-     won = ge_winner_indicator
+     won = ge_winner_indicator,
    ) %>%
   filter(cand_id != 'n/a', !str_detect(cand_id, "FULL TERM")) %>%
   mutate(
@@ -41,7 +41,6 @@ results_senate <- readxl::read_excel(file, sheet = 12
   rename(
     state = state_abbreviation,
     cand_id = fec_id_number,
-    general_results = general_votes,
     incumbent = i,
     won = ge_winner_indicator
   ) %>%
@@ -65,8 +64,8 @@ results_president <- readxl::read_excel(file, sheet = 9) %>%
   rename(
     state = state_abbreviation,
     cand_id = fec_id,
-    general_votes = general_results,
-    won = winner_indicator
+    won = winner_indicator,
+    general_votes = general_results
   ) %>%
   filter(cand_id != 'n/a') %>%
   mutate(

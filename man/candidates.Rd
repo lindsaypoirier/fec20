@@ -4,7 +4,7 @@
 \name{candidates}
 \alias{candidates}
 \title{Candidates Master metadata}
-\format{A data frame with 1000 rows (original data has 7398 rows) and 15 columns, providing information
+\format{A data frame with 1000 rows and 15 columns, providing information
 for each candidate:
 \describe{
 \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains

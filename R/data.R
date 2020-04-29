@@ -2,7 +2,7 @@
 #'
 #' @description Basic information for each candidate.
 #'
-#' @format A data frame with 1000 rows (original data has 7398 rows) and 15 columns, providing information
+#' @format A data frame with 1000 rows and 15 columns, providing information
 #' for each candidate:
 #' \describe{
 #'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
@@ -30,7 +30,7 @@
 #'
 #' @description Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
 #'
-#' @format A data frame with 516639 rows and 15 columns with information about candidate committee contibutions.
+#' @format A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -76,7 +76,7 @@
 #'
 #' @description Provides data pertaining to each committee registered with the Federal Election Commission.
 #'
-#' @format A data frame with 17654 rows and 15 columns with information about FEC committees.
+#' @format A data frame with 1000 rows and 15 columns with information about FEC committees.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}
@@ -135,7 +135,7 @@
 #' @description Information for a simple random sample of transactions from
 #' individuals to candidates/committees.
 #'
-#' @format A data frame with 100000 rows and 16 columns providing information for each transaction:
+#' @format A data frame with 1000 rows and 16 columns providing information for each transaction:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -194,13 +194,6 @@
 #'   \item{runoff_percent}{Percentage of runoff votes}
 #'   \item{general_votes}{Number of votes in the general election}
 #'   \item{general_percent}{Percentage of votes in the general election}
-#'   \item{general_election_date}{The election date}
-#'   \item{name_first}{First name of candidate}
-#'   \item{name_last}{Last name of candidate}
-#'   \item{last_name_first}{First and last name of candidate}
-#'   \item{party}{Party of the candidates}
-#'   \item{general_results}{The number of people voted in that state}
-#'   \item{general_percent}{The percent of people}
 #'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 #'   \item{footnotes}{Footnotes}
 #' }
@@ -219,7 +212,7 @@
 #'
 #' @description Summary financial information for each campaign.
 #'
-#' @format A data frame with 1898 rows and 25 columns, providing financial
+#' @format A data frame with 1000 rows and 25 columns, providing financial
 #' information for each House/Senate campaign:
 #' \describe{
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
@@ -257,7 +250,7 @@
 #' @description Operating expenditure information for a simple random sample
 #' of 100000 entries
 #'
-#' @format A data frame with 100000 rows and 20 columns:
+#' @format A data frame with 1000 rows and 20 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -308,8 +301,7 @@
 
 #' Any Transaction From One Committee To Another
 #'
-#' @description Transaction information between committees of a simple random
-#' sample of 100000 entries
+#' @description Transaction information between committees
 #'
 #' @format A data frame with 100000 rows and 16 columns:
 #' \describe{
@@ -356,7 +348,7 @@
 #'
 #' @description PAC and party summary finanicial information
 #'
-#' @format A data frame with 12,049 rows and 27 columns:
+#' @format A data frame with 1000 rows and 27 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}

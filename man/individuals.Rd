@@ -4,7 +4,7 @@
 \name{individuals}
 \alias{individuals}
 \title{Individual Contributions Master metadata}
-\format{A data frame with 100000 rows and 16 columns providing information for each transaction:
+\format{A data frame with 1000 rows and 16 columns providing information for each transaction:
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
