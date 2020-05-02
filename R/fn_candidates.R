@@ -24,7 +24,7 @@ all_candidates <- function(n_max = Inf) {
     names() %>%
     tolower()
 
-  candidates_all <- read_delim(
+  candidates_all <- vroom::vroom(
     cand_path,
     col_names = cand_names,
     delim = "|", n_max = n_max

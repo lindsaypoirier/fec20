@@ -23,7 +23,7 @@ all_transactions <- function(n_max = Inf) {
     names() %>%
     tolower()
 
-  transactions_all <- read_delim(
+  transactions_all <- vroom::vroom(
     transactions_path,
     n_max = n_max,
     col_names = transactions_names,

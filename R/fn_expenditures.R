@@ -23,7 +23,7 @@ all_expenditures <- function(n_max = Inf) {
     names() %>%
     tolower()
 
-  oppexp_all <- read_delim(
+  oppexp_all <- vroom::vroom(
     oppexp_path,
     n_max = n_max,
     col_names = oppexp_names,

@@ -21,7 +21,7 @@ all_committees <- function(n_max = Inf) {
     names() %>%
     tolower()
 
-  committees <- read_delim(
+  committees <- vroom::vroom(
     committee_path,
     col_names = committee_names,
     delim = "|",

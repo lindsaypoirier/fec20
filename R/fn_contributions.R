@@ -23,7 +23,7 @@ all_contributions <- function(n_max = Inf) {
     names() %>%
     tolower()
 
-  contributions_all <- read_delim(
+  contributions_all <- vroom::vroom(
     file_path,
     col_names = exp_names,
     col_types = cols(

@@ -30,15 +30,14 @@ Depends:
     readr
 Suggests:
     testthat (>= 2.1.0),
+    scales,
     knitr,
     rmarkdown,
-    ggplot2,
-    tidyr,
-    scales,
-    ggrepel,
     fs,
     lubridate,
-    usethis
+    usethis,
+    tidyverse,
+    vroom
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16

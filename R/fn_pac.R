@@ -8,7 +8,6 @@
 #' \dontrun{all_pac()}
 #' \dontrun{all_pac(n_max = 250)}
 #' @import dplyr
-#' @import readr
 #' @export
 
 all_pac <- function(n_max = Inf) {
@@ -27,7 +26,7 @@ all_pac <- function(n_max = Inf) {
                  "PTY_COORD_EXP", "NONFED_SHARE_EXP", "CVG_END_DT") %>%
     tolower()
 
-  pac <- read_delim(
+  pac <- vroom::vroom(
     n_max = n_max,
     pac_path,
     col_names = pac_names,

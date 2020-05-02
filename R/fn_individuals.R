@@ -23,7 +23,7 @@ all_individuals <- function(n_max = Inf){
     names() %>%
     tolower()
 
-  individuals_all <- read_delim(
+  individuals_all <- vroom::vroom(
     indiv_path,
     n_max = n_max,
     col_names = indiv_names,

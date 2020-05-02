@@ -87,13 +87,15 @@ The following functions retrieve the entire datasets for the sampled ones listed
 for example:
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 # The entire candidates dataset can be accessed by:
-all_candidates <- fec16::all_candidates())
+all_candidates <- fec16::all_candidates()
 
 # The first 30 entries in this dataset can be accessed by:
-invisible(utils::capture.output(candidates_30 <- fec16::all_candidates(n_max = 30)))
+candidates_30 <- fec16::all_candidates(n_max = 30)
 ```
 
 More details can be found on the documentation pages which can be called via: `?function_name`
+
+**Note:** When these functions are run in the console, it is helpful to know the progress of the download taking place but running these functions in a R Markdown document leads to the progress bar of the download being printed repeatedly. A possible solution is to wrap the function in `invisible(utils::capture.output())` hereby suppressing the messages. For example, `invisible(utils::capture.output(all_candidates <- fec16::all_candidates()))`. This example is executed later in this document.
 
 ## What does the data look like?
 
@@ -119,8 +121,8 @@ To answer our questions we can make use of some **data wrangling** and **data vi
 Using the `results_president` dataset, we can also see what actually happened in the 2016 elections.
 
 Here is how we can summarize the number of wins by candidate:
-```{r}
-all_candidates <- fec16::all_candidates()
+```{r message=FALSE, warning=FALSE}
+invisible(utils::capture.output(all_candidates <- fec16::all_candidates()))
 wins <- left_join(results_president, all_candidates) %>%
   group_by(cand_id, cand_name) %>%
   summarise(
@@ -136,7 +138,8 @@ We can show the results using a simple bar chart:
 
 Each win is for a single state. There are 51 total wins for the 50 States and Washington, D.C.
 ```{r}
-ggplot(wins %>% head(6), aes(x = reorder(cand_name, total_votes), y = total_votes, fill = cand_id)) +
+ggplot(wins %>% head(6), 
+       aes(x = reorder(cand_name, total_votes), y = total_votes, fill = cand_id)) +
   geom_col() +
   scale_fill_discrete(guide = FALSE) +
   scale_y_continuous(labels = comma) +
@@ -155,8 +158,8 @@ We can see that Hillary Clinton earned the most votes.
 
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
-```{r, eval=TRUE}
-all_contributions <- fec16::all_contributions()
+```{r eval=TRUE, message=FALSE, warning=FALSE}
+invisible(utils::capture.output(all_contributions <- fec16::all_contributions()))
 results_by_cand <- left_join(results_house, all_candidates, by = "cand_id") %>% 
   left_join(all_contributions, by = "cand_id") %>%
   group_by(cand_id, cand_name, cand_pty_affiliation) %>%
