@@ -4,7 +4,8 @@
 \name{contributions}
 \alias{contributions}
 \title{Committee contributions metadata}
-\format{A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
+\format{
+A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -42,7 +43,8 @@ For contributions from candidates or other committees this column will contain t
 the same across election cycles if running for the same office}
 \item{tran_id}{Only for Electronic Filings. A unique identifier associated with each itemization or transaction
 appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report.}
-}}
+}
+}
 \source{
 \url{https://www.fec.gov/campaign-finance-data/contributions-committees-candidates-file-description/}, Updated 2020-03-02
 }

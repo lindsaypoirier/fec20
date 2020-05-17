@@ -4,7 +4,8 @@
 \name{expenditures}
 \alias{expenditures}
 \title{Operating Expenditures}
-\format{A data frame with 1000 rows and 20 columns:
+\format{
+A data frame with 1000 rows and 20 columns:
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -49,7 +50,8 @@ appearing in an FEC electronic file. A transaction ID is unique for a specific c
 (using file number, transaction ID and back reference transaction ID).
 For example, a credit card payment and the subitemization of specific purchases.
 The back reference transaction ID of the specific purchases will equal the transaction ID of the payment to the credit card company.}
-}}
+}
+}
 \source{
 \url{https://www.fec.gov/campaign-finance-data/operating-expenditures-file-description/}, updated 2020-03-02
 }
@@ -58,6 +60,6 @@ expenditures
 }
 \description{
 Operating expenditure information for a simple random sample
-of 100000 entries
+of 1000 entries
 }
 \keyword{datasets}

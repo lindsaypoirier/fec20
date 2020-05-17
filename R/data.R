@@ -2,7 +2,7 @@
 #'
 #' @description Basic information for each candidate.
 #'
-#' @format A data frame with 1000 rows and 15 columns, providing information
+#' @format A data frame with 7397 rows and 15 columns, providing information
 #' for each candidate:
 #' \describe{
 #'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
@@ -76,7 +76,7 @@
 #'
 #' @description Provides data pertaining to each committee registered with the Federal Election Commission.
 #'
-#' @format A data frame with 1000 rows and 15 columns with information about FEC committees.
+#' @format A data frame with 17654 rows and 15 columns with information about FEC committees.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}
@@ -212,7 +212,7 @@
 #'
 #' @description Summary financial information for each campaign.
 #'
-#' @format A data frame with 1000 rows and 25 columns, providing financial
+#' @format A data frame with 1898 rows and 25 columns, providing financial
 #' information for each House/Senate campaign:
 #' \describe{
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
@@ -248,7 +248,7 @@
 #' Operating Expenditures
 #'
 #' @description Operating expenditure information for a simple random sample
-#' of 100000 entries
+#' of 1000 entries
 #'
 #' @format A data frame with 1000 rows and 20 columns:
 #' \describe{
@@ -303,7 +303,7 @@
 #'
 #' @description Transaction information between committees
 #'
-#' @format A data frame with 100000 rows and 16 columns:
+#' @format A data frame with 1000 rows and 16 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -348,7 +348,7 @@
 #'
 #' @description PAC and party summary finanicial information
 #'
-#' @format A data frame with 1000 rows and 27 columns:
+#' @format A data frame with 12049 rows and 27 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}

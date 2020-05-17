@@ -4,7 +4,8 @@
 \name{candidates}
 \alias{candidates}
 \title{Candidates Master metadata}
-\format{A data frame with 1000 rows and 15 columns, providing information
+\format{
+A data frame with 7397 rows and 15 columns, providing information
 for each candidate:
 \describe{
 \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
@@ -24,7 +25,8 @@ N = Not yet a statutory candidate, P = Statutory candidate in prior cycle}
 \item{cand_city}{Candidate's Mailing address - city}
 \item{cand_st}{Candidate's Mailing address - state}
 \item{cand_zip}{Candidate's Mailing address - ZIP code}
-}}
+}
+}
 \source{
 \url{https://www.fec.gov/campaign-finance-data/candidate-master-file-description/}, updated 2020-03-02
 }

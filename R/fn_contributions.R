@@ -1,17 +1,17 @@
 #' Committee contributions metadata
 #'
-#' \code{all_contributions} returns a dataframe about the committees master data
+#' \code{read_all_contributions} returns a dataframe about the committees master data
 #'
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?contributions`.
 #' @examples
-#' \dontrun{all_contributions()}
-#' \dontrun{all_contributions(n_max = 250)}
+#' \dontrun{read_all_contributions()}
+#' \dontrun{read_all_contributions(n_max = 250)}
 #' @import dplyr
 #' @import readr
 #' @export
 
-all_contributions <- function(n_max = Inf) {
+read_all_contributions <- function(n_max = Inf) {
   dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/pas216.zip",
     destdir = tempdir(), cleanup = TRUE

@@ -1,17 +1,17 @@
 #' Individual Contributions Master metadata
 #'
-#' \code{all_individuals} returns a dataframe about the committees master data
+#' \code{read_all_individuals} returns a dataframe about the committees master data
 #'
 #' @param n_max integer specifying the max amount of entries in the dataset, defaults to the possible maximum
 #' @return The entire dataframe. More information about variables is at `?individuals`.
 #' @examples
-#' \dontrun{all_individuals()}
-#' \dontrun{all_individuals(n_max = 250)}
+#' \dontrun{read_all_individuals()}
+#' \dontrun{read_all_individuals(n_max = 250)}
 #' @import dplyr
 #' @import readr
 #' @export
 
-all_individuals <- function(n_max = Inf){
+read_all_individuals <- function(n_max = Inf){
   dir <- usethis::use_zip(
     "https://www.fec.gov/files/bulk-downloads/2016/indiv16.zip",
     destdir = tempdir(), cleanup = TRUE

@@ -16,6 +16,6 @@ committees <- read_delim(
   committee_path,
   col_names = committee_names,
   delim = "|"
-) %>% sample_n(1000)
+)
 
 usethis::use_data(committees, overwrite = TRUE)

@@ -6,7 +6,8 @@
 \alias{results_senate}
 \alias{results_president}
 \title{General Federal Election Results}
-\format{3 data frames with information about the House, Senate, and Presidential Election results:
+\format{
+3 data frames with information about the House, Senate, and Presidential Election results:
 \describe{
 \item{state}{The state of the votes}
 \item{district_id}{District ID}
@@ -21,7 +22,12 @@
 \item{general_percent}{Percentage of votes in the general election}
 \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 \item{footnotes}{Footnotes}
-}}
+}
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 377 rows and 10 columns.
+
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 619 rows and 6 columns.
+}
 \source{
 \url{https://transition.fec.gov/general/FederalElections2016.shtml}, updated 2020-03-02
 }

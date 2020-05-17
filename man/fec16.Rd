@@ -23,16 +23,13 @@ The fec16 package provides the following 9 datasets from the Federal Election Co
 \item Transactions From One Committee To Another: \link{transactions}
 \item Political Action Committee (PAC) and Party Summary Financial Information: \link{pac}}
 
-The entire \link{campaigns}, \link{results_house}, \link{results_senate}, and \link{results_president} datasets and samples containing 1000 entries of the other datasets are available directly in the package.
+The entire \link{candidates}, \link{committees}, \link{campaigns}, \link{results_house}, \link{results_senate}, \link{results_president}, and \link{pac} datasets and samples containing 1000 entries of the other datasets are available directly in the package.
 For the datasets comtaining samples, full versions can be retrieved via the following functions:
 \itemize{
-\item Candidates: \link{all_candidates}
-\item Committees: \link{all_committees}
-\item Individual Contributions: \link{all_individuals}
-\item Committee Contributions: \link{all_contributions}
-\item Operating Expenditures: \link{all_expenditures}
-\item Transactions From One Committee To Another: \link{all_transactions}
-\item Political Action Committee (PAC) and Party Summary Financial Information: \link{all_pac}
+\item Individual Contributions: \link{read_all_individuals}
+\item Committee Contributions: \link{read_all_contributions}
+\item Operating Expenditures: \link{read_all_expenditures}
+\item Transactions From One Committee To Another: \link{read_all_transactions}
 }
 }
 

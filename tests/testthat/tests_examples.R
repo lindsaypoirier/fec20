@@ -12,7 +12,7 @@ test_that("number of columns in candidates df is correct", {
 # committees
 
 test_that("number of rows in committees df is correct", {
-  expect_equal(nrow(committees), 1000)
+  expect_equal(nrow(committees), 17654)
 })
 
 # results

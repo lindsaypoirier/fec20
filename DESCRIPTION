@@ -36,12 +36,13 @@ Suggests:
     fs,
     lubridate,
     usethis,
-    tidyverse,
-    vroom
+    vroom,
+    ggplot2,
+    stringr
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16
 BugReports: https://github.com/baumer-lab/fec16/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr

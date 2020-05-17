@@ -15,11 +15,13 @@ knitr::opts_chunk$set(
   fig.width = 6, fig.height = 4.5
 )
 library(fec16)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(scales)
+library(stringr)
 ```
 
-The `fec16` package provides tamed datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. Some datasets are included in full, while a sample of the others is available with the option of retrieving the entire datasets through the functions built in the package. Details are given below.
+The `fec16` package provides tamed relational datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. Some datasets are included in full, while a sample of the others is available with the option of retrieving the entire datasets through the functions built in the package. Details are given below.
 
 ## Inspiration 
 
@@ -46,7 +48,7 @@ We used the tame data principles to produce uniform data frames that are easy to
 
 ## Who should use this package? 
 
-Anyone interested in US politics and elections who wants to use actual data to think critically and make inferences. We made this package particularly with students and instructors in mind therefore this collection of data is good for teaching. 
+Anyone interested in US politics and elections who wants to use actual data to think critically and make inferences. We made this package particularly with students and instructors in mind as there is demand for relational data in teaching. `fec16` is a one-stop shop for acquiring data of this kind.
 
 ## Other notes
 
@@ -57,45 +59,42 @@ Anyone interested in US politics and elections who wants to use actual data to t
 
 ### Full Datasets
 
+- `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
+- `committees`: committees registered with the FEC during the 2015-2016 election cycle
 - `campaigns`: the house/senate current campaigns
 - `results_house`: the house results of the 2016 general presidential election
 - `results_senate`: the senate results of the 2016 general presidential election
 - `results_president`: the final results of the 2016 general presidential election
+- `pac`: Political Action Committee (PAC) and party summary financial information
 
 ### Sample Datasets (with 1000 rows each)
 
-- `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
-- `committees`: committees registered with the FEC during the 2015-2016 election cycle
 - `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
 - `contributions`: candidates and their contributions from committees during the 2016 general election
 - `expenditures`: the operating expenditures 
 - `transactions`: transactions between committees
-- `pac`: Political Action Committee (PAC) and party summary financial information
 
 ## Functions Included
 
 The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function is given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
 
-- `all_candidates()` ~ 272KB
-- `all_committees()` ~ 732KB
-- `all_individuals()` ~ 1.45GB
-- `all_contributions()` ~ 15.4MB
-- `all_expenditures()` ~ 52.1MB
-- `all_transactions()` ~ 79.2MB
-- `all_pac()` ~ 399KB
+- `read_all_individuals()` ~ 1.45GB
+- `read_all_contributions()` ~ 15.4MB
+- `read_all_expenditures()` ~ 52.1MB
+- `read_all_transactions()` ~ 79.2MB
 
 for example:
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
-# The entire candidates dataset can be accessed by:
-all_candidates <- fec16::all_candidates()
+# The entire expenditures dataset can be accessed by:
+all_expenditures <- fec16::read_all_expenditures()
 
 # The first 30 entries in this dataset can be accessed by:
-candidates_30 <- fec16::all_candidates(n_max = 30)
+expenditures_30 <- fec16::read_all_expenditures(n_max = 30)
 ```
 
 More details can be found on the documentation pages which can be called via: `?function_name`
 
-**Note:** When these functions are run in the console, it is helpful to know the progress of the download taking place but running these functions in a R Markdown document leads to the progress bar of the download being printed repeatedly. A possible solution is to wrap the function in `invisible(utils::capture.output())` hereby suppressing the messages. For example, `invisible(utils::capture.output(all_candidates <- fec16::all_candidates()))`. This example is executed later in this document.
+**Note:** When these functions are run in the console, it is helpful to know the progress of the download taking place but running these functions in a R Markdown document leads to the progress bar of the download being printed repeatedly. A possible solution is to wrap the function in `invisible(utils::capture.output())` hereby suppressing the messages. For example, `invisible(utils::capture.output(all_expenditures <- fec16::read_all_expenditures())`. This example is executed later in this document.
 
 ## What does the data look like?
 
@@ -122,8 +121,7 @@ Using the `results_president` dataset, we can also see what actually happened in
 
 Here is how we can summarize the number of wins by candidate:
 ```{r message=FALSE, warning=FALSE}
-invisible(utils::capture.output(all_candidates <- fec16::all_candidates()))
-wins <- left_join(results_president, all_candidates) %>%
+wins <- left_join(results_president, candidates) %>%
   group_by(cand_id, cand_name) %>%
   summarise(
     total_votes = sum(general_votes, na.rm = TRUE),
@@ -159,8 +157,8 @@ We can see that Hillary Clinton earned the most votes.
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
 ```{r eval=TRUE, message=FALSE, warning=FALSE}
-invisible(utils::capture.output(all_contributions <- fec16::all_contributions()))
-results_by_cand <- left_join(results_house, all_candidates, by = "cand_id") %>% 
+invisible(utils::capture.output(all_contributions <- fec16::read_all_contributions()))
+results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>% 
   left_join(all_contributions, by = "cand_id") %>%
   group_by(cand_id, cand_name, cand_pty_affiliation) %>%
   summarise(sum_votes = sum(general_votes),
@@ -190,7 +188,7 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-house_winners <-left_join(results_house, all_candidates, by = "cand_id") %>%
+house_winners <-left_join(results_house, candidates, by = "cand_id") %>%
   mutate(party_1 = str_sub(party, 1, 1)) %>% 
   filter(won, state %in% state.abb) %>%
   group_by(cand_id, cand_name, party_1) %>%

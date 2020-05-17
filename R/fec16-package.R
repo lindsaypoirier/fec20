@@ -17,16 +17,13 @@
 #'   \item Transactions From One Committee To Another: [transactions]
 #'   \item Political Action Committee (PAC) and Party Summary Financial Information: [pac]}
 #'
-#' The entire [campaigns], [results_house], [results_senate], and [results_president] datasets and samples containing 1000 entries of the other datasets are available directly in the package.
+#' The entire [candidates], [committees], [campaigns], [results_house], [results_senate], [results_president], and [pac] datasets and samples containing 1000 entries of the other datasets are available directly in the package.
 #' For the datasets comtaining samples, full versions can be retrieved via the following functions:
 #' \itemize{
-#'   \item Candidates: [all_candidates]
-#'   \item Committees: [all_committees]
-#'   \item Individual Contributions: [all_individuals]
-#'   \item Committee Contributions: [all_contributions]
-#'   \item Operating Expenditures: [all_expenditures]
-#'   \item Transactions From One Committee To Another: [all_transactions]
-#'   \item Political Action Committee (PAC) and Party Summary Financial Information: [all_pac]
+#'   \item Individual Contributions: [read_all_individuals]
+#'   \item Committee Contributions: [read_all_contributions]
+#'   \item Operating Expenditures: [read_all_expenditures]
+#'   \item Transactions From One Committee To Another: [read_all_transactions]
 #' }
 #'
 #' @section Authors:
