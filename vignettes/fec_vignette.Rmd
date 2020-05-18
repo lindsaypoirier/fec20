@@ -136,15 +136,18 @@ We can show the results using a simple bar chart:
 
 Each win is for a single state. There are 51 total wins for the 50 States and Washington, D.C.
 ```{r}
-ggplot(wins %>% head(6), 
-       aes(x = reorder(cand_name, total_votes), y = total_votes, fill = cand_id)) +
+ggplot(
+  wins %>% head(6),
+  aes(x = reorder(cand_name, total_votes), y = total_votes, fill = cand_id)
+) +
   geom_col() +
   scale_fill_discrete(guide = FALSE) +
   scale_y_continuous(labels = comma) +
   labs(
     title = "2016 Presidential Election",
     subtitle = "Total votes",
-    x = NULL, y = "Number of Votes") +
+    x = NULL, y = "Number of Votes"
+  ) +
   coord_flip()
 ```
 
@@ -158,11 +161,13 @@ Here we investigate what kind of relationship, if any, the candidates with over 
 
 ```{r eval=TRUE, message=FALSE, warning=FALSE}
 invisible(utils::capture.output(all_contributions <- fec16::read_all_contributions()))
-results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>% 
+results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>%
   left_join(all_contributions, by = "cand_id") %>%
   group_by(cand_id, cand_name, cand_pty_affiliation) %>%
-  summarise(sum_votes = sum(general_votes),
-            contribution = sum(transaction_amt)) %>%
+  summarise(
+    sum_votes = sum(general_votes),
+    contribution = sum(transaction_amt)
+  ) %>%
   filter(sum_votes > 1000)
 head(results_by_cand)
 ```
@@ -175,8 +180,10 @@ ggplot(results_by_cand, aes(x = contribution, y = sum_votes)) +
   scale_x_log10(labels = comma) +
   scale_y_sqrt(labels = comma) +
   geom_smooth(method = "auto") +
-  labs(title = "Contributions vs. Votes in 2016",
-       x = "Contributions in US Dollars", y = "Total Votes")
+  labs(
+    title = "Contributions vs. Votes in 2016",
+    x = "Contributions in US Dollars", y = "Total Votes"
+  )
 ```
 
 As we can see, the highest contributors got the highest amount of votes so it has a positive correlation, but then it falls after a large contribution amount. 
@@ -188,8 +195,8 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-house_winners <-left_join(results_house, candidates, by = "cand_id") %>%
-  mutate(party_1 = str_sub(party, 1, 1)) %>% 
+house_winners <- left_join(results_house, candidates, by = "cand_id") %>%
+  mutate(party_1 = str_sub(party, 1, 1)) %>%
   filter(won, state %in% state.abb) %>%
   group_by(cand_id, cand_name, party_1) %>%
   summarize(
@@ -197,13 +204,17 @@ house_winners <-left_join(results_house, candidates, by = "cand_id") %>%
     total_pct = sum(general_percent),
   )
 
-ggplot(house_winners,
-       aes(x = total_votes, y = total_pct,
-           color = party_1)) +
+ggplot(
+  house_winners,
+  aes(
+    x = total_votes, y = total_pct,
+    color = party_1
+  )
+) +
   geom_point() +
   labs(
     title = "Not all Congressional Races are the same",
-    fill = "Candidate", x = "Total Votes", "Total Percent") +
+    fill = "Candidate", x = "Total Votes", "Total Percent"
+  ) +
   scale_y_continuous(labels = comma)
 ```
-
