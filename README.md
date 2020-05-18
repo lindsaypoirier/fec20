@@ -13,12 +13,13 @@ status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/pack
 Status](https://travis-ci.org/baumer-lab/fec16.svg?branch=master)](https://travis-ci.org/baumer-lab/fec16)
 <!-- badges: end -->
 
-**fec16** contains data from the Federal Election Commission (FEC)
-website pertaining to candidates, committees, results, contributions
-from committees and individuals, and other financial data for the United
-States 2015-2016 election cycle. Additionally, for the datasets that are
-included as samples, the package includes functions that import the full
-versions.
+**fec16** contains data from the [Federal Election Commission
+(FEC)](https://www.fec.gov/) website pertaining to candidates,
+committees, results, contributions from committees and individuals, and
+other financial [data for the United States 2015-2016 election
+cycle](https://www.fec.gov/data/browse-data/?tab=bulk-data).
+Additionally, for the datasets that are included as samples, the package
+includes functions that import the full versions.
 
 ## Installation
 
@@ -68,10 +69,10 @@ calling each function is given for reference. All functions have an
 argument `n_max` which defaults to the entire dataset but the user can
 specify the max length of the dataset to be loaded via this argument.
 
-  - `read_all_individuals()` ~ 1.45GB
-  - `read_all_contributions()` ~ 15.4MB
-  - `read_all_expenditures()` ~ 52.1MB
-  - `read_all_transactions()` ~ 79.2MB
+  - `read_all_individuals()` \~ 1.45GB
+  - `read_all_contributions()` \~ 15.4MB
+  - `read_all_expenditures()` \~ 52.1MB
+  - `read_all_transactions()` \~ 79.2MB
 
 **Note:** When these functions are run in the console, it is helpful to
 know the progress of the download taking place but running these
@@ -111,13 +112,14 @@ We can visualize the above data:
 library(ggplot2)
 
 ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation)) +
-  geom_col(position = "dodge") +
+  geom_col() +
   labs(
-    title = "Candidate Size of the Two Major Parties",
-    x = "Party", y = "Count", fill = "Candidate Party Affiliation")
+    title = "Number of Candidates Affiliated with the Two Major Parties",
+    x = "Party", y = "Count", fill = "Candidate Party Affiliation"
+  )
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-party-plot-1.png" width="100%" />
 
 ## Contributors
 
