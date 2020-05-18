@@ -11,11 +11,23 @@
 #' @import readr
 #' @export
 
-read_all_contributions <- function(n_max = Inf) {
-  dir <- usethis::use_zip(
-    "https://www.fec.gov/files/bulk-downloads/2016/pas216.zip",
-    destdir = tempdir(), cleanup = TRUE
-  )
+read_all_contributions <- function(n_max = Inf, verbose = interactive()) {
+  if (!verbose) {
+    invisible(
+      msg <- utils::capture.output(
+        dir <- usethis::use_zip(
+          "https://www.fec.gov/files/bulk-downloads/2016/pas216.zip",
+          destdir = tempdir(), cleanup = TRUE
+        )
+      )
+    )
+    cat(msg[-2], sep = "\n")
+  } else {
+    dir <- usethis::use_zip(
+      "https://www.fec.gov/files/bulk-downloads/2016/pas216.zip",
+      destdir = tempdir(), cleanup = TRUE
+    )
+  }
 
   file_path <- fs::path(dir, "itpas2.txt")
 

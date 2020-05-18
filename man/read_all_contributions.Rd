@@ -4,7 +4,7 @@
 \alias{read_all_contributions}
 \title{Committee contributions metadata}
 \usage{
-read_all_contributions(n_max = Inf)
+read_all_contributions(n_max = Inf, verbose = interactive())
 }
 \arguments{
 \item{n_max}{integer specifying the max amount of entries in the dataset, defaults to the possible maximum}

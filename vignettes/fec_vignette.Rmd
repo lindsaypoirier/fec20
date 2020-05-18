@@ -160,7 +160,10 @@ We can see that Hillary Clinton earned the most votes.
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
 ```{r eval=TRUE, message=FALSE, warning=FALSE}
-invisible(utils::capture.output(all_contributions <- fec16::read_all_contributions()))
+interactive()
+withr::local_options(list(usethis.quiet = TRUE))
+all_contributions <- fec16::read_all_contributions(verbose = FALSE)
+
 results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>%
   left_join(all_contributions, by = "cand_id") %>%
   group_by(cand_id, cand_name, cand_pty_affiliation) %>%
