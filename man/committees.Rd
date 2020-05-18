@@ -4,7 +4,8 @@
 \name{committees}
 \alias{committees}
 \title{Committees metadata}
-\format{A data frame with 17654 rows and 15 columns with information about FEC committees.
+\format{
+A data frame with 17654 rows and 15 columns with information about FEC committees.
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{cmte_nm}{Name of the committee}
@@ -54,7 +55,8 @@ W = Corporation without capital stock}
 \item{connected_org_nm}{Connected organization's name}
 \item{cand_id}{Candidate identification:When a committee has a committee type designation of H, S, or P,
 the candidate's identification number will be entered in this field.}
-}}
+}
+}
 \source{
 \url{https://www.fec.gov/campaign-finance-data/committee-master-file-description/}, updated 2020-03-02
 }

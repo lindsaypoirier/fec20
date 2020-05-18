@@ -2,7 +2,7 @@
 #'
 #' @description Basic information for each candidate.
 #'
-#' @format A data frame with 7398 rows and 15 columns, providing information
+#' @format A data frame with 7397 rows and 15 columns, providing information
 #' for each candidate:
 #' \describe{
 #'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
@@ -12,9 +12,9 @@
 #'   \item{cand_election_yr}{Candidate's election year from a Statement of Candidacy or state ballot list}
 #'   \item{cand_office_st}{Candidate's state}
 #'   \item{cand_office}{Candidate office with designation: H = House, P = President, S = Senate}
-#'   \item{cand_office_district}{Congressional district number; Congressional at-large 00, Senate 00, Presidential 00}
+#'   \item{cand_office_district}{Congressional district number: Congressional at-large 00, Senate 00, Presidential 00}
 #'   \item{cand_ici}{Incumbent challenger status with designation: C = Challenger, I = Incumbent, O = Open Seat}
-#'   \item{cand_status}{Candidate status with designation:C = Statutory candidate, F = Statutory candidate for future election,
+#'   \item{cand_status}{Candidate status with designation: C = Statutory candidate, F = Statutory candidate for future election,
 #'   N = Not yet a statutory candidate, P = Statutory candidate in prior cycle}
 #'   \item{cand_pcc}{ID of the candidate's principal campaign committee assigned by FEC}
 #'   \item{cand_st1}{Candidate's Mailing address - street 1}
@@ -30,7 +30,7 @@
 #'
 #' @description Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
 #'
-#' @format A data frame with 516639 rows and 15 columns with information about candidate committee contibutions.
+#' @format A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -135,7 +135,7 @@
 #' @description Information for a simple random sample of transactions from
 #' individuals to candidates/committees.
 #'
-#' @format A data frame with 100000 rows and 16 columns providing information for each transaction:
+#' @format A data frame with 1000 rows and 16 columns providing information for each transaction:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -181,15 +181,12 @@
 #'
 #' @description 2016 House General Election Results
 #'
-#' @format A data frame with 2110 rows and 15 columns, providing information
-#' for results in each state:
+#' @format 3 data frames with information about the House, Senate, and Presidential Election results:
 #' \describe{
 #'   \item{state}{The state of the votes}
 #'   \item{district_id}{District ID}
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
-#'   \item{candidate_name_first}{Candidate's First Name}
-#'   \item{candidate_name_last}{Candidates's Last Name}
 #'   \item{party}{Party of the candidate}
 #'   \item{primary_votes}{Number of votes in the primary electiom}
 #'   \item{primary_percent}{Percentage of votes in the primary election}
@@ -197,26 +194,19 @@
 #'   \item{runoff_percent}{Percentage of runoff votes}
 #'   \item{general_votes}{Number of votes in the general election}
 #'   \item{general_percent}{Percentage of votes in the general election}
-#'   \item{general_election_date}{The election date}
-#'   \item{name_first}{First name of candidate}
-#'   \item{name_last}{Last name of candidate}
-#'   \item{last_name_first}{First and last name of candidate}
-#'   \item{party}{Party of the candidates}
-#'   \item{general_results}{The number of people voted in that state}
-#'   \item{general_percent}{The percent of people}
 #'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
 #'   \item{footnotes}{Footnotes}
 #' }
 #' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
-"house_results"
+"results_house"
 
-#' @rdname house_results
+#' @rdname results_house
 #' @description 2016 Senate General Election Results
-"senate_results"
+"results_senate"
 
-#' @rdname house_results
+#' @rdname results_house
 #' @description 2016 Presidential General Election Results
-"president_results"
+"results_president"
 
 #' House/Senate Current Campaigns
 #'
@@ -258,9 +248,9 @@
 #' Operating Expenditures
 #'
 #' @description Operating expenditure information for a simple random sample
-#' of 100000 entries
+#' of 1000 entries
 #'
-#' @format A data frame with 100000 rows and 20 columns:
+#' @format A data frame with 1000 rows and 20 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -311,10 +301,9 @@
 
 #' Any Transaction From One Committee To Another
 #'
-#' @description Transaction information between committees of a simple random
-#' sample of 100000 entries
+#' @description Transaction information between committees
 #'
-#' @format A data frame with 100000 rows and 16 columns:
+#' @format A data frame with 1000 rows and 16 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -355,11 +344,11 @@
 #' @source <https://www.fec.gov/campaign-finance-data/any-transaction-one-committee-another-file-description/>, updated 2020-03-02
 "transactions"
 
-#' PAC and Party Summary Financial Information
+#' Political Action Committee (PAC) and Party Summary Financial Information
 #'
 #' @description PAC and party summary finanicial information
 #'
-#' @format A data frame with 12,049 rows and 27 columns:
+#' @format A data frame with 12049 rows and 27 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}

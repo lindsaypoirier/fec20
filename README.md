@@ -13,11 +13,12 @@ status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/pack
 Status](https://travis-ci.org/baumer-lab/fec16.svg?branch=master)](https://travis-ci.org/baumer-lab/fec16)
 <!-- badges: end -->
 
-**fec16** contains relational data from the Federal Election Commission
-website pertaining to candidates and committees for the United States
-2015-2016 election cycle. Additionally, result of the 2016 general
-election and contribution data both from committees and individuals are
-included.
+**fec16** contains data from the Federal Election Commission (FEC)
+website pertaining to candidates, committees, results, contributions
+from committees and individuals, and other financial data for the United
+States 2015-2016 election cycle. Additionally, for the datasets that are
+included as samples, the package includes functions that import the full
+versions.
 
 ## Installation
 
@@ -32,17 +33,52 @@ devtools::install_github("baumer-lab/fec16")
 library(fec16)
 ```
 
-## Data
+## Datasets Included
 
-  - `candidates`: all candidates registered with the FEC during the
+### Full Datasets
+
+  - `candidates`: candidates registered with the FEC during the
     2015-2016 election cycle
-  - `committees`: all committees registered with the FEC during the
+  - `committees`: committees registered with the FEC during the
     2015-2016 election cycle
-  - `results`: the results of the 2016 general presidential election
-  - `individuals`: a sample of 5000 individual contributions to
-    candidates/committees during the primary and general 2016 elections
-  - `committee_contributions`: total contributions, aggregated by
-    candidate, from committees
+  - `campaigns`: the house/senate current campaigns
+  - `results_house`: the house results of the 2016 general presidential
+    election
+  - `results_senate`: the senate results of the 2016 general
+    presidential election
+  - `results_president`: the final results of the 2016 general
+    presidential election
+  - `pac`: Political Action Committee (PAC) and party summary financial
+    information
+
+### Sample Datasets (with 1000 rows each)
+
+  - `individuals`: individual contributions to candidates/committees
+    during the 2016 general presidential election
+  - `contributions`: candidates and their contributions from committees
+    during the 2016 general election
+  - `expenditures`: the operating expenditures
+  - `transactions`: transactions between committees
+
+## Functions Included
+
+The following functions retrieve the entire datasets for the sampled
+ones listed above. The size of the raw file that is downloaded by
+calling each function is given for reference. All functions have an
+argument `n_max` which defaults to the entire dataset but the user can
+specify the max length of the dataset to be loaded via this argument.
+
+  - `read_all_individuals()` ~ 1.45GB
+  - `read_all_contributions()` ~ 15.4MB
+  - `read_all_expenditures()` ~ 52.1MB
+  - `read_all_transactions()` ~ 79.2MB
+
+**Note:** When these functions are run in the console, it is helpful to
+know the progress of the download taking place but running these
+functions in a R Markdown document leads to the progress bar of the
+download being printed repeatedly. A possible solution is to wrap the
+function in `invisible(utils::capture.output())` hereby suppressing the
+messages.
 
 ## Examples
 
@@ -52,13 +88,14 @@ library(fec16)
 are running for elections (in all offices) for the two major parties:
 
 ``` r
-library(fec16)
 library(dplyr)
 
-candidates %>%
+data <- candidates %>%
   filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
   group_by(cand_pty_affiliation) %>%
-  summarise(size = n())
+  summarize(size = n())
+
+data
 #> # A tibble: 2 x 2
 #>   cand_pty_affiliation  size
 #>   <chr>                <int>
@@ -66,52 +103,25 @@ candidates %>%
 #> 2 REP                   2677
 ```
 
-#### Joining Data
-
-We can join any of the datasets using `cand_id`. Each dataset with the
-exception of the `individuals` dataset contains a possible joining key:
-`cand_id`.
-
-Here is an example of calculating how many candidates are in each of the
-two major parties: Democratic (DEM) and Republican (REP), based on their
-committee type:
-
-``` r
-cand_cmte <- candidates %>%
-  full_join(committees, by = "cand_id") %>%
-  filter(cand_pty_affiliation %in% c("REP", "DEM")) %>%
-  group_by(cand_pty_affiliation, cmte_tp) %>%
-  summarise(n = n()) %>%
-  tidyr::drop_na(cmte_tp)
-head(cand_cmte)
-#> # A tibble: 6 x 3
-#> # Groups:   cand_pty_affiliation [1]
-#>   cand_pty_affiliation cmte_tp     n
-#>   <chr>                <chr>   <int>
-#> 1 DEM                  H        1540
-#> 2 DEM                  N         127
-#> 3 DEM                  O           3
-#> 4 DEM                  P         147
-#> 5 DEM                  Q           7
-#> 6 DEM                  S         278
-```
-
 ### Data Visualization
 
-And extending that to create a visualization to see the results easily.
+We can visualize the above data:
 
 ``` r
 library(ggplot2)
-ggplot(cand_cmte, aes(x = cmte_tp, y = n, fill = cand_pty_affiliation)) + 
+
+ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation)) +
   geom_col(position = "dodge") +
-  labs(title = "Bar Chart of Total Committees by Type and Party", 
-       x = "Committee Type", y = "Count", fill = "Candidate Party Affiliation")
+  labs(
+    title = "Candidate Size of the Two Major Parties",
+    x = "Party", y = "Count", fill = "Candidate Party Affiliation")
 ```
 
-<img src="man/figures/README-cand-plot-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
 
 ## Contributors
 
-  - [Irene Ryan](https://github.com/ireneryan)
   - [Marium Tapal](https://github.com/mariumtapal)
+  - [Irene Ryan](https://github.com/ireneryan)
   - [Rana Gahwagy](https://github.com/ranawg)
+  - [Benjamin S. Baumer](https://github.com/beanumber)

@@ -1,6 +1,6 @@
 ---
 title: "fec16"
-author: "Irene Ryan, Marium Tapal, and Rana Gahwagy"
+author: "Marium Tapal, Irene Ryan, and Rana Gahwagy"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fec16}
@@ -15,14 +15,13 @@ knitr::opts_chunk$set(
   fig.width = 6, fig.height = 4.5
 )
 library(fec16)
-library(scales)
 library(dplyr)
-library(tidyr)
 library(ggplot2)
-library(ggrepel)
+library(scales)
+library(stringr)
 ```
 
-The `fec16` package provides tamed datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. 
+The `fec16` package provides tamed relational datasets of the Federal Election Commission (FEC)'s 2015-2016 election cycle. Some datasets are included in full, while a sample of the others is available with the option of retrieving the entire datasets through the functions built in the package. Details are given below.
 
 ## Inspiration 
 
@@ -47,36 +46,61 @@ We used the tame data principles to produce uniform data frames that are easy to
 4. Missing data has value `NA`
 5. Removed signs such as % and $ attached to numeric values
 
-## Other notes
-
--  We dropped variables that are not useful for analysis from the original FEC datasets 
--  We summarized large datasets with relevant data in order to compress its size
-
-## Data frames included: 
-
-All the datasets are taken from [FEC](https://www.fec.gov/data/browse-data/?tab=bulk-data) 
-
-`candidates`: all candidates registered with the FEC during the 2015-2016 election cycle
-
-`committees`: all committees registered with the FEC during the 2015-2016 election cycle
-
-`house_results`: the results of the 2016 Congressional elections
-
-`individuals`: a sample of 5000 individual contributions to candidates/committees during the primary and general 2016 elections
-
-`committee_contributions`: total contributions, aggregated by candidate, from committees
-
-`campaigns`: summary of financial information of the House/Senate Current Campaigns
-
 ## Who should use this package? 
 
-Mainly, anyone interested in US politics and elections and wants to use actual data to think critically and make inferences about it should use this package. Additionally, since we made this package with students and their instructors in mind to make working with the data itself as smooth as possible, it is a good set of data for teaching. Moreover, this package can provide inspiration for questions and projects that are data-driven and based on the real world. 
+Anyone interested in US politics and elections who wants to use actual data to think critically and make inferences. We made this package particularly with students and instructors in mind as there is demand for relational data in teaching. `fec16` is a one-stop shop for acquiring data of this kind.
+
+## Other notes
+
+- We dropped variables that are not useful for analysis from the original FEC datasets 
+- All the datasets are taken from [FEC](https://www.fec.gov/data/browse-data/?tab=bulk-data) 
+
+## Datasets Included
+
+### Full Datasets
+
+- `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
+- `committees`: committees registered with the FEC during the 2015-2016 election cycle
+- `campaigns`: the house/senate current campaigns
+- `results_house`: the house results of the 2016 general presidential election
+- `results_senate`: the senate results of the 2016 general presidential election
+- `results_president`: the final results of the 2016 general presidential election
+- `pac`: Political Action Committee (PAC) and party summary financial information
+
+### Sample Datasets (with 1000 rows each)
+
+- `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
+- `contributions`: candidates and their contributions from committees during the 2016 general election
+- `expenditures`: the operating expenditures 
+- `transactions`: transactions between committees
+
+## Functions Included
+
+The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function is given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
+
+- `read_all_individuals()` ~ 1.45GB
+- `read_all_contributions()` ~ 15.4MB
+- `read_all_expenditures()` ~ 52.1MB
+- `read_all_transactions()` ~ 79.2MB
+
+for example:
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+# The entire expenditures dataset can be accessed by:
+all_expenditures <- fec16::read_all_expenditures()
+
+# The first 30 entries in this dataset can be accessed by:
+expenditures_30 <- fec16::read_all_expenditures(n_max = 30)
+```
+
+More details can be found on the documentation pages which can be called via: `?function_name`
+
+**Note:** When these functions are run in the console, it is helpful to know the progress of the download taking place but running these functions in a R Markdown document leads to the progress bar of the download being printed repeatedly. A possible solution is to wrap the function in `invisible(utils::capture.output())` hereby suppressing the messages. For example, `invisible(utils::capture.output(all_expenditures <- fec16::read_all_expenditures())`. This example is executed later in this document.
 
 ## What does the data look like?
 
-The first six rows of the `house_results` dataset look like:
+The first six rows of the `results_house` dataset look like:
 ```{r}
-head(house_results)
+head(results_house)
 ```
 
 ## What can we do with this data?
@@ -86,7 +110,6 @@ We can use this package to address the (non-exhaustive) list of questions:
   1. Which presidential candidate won majority in more states?
   2. What is the relationship between contributions of candidates and total votes they get? 
   3. Which candidate got the most popular vote and how many?
-  4. Is there a trend in the contributions to a candidate depending on their party?
 
 To answer our questions we can make use of some **data wrangling** and **data visualization** techniques. Some examples (addressing the questions above) are shown below:
 
@@ -94,18 +117,18 @@ To answer our questions we can make use of some **data wrangling** and **data vi
 
 **Which presidential candidate won a majority in more states, and how many votes did they get?**
 
-Using the `president_results` dataset, we can also see what actually happened in the 2016 elections.
+Using the `results_president` dataset, we can also see what actually happened in the 2016 elections.
 
 Here is how we can summarize the number of wins by candidate:
-```{r}
-wins <- president_results %>%
-  group_by(cand_id, name_last) %>%
+```{r message=FALSE, warning=FALSE}
+wins <- left_join(results_president, candidates) %>%
+  group_by(cand_id, cand_name) %>%
   summarise(
     total_votes = sum(general_votes, na.rm = TRUE),
     states_won = sum(won)
   ) %>%
   arrange(desc(total_votes))
-wins
+head(wins)
 ```
 
 Compare these results to [those reported by the Wikipedia](https://en.wikipedia.org/wiki/2016_United_States_presidential_election).
@@ -113,14 +136,15 @@ We can show the results using a simple bar chart:
 
 Each win is for a single state. There are 51 total wins for the 50 States and Washington, D.C.
 ```{r}
-ggplot(wins %>% head(6), aes(x = reorder(name_last, total_votes), y = total_votes, fill = cand_id)) + 
+ggplot(wins %>% head(6), 
+       aes(x = reorder(cand_name, total_votes), y = total_votes, fill = cand_id)) +
   geom_col() +
-  scale_fill_discrete(guide = FALSE) + 
+  scale_fill_discrete(guide = FALSE) +
+  scale_y_continuous(labels = comma) +
   labs(
     title = "2016 Presidential Election",
     subtitle = "Total votes",
-    x = NULL, y = "Number of Votes"
-  ) + 
+    x = NULL, y = "Number of Votes") +
   coord_flip()
 ```
 
@@ -128,33 +152,34 @@ We can see that Hillary Clinton earned the most votes.
 
 ### Example 2:
 
-**What is the relationship between contributions of candidates and total votes they get?**
+**What is the relationship between contributions of candidates in the house and total votes they get?**
 
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
-```{r, eval=TRUE}
-results_by_cand <- house_results %>%
-  group_by(cand_id, name_last) %>%
-  summarise(sum_votes = sum(general_votes)) %>%
-  filter(sum_votes > 1000) %>%
-  inner_join(contributions, by = "cand_id")
-results_by_cand
+```{r eval=TRUE, message=FALSE, warning=FALSE}
+invisible(utils::capture.output(all_contributions <- fec16::read_all_contributions()))
+results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>% 
+  left_join(all_contributions, by = "cand_id") %>%
+  group_by(cand_id, cand_name, cand_pty_affiliation) %>%
+  summarise(sum_votes = sum(general_votes),
+            contribution = sum(transaction_amt)) %>%
+  filter(sum_votes > 1000)
+head(results_by_cand)
 ```
 
 Next, we plot the contributions and votes on a scatter plot and plot a trend line that would make it easy for us to see the relationship. Since there are outliers in the data, it is best to not use a continuous axis scale in order to see all of the points. 
 
-```{r eval=FALSE, message=FALSE}
-ggplot(results_by_cand, mapping = aes(x = total_contributions, y = sum_votes)) +
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+ggplot(results_by_cand, aes(x = contribution, y = sum_votes)) +
   geom_point() +
   scale_x_log10(labels = comma) +
   scale_y_sqrt(labels = comma) +
   geom_smooth(method = "auto") +
-  labs(title = "Contributions vs. Votes in 2016", 
-       x = "Contributions in US Dollars", y = "Total Votes") + 
-  geom_text_repel(aes(label = last_name))
+  labs(title = "Contributions vs. Votes in 2016",
+       x = "Contributions in US Dollars", y = "Total Votes")
 ```
 
-As we can see, the highest contributors got the highest amount of votes so it has a positive correlation. 
+As we can see, the highest contributors got the highest amount of votes so it has a positive correlation, but then it falls after a large contribution amount. 
 
 
 ### Example 3:
@@ -163,53 +188,22 @@ As we can see, the highest contributors got the highest amount of votes so it ha
 
 Visualize the results of the popular vote in the elections and see how many people voted: 
 ```{r message=FALSE, warning=FALSE}
-house_winners <- house_results %>%
+house_winners <-left_join(results_house, candidates, by = "cand_id") %>%
+  mutate(party_1 = str_sub(party, 1, 1)) %>% 
   filter(won, state %in% state.abb) %>%
-  group_by(cand_id, name_last) %>%
+  group_by(cand_id, cand_name, party_1) %>%
   summarize(
     total_votes = sum(general_votes),
     total_pct = sum(general_percent),
-    party = first(party)
-  ) %>%
-  filter(total_pct <= 1)
-  
-ggplot(house_winners, 
-       aes(x = total_votes, y = total_pct, 
-           color = party)) +
+  )
+
+ggplot(house_winners,
+       aes(x = total_votes, y = total_pct,
+           color = party_1)) +
   geom_point() +
   labs(
-    title = "Not all Congressional Races are the same", 
-    fill = "Candidate") +
+    title = "Not all Congressional Races are the same",
+    fill = "Candidate", x = "Total Votes", "Total Percent") +
   scale_y_continuous(labels = comma)
 ```
-
-
-
-
-### Example 4:
-
-**Is there a trend in the contributions to a candidate depending on their party?**
-
-We can create a scatter-plot of total contributions per candidate, colored by party (only including Democratic and Republican parties).
-```{r message = FALSE, eval=FALSE}
-joined_data <- candidates %>%
-  full_join(committee_contributions, by = "cand_id") %>%
-  filter(!is.na(total_contributions)) %>%
-  filter(cand_pty_aff == "REP" | cand_pty_aff == "DEM") %>%
-  filter(total_contributions <= 1e+07)
-
-ggplot(joined_data, aes(x = cand_id, y = total_contributions, color = cand_pty_aff)) +
-  geom_point() +
-  geom_jitter() +
-  theme(axis.text.x = element_blank()) +
-  labs(
-    title = "Contributions per Candidate by Party",
-    x = "Candidates", y = "Total Contributions ($)",
-    color = "Candidate Party Affiliation"
-  ) +
-  scale_y_continuous(labels = comma)
-```
-
-It doesn't look like there are any specific patterns in the contributions (for contributions under $ 10 million).
-
 

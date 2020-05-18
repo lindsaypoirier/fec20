@@ -24,20 +24,25 @@ Description: Easily analyze relational data from the 2016 federal
     This package contains data about candidates, commitees, and a
     variety of different financial expenditures. 
 License: CC0
-Depends: R (>= 2.10)
-Suggests: 
+Depends: 
+    R (>= 2.10),
+    dplyr,
+    readr
+Suggests:
     testthat (>= 2.1.0),
+    scales,
     knitr,
     rmarkdown,
-    dplyr,
+    fs,
+    lubridate,
+    usethis,
+    vroom,
     ggplot2,
-    tidyr,
-    scales,
-    ggrepel
+    stringr
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16
 BugReports: https://github.com/baumer-lab/fec16/issues
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 VignetteBuilder: knitr

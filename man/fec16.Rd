@@ -3,10 +3,9 @@
 \docType{package}
 \name{fec16}
 \alias{fec16}
-\title{fec16: A Data Package for the 2016 Election}
+\title{fec16: A Data Package for the 2016 Elections}
 \description{
-The fec16 package provides Federal Election Commission data of:
-candidates, committees, results, individual contributions, and committee contributions.
+The fec16 package provides the following 9 datasets from the Federal Election Commission's 2015-2016 election cycle:
 }
 \section{Datasets}{
 
@@ -14,23 +13,31 @@ candidates, committees, results, individual contributions, and committee contrib
 \itemize{
 \item Candidates: \link{candidates}
 \item Committees: \link{committees}
-\item House Results: \link{house_results}
-\item Senate Results: \link{senate_results}
-\item Presidential Results: \link{president_results}
+\item House Results: \link{results_house}
+\item Senate Results: \link{results_senate}
+\item Presidential Results: \link{results_president}
 \item Individual Contributions: \link{individuals}
 \item Committee Contributions: \link{contributions}
 \item House/Senate Current Campaigns: \link{campaigns}
 \item Operating Expenditures: \link{expenditures}
 \item Transactions From One Committee To Another: \link{transactions}
-\item PAC and Party Summary Financial Information: \link{pac}
+\item Political Action Committee (PAC) and Party Summary Financial Information: \link{pac}}
+
+The entire \link{candidates}, \link{committees}, \link{campaigns}, \link{results_house}, \link{results_senate}, \link{results_president}, and \link{pac} datasets and samples containing 1000 entries of the other datasets are available directly in the package.
+For the datasets comtaining samples, full versions can be retrieved via the following functions:
+\itemize{
+\item Individual Contributions: \link{read_all_individuals}
+\item Committee Contributions: \link{read_all_contributions}
+\item Operating Expenditures: \link{read_all_expenditures}
+\item Transactions From One Committee To Another: \link{read_all_transactions}
 }
 }
 
 \section{Authors}{
 
 \itemize{
-\item Irene Ryan: \url{https://github.com/ireneryan}
 \item Marium Tapal: \url{https://github.com/mariumtapal}
+\item Irene Ryan: \url{https://github.com/ireneryan}
 \item Rana Gahwagy: \url{https://github.com/ranawg}
 \item Ben Baumer: \url{https://github.com/beanumber}
 }

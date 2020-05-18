@@ -1,7 +1,5 @@
 library(tidyverse)
 
-
-
 file <- fs::path(tempdir(), "results16.xlsx")
 
 downloader::download(
@@ -9,18 +7,17 @@ downloader::download(
   destfile = file
 )
 
-house_results <- readxl::read_excel(file, sheet = 13) %>%
+results_house <- readxl::read_excel(file, sheet = 13) %>%
    janitor::clean_names() %>%
    # delete unneccesary variables
-   select(-x1, -state, -total_votes, -candidate_name, -contains("combined"), -ends_with("_la")) %>%
+   select(-x1, -state, -total_votes, -candidate_name, -contains("combined"),
+          -ends_with("_la"), -candidate_name_last, -candidate_name_first) %>%
    rename(
      state = state_abbreviation,
      cand_id = fec_id_number,
-     name_last = candidate_name_last,
-     name_first = candidate_name_first,
      district_id = d,
      incumbent = i,
-     won = ge_winner_indicator
+     won = ge_winner_indicator,
    ) %>%
   filter(cand_id != 'n/a', !str_detect(cand_id, "FULL TERM")) %>%
   mutate(
@@ -31,21 +28,19 @@ house_results <- readxl::read_excel(file, sheet = 13) %>%
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 
-usethis::use_data(house_results, overwrite = TRUE)
+usethis::use_data(results_house, overwrite = TRUE)
 
 # Senate
 
-senate_results <- readxl::read_excel(file, sheet = 12
+results_senate <- readxl::read_excel(file, sheet = 12
   ) %>%
   janitor::clean_names() %>%
   # delete unneccesary variables
-  select(-x1, -state, -d, -total_votes, -candidate_name, -contains("combined"), -ends_with("_la")) %>%
+  select(-x1, -state, -d, -total_votes, -candidate_name, -contains("combined"),
+         -ends_with("_la"), -candidate_name_last, -candidate_name_first, -runoff_votes, -runoff_percent) %>%
   rename(
     state = state_abbreviation,
     cand_id = fec_id_number,
-    name_last = candidate_name_last,
-    name_first = candidate_name_first,
-    general_votes = general_results,
     incumbent = i,
     won = ge_winner_indicator
   ) %>%
@@ -57,21 +52,20 @@ senate_results <- readxl::read_excel(file, sheet = 12
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 
-usethis::use_data(senate_results, overwrite = TRUE)
+usethis::use_data(results_senate, overwrite = TRUE)
 
 # President
 
-president_results <- readxl::read_excel(file, sheet = 9) %>%
+results_president <- readxl::read_excel(file, sheet = 9) %>%
   janitor::clean_names() %>%
   # delete unneccesary variables
-  select(-x1, -state, -general_election_date, -total_votes, -total_votes_number, -last_name_first) %>%
+  select(-x1, -state, -general_election_date, -total_votes, -total_votes_number,
+         -last_name_first, -last_name, -first_name) %>%
   rename(
     state = state_abbreviation,
     cand_id = fec_id,
-    name_last = last_name,
-    name_first = first_name,
-    general_votes = general_results,
-    won = winner_indicator
+    won = winner_indicator,
+    general_votes = general_results
   ) %>%
   filter(cand_id != 'n/a') %>%
   mutate(
@@ -79,4 +73,4 @@ president_results <- readxl::read_excel(file, sheet = 9) %>%
   ) %>%
   replace_na(list(won = FALSE))
 
-usethis::use_data(president_results, overwrite = TRUE)
+usethis::use_data(results_president, overwrite = TRUE)
