@@ -69,10 +69,10 @@ calling each function is given for reference. All functions have an
 argument `n_max` which defaults to the entire dataset but the user can
 specify the max length of the dataset to be loaded via this argument.
 
-  - `read_all_individuals()` \~ 1.45GB
-  - `read_all_contributions()` \~ 15.4MB
-  - `read_all_expenditures()` \~ 52.1MB
-  - `read_all_transactions()` \~ 79.2MB
+  - `read_all_individuals()` ~ 1.45GB
+  - `read_all_contributions()` ~ 15.4MB
+  - `read_all_expenditures()` ~ 52.1MB
+  - `read_all_transactions()` ~ 79.2MB
 
 **Note:** When these functions are run in the console, it is helpful to
 know the progress of the download taking place but running these
@@ -100,8 +100,8 @@ data
 #> # A tibble: 2 x 2
 #>   cand_pty_affiliation  size
 #>   <chr>                <int>
-#> 1 DEM                   2242
-#> 2 REP                   2677
+#> 1 DEM                   1258
+#> 2 REP                   1481
 ```
 
 ### Data Visualization

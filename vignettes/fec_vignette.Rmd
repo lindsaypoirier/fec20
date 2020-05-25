@@ -1,6 +1,6 @@
 ---
 title: "fec16"
-author: "Marium Tapal, Irene Ryan, and Rana Gahwagy"
+author: "Marium Tapal, Irene Ryan, Rana Gahwagy, and Benjamin S. Baumer"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{fec16}
@@ -78,10 +78,10 @@ Anyone interested in US politics and elections who wants to use actual data to t
 
 The following functions retrieve the entire datasets for the sampled ones listed above. The size of the raw file that is downloaded by calling each function is given for reference. All functions have an argument `n_max` which defaults to the entire dataset but the user can specify the max length of the dataset to be loaded via this argument.
 
-- `read_all_individuals()` ~ 1.45GB
-- `read_all_contributions()` ~ 15.4MB
-- `read_all_expenditures()` ~ 52.1MB
-- `read_all_transactions()` ~ 79.2MB
+- `read_all_individuals()` \~ 1.45GB
+- `read_all_contributions()` \~ 15.4MB
+- `read_all_expenditures()` \~ 52.1MB
+- `read_all_transactions()` \~ 79.2MB
 
 for example:
 ```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
@@ -93,8 +93,6 @@ expenditures_30 <- fec16::read_all_expenditures(n_max = 30)
 ```
 
 More details can be found on the documentation pages which can be called via: `?function_name`
-
-**Note:** When these functions are run in the console, it is helpful to know the progress of the download taking place but running these functions in a R Markdown document leads to the progress bar of the download being printed repeatedly. A possible solution is to wrap the function in `invisible(utils::capture.output())` hereby suppressing the messages. For example, `invisible(utils::capture.output(all_expenditures <- fec16::read_all_expenditures())`. This example is executed later in this document.
 
 ## What does the data look like?
 
@@ -160,10 +158,7 @@ We can see that Hillary Clinton earned the most votes.
 Here we investigate what kind of relationship, if any, the candidates with over a 1000 votes got with the total contributions they made. We are interested in candidates with an ID number so we can join them with the contribution data set by using `inner_join`.
 
 ```{r eval=TRUE, message=FALSE, warning=FALSE}
-interactive()
-withr::local_options(list(usethis.quiet = TRUE))
-all_contributions <- fec16::read_all_contributions(verbose = FALSE)
-
+all_contributions <- fec16::read_all_contributions()
 results_by_cand <- left_join(results_house, candidates, by = "cand_id") %>%
   left_join(all_contributions, by = "cand_id") %>%
   group_by(cand_id, cand_name, cand_pty_affiliation) %>%
