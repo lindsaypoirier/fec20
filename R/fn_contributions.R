@@ -1,6 +1,6 @@
 #' Committee contributions metadata
 #'
-#' \code{read_all_contributions} returns a dataframe about contribution  data
+#' \code{read_all_contributions} returns a dataframe about contribution data
 #'
 #' @param n_max Integer specifying the max amount of entries in the dataset. Defaults to the possible maximum.
 #' @param verbose A progress bar is shown if R is running interactively. Defaults to `interactive()`.
