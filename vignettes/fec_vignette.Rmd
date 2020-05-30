@@ -67,7 +67,7 @@ Anyone interested in US politics and elections who wants to use actual data to t
 - `results_president`: the final results of the 2016 general presidential election
 - `pac`: Political Action Committee (PAC) and party summary financial information
 
-### Sample Datasets (with 1000 rows each)
+### Sample Datasets (with 1000 random rows each)
 
 - `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
 - `contributions`: candidates and their contributions from committees during the 2016 general election
