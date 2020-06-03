@@ -5,7 +5,7 @@ context("Dimensions of data")
 # candidates
 
 test_that("number of columns in candidates df is correct", {
-  expect_equal(ncol(candidates), 14)
+  expect_equal(ncol(candidates), 15)
 })
 
 

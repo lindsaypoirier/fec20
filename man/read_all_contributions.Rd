@@ -15,7 +15,7 @@ read_all_contributions(n_max = Inf, verbose = interactive())
 The entire dataframe. More information about variables is at \code{?contributions}.
 }
 \description{
-\code{read_all_contributions} returns a dataframe about contribution  data
+\code{read_all_contributions} returns a dataframe about contribution data
 }
 \examples{
 \dontrun{read_all_contributions()}
