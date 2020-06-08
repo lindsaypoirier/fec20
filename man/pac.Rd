@@ -50,11 +50,11 @@ W = Waived}
 \item{coh_bop}{Cash beginning of period}
 \item{coh_cop}{Cash close of period}
 \item{debts_owed_by}{Debts owed by}
-\item{nonfed_trans_received}{Nonfederal transfers received}
+\item{nonfed_trans_received}{Non-federal transfers received}
 \item{contrib_to_other_cmte}{Contributions to other committees}
 \item{ind_exp}{Independent expenditures}
 \item{pty_coord_exp}{Party coordinated expenditures}
-\item{nonfed_share_exp}{Nonfederal share expenditures}
+\item{nonfed_share_exp}{Non-federal share expenditures}
 \item{cvg_end_dt}{Coverage end date (YYYY-MM-DD)}
 }
 }
@@ -65,6 +65,6 @@ W = Waived}
 pac
 }
 \description{
-PAC and party summary finanicial information
+PAC and party summary financial information
 }
 \keyword{datasets}

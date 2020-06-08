@@ -14,7 +14,7 @@
 \item{cand_id}{A code assigned to a candidate by the FEC}
 \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
 \item{party}{Party of the candidate}
-\item{primary_votes}{Number of votes in the primary electiom}
+\item{primary_votes}{Number of votes in the primary election}
 \item{primary_percent}{Percentage of votes in the primary election}
 \item{runoff_votes}{Number of runoff votes}
 \item{runoff_percent}{Percentage of runoff votes}

@@ -5,7 +5,7 @@
 \alias{contributions}
 \title{Committee contributions metadata}
 \format{
-A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
+A data frame with 1000 rows and 15 columns with information about candidate committee contributions.
 \describe{
 \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -52,6 +52,6 @@ appearing in an FEC electronic file. A transaction ID is unique for a specific c
 contributions
 }
 \description{
-Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
+Provides data pertaining to each candidate and their contributions from committees during the 2016 general election.
 }
 \keyword{datasets}

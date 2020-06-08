@@ -13,7 +13,7 @@ report or a termination (T) report}
 \item{rpt_yr}{Report year}
 \item{rpt_tp}{Indicates the type of report filed, listed here:
 \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}}
-\item{line_num}{ndicates FEC form line number}
+\item{line_num}{Indicates FEC form line number}
 \item{form_tp_cd}{Indicates FEC form type}
 \item{sched_tp_cd}{Schedule type: Schedule B - Itemized disbursements}
 \item{name}{Contributor/lender/Transfer Name}
@@ -48,7 +48,7 @@ appearing in an FEC electronic file. A transaction ID is unique for a specific c
 
 \item{back_ref_tran_id}{Back reference transaction ID: Used to associate one transaction with another transaction in the same report
 (using file number, transaction ID and back reference transaction ID).
-For example, a credit card payment and the subitemization of specific purchases.
+For example, a credit card payment and the sub-itemization of specific purchases.
 The back reference transaction ID of the specific purchases will equal the transaction ID of the payment to the credit card company.}
 }
 }

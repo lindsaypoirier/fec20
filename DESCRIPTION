@@ -21,7 +21,7 @@ Authors@R: c(
            )
 Description: Easily analyze relational data from the 2016 federal 
     election cycle as reported by the Federal Election Commission.
-    This package contains data about candidates, commitees, and a
+    This package contains data about candidates, committees, and a
     variety of different financial expenditures. 
 License: CC0
 Depends: 

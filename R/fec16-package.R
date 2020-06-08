@@ -18,7 +18,7 @@
 #'   \item Political Action Committee (PAC) and Party Summary Financial Information: [pac]}
 #'
 #' The entire [candidates], [committees], [campaigns], [results_house], [results_senate], [results_president], and [pac] datasets and samples containing 1000 entries of the other datasets are available directly in the package.
-#' For the datasets comtaining samples, full versions can be retrieved via the following functions:
+#' For the datasets containing samples, full versions can be retrieved via the following functions:
 #' \itemize{
 #'   \item Individual Contributions: [read_all_individuals]
 #'   \item Committee Contributions: [read_all_contributions]
