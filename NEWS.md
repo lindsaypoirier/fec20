@@ -1,3 +1,3 @@
-# fec16 0.0.0.9010 (2020-06-08)
+# fec16 0.1.0 (2020-07-02)
 
-* Added a NEWS.md file to track changes to the package.
+* First release for CRAN

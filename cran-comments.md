@@ -5,6 +5,10 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+There are no Errors, Warnings, or Notes in local R cmd check.
+
+- From Rhub: 
+- From Rhub: 
+- From win-builder:
 
 * This is a new release.

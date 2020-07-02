@@ -38,7 +38,8 @@ Suggests:
     usethis,
     vroom,
     ggplot2,
-    stringr
+    stringr,
+    utf8
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16
