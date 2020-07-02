@@ -35,11 +35,10 @@ Suggests:
     rmarkdown,
     fs,
     lubridate,
-    usethis,
     vroom,
     ggplot2,
     stringr,
-    utf8
+    usethis
 Encoding: UTF-8
 LazyData: true
 URL: http://github.com/baumer-lab/fec16
