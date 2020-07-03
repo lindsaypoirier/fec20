@@ -1,20 +1,26 @@
 * This is a new release.
 
 ## Test environments
+
+Rhub
+Windows Server 2008 R2 SP1, R-devel, 32/64 bit
+Ubuntu Linux 16.04 LTS, R-release, GCC
+Fedora Linux, R-devel, clang, gfortran
+
 * local OS X install, R 4.0.0
-* Ubuntu Linux 16.04 (R-release)
-* Fedora Linux (R-devel)
-* Windows Server 2008 (R-release)
-* win-builder (R-devel)
+* R-hub
+  - Ubuntu Linux 16.04 LTS, R-release, GCC
+  - Fedora Linux, R-devel, clang, gfortran
+  - Windows Server 2008 R2 SP1, R-devel, 32/64 bit
+* win-builder (devel and release)
 
 ## R CMD check results
 
-There are no Errors, Warnings, or Notes in the local R cmd check.
+There are no Errors or Warnings in the R cmd check.
 
-There is a note for a new submission in the 3 following environments:
-- Ubuntu: 1 error that package suggested but not available 'usethis'
-- Fedora
-- Windows Server: 1 warning that vignette re-building failed as "there is no package called 'utf8' "
-
-- From win-builder: 
-  - 1 note: R Under development (unstable)
+* There is a NOTE for a new submission in the R-hub environments since this is my first submission
+* There is a NOTE about the presence of non-ASCII in the included data
+```
+checking data for non-ASCII characters ... NOTE
+Note: found 33 marked UTF-8 strings
+```
