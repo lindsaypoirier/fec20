@@ -26,7 +26,7 @@ Description: Easily analyze relational data from the 2016 federal
     variety of different financial expenditures. 
 License: CC0
 Depends: 
-    R (>= 2.10),
+    R (>= 3.2.4),
     dplyr,
     readr
 Suggests:
