@@ -18,8 +18,8 @@ Fedora Linux, R-devel, clang, gfortran
 
 There are no Errors or Warnings in the R cmd check.
 
-* There is a NOTE for a new submission in the R-hub environments since this is my first submission
-* There is a NOTE about the presence of non-ASCII in the included data
+* There is a NOTE for a new submission since this is my first submission
+* There is a NOTE about the presence of non-ASCII in the included data:
 ```
 checking data for non-ASCII characters ... NOTE
 Note: found 33 marked UTF-8 strings
