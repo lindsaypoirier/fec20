@@ -28,9 +28,9 @@
 
 #' Committee contributions metadata
 #'
-#' @description Provides data pertaining to each candidate and their contibutions from committees during the 2016 general election.
+#' @description Provides data pertaining to each candidate and their contributions from committees during the 2016 general election.
 #'
-#' @format A data frame with 1000 rows and 15 columns with information about candidate committee contibutions.
+#' @format A data frame with 1000 rows and 15 columns with information about candidate committee contributions.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{amndt_ind}{Amendment indicator: Indicates if the report being filed is new (N), an amendment (A) to a previous
@@ -188,7 +188,7 @@
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{incumbent}{A logical variable: TRUE if incumbent, FALSE if not}
 #'   \item{party}{Party of the candidate}
-#'   \item{primary_votes}{Number of votes in the primary electiom}
+#'   \item{primary_votes}{Number of votes in the primary election}
 #'   \item{primary_percent}{Percentage of votes in the primary election}
 #'   \item{runoff_votes}{Number of runoff votes}
 #'   \item{runoff_percent}{Percentage of runoff votes}
@@ -258,7 +258,7 @@
 #'   \item{rpt_yr}{Report year}
 #'   \item{rpt_tp}{Indicates the type of report filed, listed here:
 #'   \url{https://www.fec.gov/campaign-finance-data/report-type-code-descriptions}}
-#'   \item{line_num}{ndicates FEC form line number}
+#'   \item{line_num}{Indicates FEC form line number}
 #'   \item{form_tp_cd}{Indicates FEC form type}
 #'   \item{sched_tp_cd}{Schedule type: Schedule B - Itemized disbursements}
 #'   \item{name}{Contributor/lender/Transfer Name}
@@ -293,7 +293,7 @@
 #'
 #'   \item{back_ref_tran_id}{Back reference transaction ID: Used to associate one transaction with another transaction in the same report
 #'   (using file number, transaction ID and back reference transaction ID).
-#'   For example, a credit card payment and the subitemization of specific purchases.
+#'   For example, a credit card payment and the sub-itemization of specific purchases.
 #'   The back reference transaction ID of the specific purchases will equal the transaction ID of the payment to the credit card company.}
 #'   }
 #' @source <https://www.fec.gov/campaign-finance-data/operating-expenditures-file-description/>, updated 2020-03-02
@@ -346,7 +346,7 @@
 
 #' Political Action Committee (PAC) and Party Summary Financial Information
 #'
-#' @description PAC and party summary finanicial information
+#' @description PAC and party summary financial information
 #'
 #' @format A data frame with 12049 rows and 27 columns:
 #' \describe{
@@ -393,11 +393,11 @@
 #'   \item{coh_bop}{Cash beginning of period}
 #'   \item{coh_cop}{Cash close of period}
 #'   \item{debts_owed_by}{Debts owed by}
-#'   \item{nonfed_trans_received}{Nonfederal transfers received}
+#'   \item{nonfed_trans_received}{Non-federal transfers received}
 #'   \item{contrib_to_other_cmte}{Contributions to other committees}
 #'   \item{ind_exp}{Independent expenditures}
 #'   \item{pty_coord_exp}{Party coordinated expenditures}
-#'   \item{nonfed_share_exp}{Nonfederal share expenditures}
+#'   \item{nonfed_share_exp}{Non-federal share expenditures}
 #'   \item{cvg_end_dt}{Coverage end date (YYYY-MM-DD)}
 #'   }
 #' @source <https://www.fec.gov/campaign-finance-data/pac-and-party-summary-file-description/>, updated 2020-03-02
