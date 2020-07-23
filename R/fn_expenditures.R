@@ -6,8 +6,8 @@
 #' @param verbose A progress bar is shown if R is running interactively. Defaults to `interactive()`.
 #' @return The entire dataframe. More information about variables is at `?expenditures`.
 #' @examples
-#' \dontrun{read_all_expenditures()}
-#' \dontrun{read_all_expenditures(n_max = 250)}
+#' \donttest{read_all_expenditures()}
+#' \donttest{read_all_expenditures(n_max = 250)}
 #' @import dplyr
 #' @import readr
 #' @export
@@ -40,7 +40,7 @@ read_all_expenditures <- function(n_max = Inf, verbose = interactive()) {
     col_names = oppexp_names,
     col_types = cols(
       zip_code = col_character(),
-      other_id = col_character(),
+      tran_id = col_character(),
       memo_cd = col_character(),
       memo_text = col_character(),
       sub_id = col_character()
@@ -49,8 +49,7 @@ read_all_expenditures <- function(n_max = Inf, verbose = interactive()) {
   )
 
   expenditures_all <- oppexp_all %>%
-    select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
-    sample_n(n) %>%
+    select(-c(image_num, sub_id, memo_text, memo_cd, file_num, X26)) %>%
     mutate(
       transaction_dt = lubridate::mdy(transaction_dt)
     )

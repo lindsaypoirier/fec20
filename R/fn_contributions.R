@@ -6,8 +6,8 @@
 #' @param verbose A progress bar is shown if R is running interactively. Defaults to `interactive()`.
 #' @return The entire dataframe. More information about variables is at `?contributions`.
 #' @examples
-#' \dontrun{read_all_contributions()}
-#' \dontrun{read_all_contributions(n_max = 250)}
+#' \donttest{read_all_contributions()}
+#' \donttest{read_all_contributions(n_max = 250)}
 #' @import dplyr
 #' @import readr
 #' @export
@@ -41,7 +41,7 @@ read_all_contributions <- function(n_max = Inf, verbose = interactive()) {
       employer = col_character(),
       occupation = col_character()),
     n_max = n_max, delim = "|") %>%
-    select(-employer, -occupation, -image_num, -memo_cd, -memo_text, -sub_id, -file_num) %>%
+    select(-c(employer, occupation, image_num, memo_cd, memo_text, sub_id, file_num)) %>%
     mutate(
       transaction_dt = lubridate::mdy(transaction_dt)
     )

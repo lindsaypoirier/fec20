@@ -18,6 +18,6 @@ The entire dataframe. More information about variables is at \code{?contribution
 \code{read_all_contributions} returns a dataframe about contribution data
 }
 \examples{
-\dontrun{read_all_contributions()}
-\dontrun{read_all_contributions(n_max = 250)}
+\donttest{read_all_contributions()}
+\donttest{read_all_contributions(n_max = 250)}
 }

@@ -9,12 +9,15 @@ read_all_transactions(n_max = Inf, verbose = interactive())
 \arguments{
 \item{n_max}{Integer specifying the max amount of entries in the dataset. Defaults to the possible maximum.}
 
-\item{verbose}{A progress bar is shown if R is running interactively. Defaults to \code{interactive()}.#' @return The entire dataframe. More information about variables is at \code{?transactions}.}
+\item{verbose}{A progress bar is shown if R is running interactively. Defaults to \code{interactive()}.}
+}
+\value{
+The entire dataframe. More information about variables is at \code{?transactions}.
 }
 \description{
 \code{read_all_transactions} returns a dataframe about transaction data
 }
 \examples{
-\dontrun{read_all_transactions()}
-\dontrun{read_all_transactions(n_max = 250)}
+\donttest{read_all_transactions()}
+\donttest{read_all_transactions(n_max = 250)}
 }

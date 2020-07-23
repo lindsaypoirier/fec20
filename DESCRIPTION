@@ -1,5 +1,5 @@
 Package: fec16
-Title: Data Package for 2016 Federal Elections
+Title: Data Package for the 2016 United States Federal Elections
 Version: 0.1.0
 Authors@R: c(
     person(given = "Marium",
@@ -21,10 +21,10 @@ Authors@R: c(
            email = "ben.baumer@gmail.com")
            )
 Maintainer: Marium Tapal <mariumtapal@gmail.com>
-Description: Easily analyze relational data from the 2016 federal 
+Description: Easily analyze relational data from the United States 2016 federal 
     election cycle as reported by the Federal Election Commission.
     This package contains data about candidates, committees, and a
-    variety of different financial expenditures. 
+    variety of different financial expenditures. Data is from <https://www.fec.gov/data/browse-data/?tab=bulk-data>. 
 License: CC0
 Depends: 
     R (>= 3.2.4),
