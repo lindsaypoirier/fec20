@@ -18,6 +18,6 @@ The entire dataframe. More information about variables is at \code{?expenditures
 \code{read_all_expenditures} returns a dataframe about operating expenditure data
 }
 \examples{
-\dontrun{read_all_expenditures()}
-\dontrun{read_all_expenditures(n_max = 250)}
+\donttest{read_all_expenditures()}
+\donttest{read_all_expenditures(n_max = 250)}
 }

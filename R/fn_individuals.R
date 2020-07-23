@@ -6,8 +6,8 @@
 #' @param verbose A progress bar is shown if R is running interactively. Defaults to `interactive()`.
 #' @return The entire dataframe. More information about variables is at `?individuals`.
 #' @examples
-#' \dontrun{read_all_individuals()}
-#' \dontrun{read_all_individuals(n_max = 250)}
+#' \donttest{read_all_individuals()}
+#' \donttest{read_all_individuals(n_max = 250)}
 #' @import dplyr
 #' @import readr
 #' @export
@@ -48,7 +48,7 @@ read_all_individuals <- function(n_max = Inf, verbose = interactive()){
     ),
     delim = "|"
   ) %>%
-    select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
+    select(-c(image_num, sub_id, memo_text, memo_cd, file_num)) %>%
     mutate(
       transaction_dt = lubridate::mdy(transaction_dt)
     )

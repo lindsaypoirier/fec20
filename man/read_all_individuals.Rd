@@ -18,6 +18,6 @@ The entire dataframe. More information about variables is at \code{?individuals}
 \code{read_all_individuals} returns a dataframe about transactions from individuals to candidates/committees
 }
 \examples{
-\dontrun{read_all_individuals()}
-\dontrun{read_all_individuals(n_max = 250)}
+\donttest{read_all_individuals()}
+\donttest{read_all_individuals(n_max = 250)}
 }
