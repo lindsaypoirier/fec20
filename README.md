@@ -52,7 +52,7 @@ library(fec16)
   - `pac`: Political Action Committee (PAC) and party summary financial
     information
 
-### Sample Datasets (with 1000 rows each)
+### Sample Datasets (with 1000 random rows each)
 
   - `individuals`: individual contributions to candidates/committees
     during the 2016 general presidential election
@@ -74,13 +74,6 @@ specify the max length of the dataset to be loaded via this argument.
   - `read_all_expenditures()` ~ 52.1MB
   - `read_all_transactions()` ~ 79.2MB
 
-**Note:** When these functions are run in the console, it is helpful to
-know the progress of the download taking place but running these
-functions in a R Markdown document leads to the progress bar of the
-download being printed repeatedly. A possible solution is to wrap the
-function in `invisible(utils::capture.output())` hereby suppressing the
-messages.
-
 ## Examples
 
 ### Data Wrangling
@@ -100,8 +93,8 @@ data
 #> # A tibble: 2 x 2
 #>   cand_pty_affiliation  size
 #>   <chr>                <int>
-#> 1 DEM                   1258
-#> 2 REP                   1481
+#> 1 DEM                   1270
+#> 2 REP                   1495
 ```
 
 ### Data Visualization
