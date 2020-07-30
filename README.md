@@ -77,10 +77,10 @@ calling each function is given for reference. All functions have an
 argument `n_max` which defaults to the entire dataset but the user can
 specify the max length of the dataset to be loaded via this argument.
 
-  - `read_all_individuals()` ~ 1.45GB
-  - `read_all_contributions()` ~ 15.4MB
-  - `read_all_expenditures()` ~ 52.1MB
-  - `read_all_transactions()` ~ 79.2MB
+  - `read_all_individuals()` \~ 1.45GB
+  - `read_all_contributions()` \~ 15.4MB
+  - `read_all_expenditures()` \~ 52.1MB
+  - `read_all_transactions()` \~ 79.2MB
 
 ## Examples
 
