@@ -46,16 +46,16 @@ library(fec16)
 
 - `candidates`: candidates registered with the FEC during the 2015-2016 election cycle
 - `committees`: committees registered with the FEC during the 2015-2016 election cycle
-- `campaigns`: the house/senate current campaigns
-- `results_house`: the house results of the 2016 general presidential election
-- `results_senate`: the senate results of the 2016 general presidential election
-- `results_president`: the final results of the 2016 general presidential election
+- `campaigns`: the House/Senate current campaigns
+- `results_house`: the House results of the 2016 general election
+- `results_senate`: the Senate results of the 2016 general election
+- `results_president`: the final results of the 2016 general election
 - `pac`: Political Action Committee (PAC) and party summary financial information
 
 ### Sample Datasets (with 1000 random rows each)
 
-- `individuals`: individual contributions to candidates/committees during the 2016 general presidential election
-- `contributions`: candidates and their contributions from committees during the 2016 general election
+- `individuals`: individual contributions to candidates/committees during the 2016 election cycle
+- `contributions`: candidates and their contributions from committees during the 2016 election cycle
 - `expenditures`: the operating expenditures 
 - `transactions`: transactions between committees
 
@@ -88,6 +88,11 @@ data
 ### Data Visualization 
 
 We can visualize the above data:
+
+```{r, include=FALSE}
+set.seed(21)
+```
+
 
 ```{r party-plot, message=FALSE, warning=FALSE}
 library(ggplot2)
