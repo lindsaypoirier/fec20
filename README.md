@@ -23,14 +23,22 @@ includes functions that import the full versions.
 
 ## Installation
 
-`fec16` is hosted on GitHub and call be installed by running the
-following:
+Get the latest released version from CRAN:
 
 ``` r
-devtools::install_github("baumer-lab/fec16")
+install.packages("fec16")
+```
+
+Or the development version from GitHub:
+
+``` r
+# If you haven't installed the remotes package yet, do so:
+# install.packages("remotes")
+remotes::install_github("baumer-lab/fec16")
 ```
 
 ``` r
+# Load package
 library(fec16)
 ```
 
