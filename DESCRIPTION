@@ -18,8 +18,10 @@ Authors@R: c(
     person(given = "Benjamin S.",
            family = "Baumer",
            role = "aut",
-           email = "ben.baumer@gmail.com")
+           email = "ben.baumer@gmail.com", 
+           comment = c(ORCID = "0000-0002-3279-0516")
            )
+    )
 Maintainer: Marium Tapal <mariumtapal@gmail.com>
 Description: Easily analyze relational data from the United States 2016 federal 
     election cycle as reported by the Federal Election Commission.
