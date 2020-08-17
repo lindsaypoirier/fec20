@@ -46,7 +46,7 @@ Suggests:
     utf8
 Encoding: UTF-8
 LazyData: true
-URL: http://github.com/baumer-lab/fec16
+URL: https://github.com/baumer-lab/fec16
 BugReports: https://github.com/baumer-lab/fec16/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
