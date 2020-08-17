@@ -1,6 +1,6 @@
 Package: fec16
 Title: Data Package for the 2016 United States Federal Elections
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person(given = "Marium",
            family = "Tapal",
@@ -29,7 +29,7 @@ Description: Easily analyze relational data from the United States 2016 federal
     variety of different financial expenditures. Data is from <https://www.fec.gov/data/browse-data/?tab=bulk-data>. 
 License: CC0
 Depends: 
-    R (>= 3.2.4),
+    R (>= 3.5.0),
     dplyr,
     readr
 Suggests:
