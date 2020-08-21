@@ -3,6 +3,7 @@
 Resubmission
 
 * Edited internal vignette code for faster compilation
+* Fixed the 4 possible invalid URLs 
 
 # fec16 0.1.0 (2020-07-10)
 

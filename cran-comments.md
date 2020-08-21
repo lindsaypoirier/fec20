@@ -3,6 +3,7 @@
 This is a resubmission. In this version:
 
 * Edited internal vignette code for faster compilation to address warnings here: https://cran.r-project.org/web/checks/check_results_fec16.html
+* Fixed the 4 possible invalid URLs 
 
 ## Test environments
 
@@ -17,7 +18,6 @@ This is a resubmission. In this version:
 
 There are no Errors or Warnings in the R cmd check.
 
-* There are 3 possible invalid URLs, which upon manual check are fine
 * There is a NOTE about the presence of non-ASCII in the included data:
 ```
 checking data for non-ASCII characters ... NOTE
