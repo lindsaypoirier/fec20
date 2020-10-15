@@ -29,9 +29,11 @@ Description: Easily analyze relational data from the United States 2016 federal
     variety of different financial expenditures. Data is from <https://www.fec.gov/data/browse-data/?tab=bulk-data>. 
 License: CC0
 Depends: 
-    R (>= 3.5.0),
+    R (>= 3.5.0)
+Imports:
     dplyr,
-    readr
+    readr,
+    vroom
 Suggests:
     testthat (>= 2.1.0),
     scales,
@@ -39,7 +41,6 @@ Suggests:
     rmarkdown,
     fs,
     lubridate,
-    vroom,
     ggplot2,
     stringr,
     usethis,
