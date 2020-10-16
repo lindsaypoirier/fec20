@@ -1,9 +1,8 @@
-## Resubmission
+## Resubmission 
 
-This is a resubmission. In this version:
+This is a resubmission. In this version (v0.1.2):
 
-* Edited internal vignette code for faster compilation to address warnings here: https://cran.r-project.org/web/checks/check_results_fec16.html
-* Fixed the 4 possible invalid URLs 
+* Updated some issues with dependencies and imports
 
 ## Test environments
 
