@@ -1,11 +1,10 @@
-* This is a new release.
+## Resubmission 
+
+This is a resubmission. In this version (v0.1.2):
+
+* Updated some issues with dependencies and imports
 
 ## Test environments
-
-Rhub
-Windows Server 2008 R2 SP1, R-devel, 32/64 bit
-Ubuntu Linux 16.04 LTS, R-release, GCC
-Fedora Linux, R-devel, clang, gfortran
 
 * local OS X install, R 4.0.0
 * R-hub
@@ -18,7 +17,6 @@ Fedora Linux, R-devel, clang, gfortran
 
 There are no Errors or Warnings in the R cmd check.
 
-* There is a NOTE for a new submission since this is my first submission
 * There is a NOTE about the presence of non-ASCII in the included data:
 ```
 checking data for non-ASCII characters ... NOTE

@@ -1,6 +1,6 @@
 Package: fec16
 Title: Data Package for the 2016 United States Federal Elections
-Version: 0.1.0.9000
+Version: 0.1.2.9000
 Authors@R: c(
     person(given = "Marium",
            family = "Tapal",
@@ -29,9 +29,11 @@ Description: Easily analyze relational data from the United States 2016 federal
     variety of different financial expenditures. Data is from <https://www.fec.gov/data/browse-data/?tab=bulk-data>. 
 License: CC0
 Depends: 
-    R (>= 3.2.4),
+    R (>= 3.5.0)
+Imports:
     dplyr,
-    readr
+    readr,
+    vroom
 Suggests:
     testthat (>= 2.1.0),
     scales,
@@ -39,14 +41,13 @@ Suggests:
     rmarkdown,
     fs,
     lubridate,
-    vroom,
     ggplot2,
     stringr,
     usethis,
     utf8
 Encoding: UTF-8
 LazyData: true
-URL: http://github.com/baumer-lab/fec16
+URL: https://github.com/baumer-lab/fec16
 BugReports: https://github.com/baumer-lab/fec16/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
