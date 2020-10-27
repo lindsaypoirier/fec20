@@ -1,3 +1,7 @@
+# fec16 0.2.0
+
+* added `states` data frame
+
 # fec16 0.1.0 (2020-07-10)
 
 First release for CRAN
