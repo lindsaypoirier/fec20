@@ -1,8 +1,8 @@
 ## Resubmission 
 
-This is a resubmission. In this version (v0.1.3):
+This is a resubmission. In this version (v0.1.2):
 
-* Change discrepency in the `party` variable in the `results_house` and `results_senate` datasets
+* Updated some issues with dependencies and imports
 
 ## Test environments
 
