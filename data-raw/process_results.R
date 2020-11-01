@@ -7,6 +7,8 @@ downloader::download(
   destfile = file
 )
 
+# House
+
 results_house <- readxl::read_excel(file, sheet = 13) %>%
    janitor::clean_names() %>%
    # delete unneccesary variables
@@ -24,7 +26,9 @@ results_house <- readxl::read_excel(file, sheet = 13) %>%
     primary_votes = parse_number(primary_votes),
     general_votes = parse_number(general_votes),
     won = won == "W",
-    incumbent = incumbent == "(I)"
+    incumbent = incumbent == "(I)",
+    party = if_else((party == "R")|(party == "R "), "REP", party),
+    party = if_else((party == "D")|(party == "D "), "DEM", party)
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 
@@ -48,7 +52,9 @@ results_senate <- readxl::read_excel(file, sheet = 12
   mutate(
     primary_votes = parse_number(primary_votes),
     won = won == "W",
-    incumbent = incumbent == "(I)"
+    incumbent = incumbent == "(I)",
+    party = if_else((party == "R")|(party == "R "), "REP", party),
+    party = if_else((party == "D")|(party == "D "), "DEM", party)
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 
