@@ -10,7 +10,7 @@ A data frame with 50 rows and 3 columns:
 \item{state}{two-character postal abbreviation}
 \item{state_name}{the name of the state}
 \item{state_region}{coarse region of the country that the state belongs to}
-\item{state_region}{finer region of the country that the state belongs to}
+\item{state_division}{finer region of the country that the state belongs to}
 }
 }
 \source{
