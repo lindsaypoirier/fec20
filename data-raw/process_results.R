@@ -25,8 +25,8 @@ results_house <- readxl::read_excel(file, sheet = 13) %>%
     general_votes = parse_number(general_votes),
     won = won == "W",
     incumbent = incumbent == "(I)",
-    party = if_else((party == "R")|(party == "R "), "REP", party),
-    party = if_else((party == "D")|(party == "D "), "DEM", party)
+    party = if_else((str_trim(party) == "R"), "REP", party),
+    party = if_else((str_trim(party) == "D"), "DEM", party)
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 
@@ -46,13 +46,14 @@ results_senate <- readxl::read_excel(file, sheet = 12
     incumbent = i,
     won = ge_winner_indicator
   ) %>%
+  str_trim(party) %>%
   filter(cand_id != 'n/a') %>%
   mutate(
     primary_votes = parse_number(primary_votes),
     won = won == "W",
     incumbent = incumbent == "(I)",
-    party = if_else((party == "R")|(party == "R "), "REP", party),
-    party = if_else((party == "D")|(party == "D "), "DEM", party)
+    party = if_else((str_trim(party) == "R"), "REP", party),
+    party = if_else((str_trim(party) == "D"), "DEM", party)
   ) %>%
   replace_na(list(won = FALSE, incumbent = FALSE))
 

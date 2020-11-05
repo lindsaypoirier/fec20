@@ -1,4 +1,4 @@
-# fec16 1.3.0
+# fec16 0.1.3
 
 * added `states` data frame
 * solved discrepancy in the `party` variable in the `results_house` and `results_senate` datasets

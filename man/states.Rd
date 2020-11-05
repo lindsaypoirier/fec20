@@ -5,7 +5,7 @@
 \alias{states}
 \title{US States lookup table}
 \format{
-A data frame with 50 rows and 3 columns:
+A data frame with 50 rows and 4 columns:
 \describe{
 \item{state}{two-character postal abbreviation}
 \item{state_name}{the name of the state}
