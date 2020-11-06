@@ -58,6 +58,7 @@ library(fec16)
   - `results_president`: the final results of the 2016 general election
   - `pac`: Political Action Committee (PAC) and party summary financial
     information
+  - `states`: geographical information about the 50 states
 
 ### Sample Datasets (with 1000 random rows each)
 
@@ -76,10 +77,10 @@ calling each function is given for reference. All functions have an
 argument `n_max` which defaults to the entire dataset but the user can
 specify the max length of the dataset to be loaded via this argument.
 
-  - `read_all_individuals()` \~ 1.45GB
-  - `read_all_contributions()` \~ 15.4MB
-  - `read_all_expenditures()` \~ 52.1MB
-  - `read_all_transactions()` \~ 79.2MB
+  - `read_all_individuals()` ~ 1.45GB
+  - `read_all_contributions()` ~ 15.4MB
+  - `read_all_expenditures()` ~ 52.1MB
+  - `read_all_transactions()` ~ 79.2MB
 
 ## Examples
 

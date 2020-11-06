@@ -61,6 +61,7 @@ library(fec16)
 - `results_senate`: the Senate results of the 2016 general election
 - `results_president`: the final results of the 2016 general election
 - `pac`: Political Action Committee (PAC) and party summary financial information
+- `states`: geographical information about the 50 states
 
 ### Sample Datasets (with 1000 random rows each)
 

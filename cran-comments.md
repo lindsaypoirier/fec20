@@ -1,8 +1,9 @@
 ## Resubmission 
 
-This is a resubmission. In this version (v0.1.2):
+This is a resubmission. In this version (v0.1.3):
 
-* Updated some issues with dependencies and imports
+* Added `states` data frame
+* Solved discrepancy in the `party` variable in the `results_house` and `results_senate` datasets
 
 ## Test environments
 
