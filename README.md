@@ -82,6 +82,20 @@ specify the max length of the dataset to be loaded via this argument.
   - `read_all_expenditures()` ~ 52.1MB
   - `read_all_transactions()` ~ 79.2MB
 
+## How is the data relational?
+
+The headers of each table show the dataset name. The underlined
+variables are **primary keys** while all the others are **foreign
+keys**. The arrows show how the datasets are connected.
+
+**Note:** The `state` variable is in almost all datasets, but to keep
+the diagram clean, the arrows have been omitted.
+
+<img src="inst/fec16-dm.jpeg" align="center" width="550" height="500"/>
+
+The diagram is built using the `dm` R package. The code can be found in
+`data-raw/dm.R`.
+
 ## Examples
 
 ### Data Wrangling

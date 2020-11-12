@@ -4,6 +4,8 @@ This is a resubmission. In this version (v0.1.3):
 
 * Added `states` data frame
 * Solved discrepancy in the `party` variable in the `results_house` and `results_senate` datasets
+* update README to add `dm` object
+
 
 ## Test environments
 
