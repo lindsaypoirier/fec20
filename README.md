@@ -88,10 +88,7 @@ The headers of each table show the dataset name. The underlined
 variables are **primary keys** while all the others are **foreign
 keys**. The arrows show how the datasets are connected.
 
-**Note:** The `state` variable is in almost all datasets, but to keep
-the diagram clean, the arrows have been omitted.
-
-<img src="inst/fec16-dm.jpeg" align="center" width="550" height="500"/>
+<img src="inst/fec16-dm.jpeg" align="center"/>
 
 The diagram is built using the `dm` R package. The code can be found in
 `data-raw/dm.R`.

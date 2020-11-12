@@ -36,11 +36,15 @@ fec16_dm_all_keys <-
   dm_add_fk(transactions, cmte_id, committees) %>%
   dm_add_fk(contributions, cmte_id, committees) %>%
   dm_add_fk(contributions, other_id, committees) %>%
-  dm_add_fk(contributions, cand_id, candidates) # %>%
+  dm_add_fk(contributions, cand_id, candidates) %>%
   dm_add_fk(expenditures, state, states) %>%
   dm_add_fk(contributions, state, states) %>%
   dm_add_fk(transactions, state, states)
 
 # visualise relationship
-fec16_dm_all_keys %>%
+visual <- fec16_dm_all_keys %>%
   dm_draw()
+
+# save as jpeg in /inst
+htmlwidgets::saveWidget(visual, "fec16-dm.html")
+webshot::webshot("fec16-dm.html", "inst/fec16-dm.jpeg", vwidth = 50, vheight = 100)
