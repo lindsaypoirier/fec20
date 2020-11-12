@@ -23,21 +23,23 @@ fec16_dm_all_keys <-
   dm_add_fk(table = campaigns, columns = cand_id, ref_table = candidates) %>%
   dm_add_fk(pac, cmte_id, committees) %>%
   dm_add_fk(results_house, cand_id, candidates) %>%
-  # dm_add_fk(results_house, state, states) %>%
+  dm_add_fk(results_house, state, states) %>%
   dm_add_fk(results_president, cand_id, candidates) %>%
-  # dm_add_fk(results_president, state, states) %>%
+  dm_add_fk(results_president, state, states) %>%
   dm_add_fk(results_senate, cand_id, candidates) %>%
-  # dm_add_fk(results_senate, state, states) %>%
+  dm_add_fk(results_senate, state, states) %>%
   dm_add_fk(committees, cand_id, candidates) %>%
-  # dm_add_fk(candidates, cand_st, states) %>%
-  # dm_add_fk(committees, cmte_st, states) %>%
+  dm_add_fk(candidates, cand_office_st, states) %>%
+  dm_add_fk(candidates, cand_st, states) %>%
+  dm_add_fk(committees, cmte_st, states) %>%
   dm_add_fk(expenditures, cmte_id, committees) %>%
   dm_add_fk(transactions, cmte_id, committees) %>%
   dm_add_fk(contributions, cmte_id, committees) %>%
+  dm_add_fk(contributions, other_id, committees) %>%
   dm_add_fk(contributions, cand_id, candidates) # %>%
-  # dm_add_fk(expenditures, state, states) %>%
-  # dm_add_fk(contributions, state, states) %>%
-  # dm_add_fk(transactions, state, states)
+  dm_add_fk(expenditures, state, states) %>%
+  dm_add_fk(contributions, state, states) %>%
+  dm_add_fk(transactions, state, states)
 
 # visualise relationship
 fec16_dm_all_keys %>%
