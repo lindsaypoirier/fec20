@@ -133,6 +133,14 @@ ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation
 
 <img src="man/figures/README-party-plot-1.png" width="100%" />
 
+## See Also
+
+If you are interested in political data, check out the following related
+packages:
+
+  - [`politicaldata`](https://github.com/elliottmorris/politicaldata/)
+  - [`ProPublicaR`](https://github.com/dietrichson/ProPublicaR)
+
 ## Contributors
 
   - [Marium Tapal](https://github.com/mariumtapal)

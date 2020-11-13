@@ -2,7 +2,7 @@
 
 * added `states` data frame
 * solved discrepancy in the `party` variable in the `results_house` and `results_senate` datasets
-* update README to add `dm` object
+* update README to add `dm` object and related R packages
 
 # fec16 0.1.2 (2020-10-16)
 
