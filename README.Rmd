@@ -83,7 +83,7 @@ The following functions retrieve the entire datasets for the sampled ones listed
 
 The headers of each table show the dataset name. The underlined variables are **primary keys** while all the others are **foreign keys**. The arrows show how the datasets are connected. 
 
-<img src="inst/fec16-dm.jpeg" align="center" width="550" height="500"/>
+<img src="inst/fec16-dm.jpeg" align="center"/>
 
 The diagram is built using the `dm` R package. The code can be found in `data-raw/dm.R`.
 
@@ -123,6 +123,13 @@ ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation
     x = "Party", y = "Count", fill = "Candidate Party Affiliation"
   )
 ```
+
+## See Also
+
+If you are interested in political data, check out the following related packages:
+
+- [`politicaldata`](https://github.com/elliottmorris/politicaldata/)
+- [`ProPublicaR`](https://github.com/dietrichson/ProPublicaR)
 
 ## Contributors
 

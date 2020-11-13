@@ -88,10 +88,7 @@ The headers of each table show the dataset name. The underlined
 variables are **primary keys** while all the others are **foreign
 keys**. The arrows show how the datasets are connected.
 
-**Note:** The `state` variable is in almost all datasets, but to keep
-the diagram clean, the arrows have been omitted.
-
-<img src="inst/fec16-dm.jpeg" align="center" width="550" height="500"/>
+<img src="inst/fec16-dm.jpeg" align="center"/>
 
 The diagram is built using the `dm` R package. The code can be found in
 `data-raw/dm.R`.
@@ -135,6 +132,14 @@ ggplot(data, aes(x = cand_pty_affiliation, y = size, fill = cand_pty_affiliation
 ```
 
 <img src="man/figures/README-party-plot-1.png" width="100%" />
+
+## See Also
+
+If you are interested in political data, check out the following related
+packages:
+
+  - [`politicaldata`](https://github.com/elliottmorris/politicaldata/)
+  - [`ProPublicaR`](https://github.com/dietrichson/ProPublicaR)
 
 ## Contributors
 
