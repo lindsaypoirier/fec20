@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/package=fec16)
-[![Travis-CI Build Status](https://travis-ci.org/baumer-lab/fec16.svg?branch=master)](https://travis-ci.org/baumer-lab/fec16)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/fec16)](https://www.r-pkg.org:443/pkg/fec16)
+[![R-CMD-check](https://github.com/baumer-lab/fec16/workflows/R-CMD-check/badge.svg)](https://github.com/baumer-lab/fec16/actions)
 <!-- badges: end -->
 
 
