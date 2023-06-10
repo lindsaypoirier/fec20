@@ -33,7 +33,8 @@ Depends:
 Imports:
     dplyr,
     readr,
-    vroom
+    vroom,
+    usethis
 Suggests:
     testthat (>= 2.1.0),
     scales,
@@ -43,7 +44,6 @@ Suggests:
     lubridate,
     ggplot2,
     stringr,
-    usethis,
     utf8
 Encoding: UTF-8
 LazyData: true
