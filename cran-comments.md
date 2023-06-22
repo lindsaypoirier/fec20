@@ -1,5 +1,13 @@
 ## Resubmission 
 
+This is a resubmission. In this version (v0.1.4):
+
+* Fixed note about HTML version change to 4.2.0 which caused the package to be archived on CRAN
+* Updated documentation for the following datasets: `results_house`, `results_senate`, `results_president`, and `expenditures`
+* Moved `usethis` to imports from suggests to be able to use the functions in the package
+
+## Resubmission 
+
 This is a resubmission. In this version (v0.1.3):
 
 * Added `states` data frame

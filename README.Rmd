@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 
-# fec16 <img src="data-raw/Sticker/hex_fec16.png" align="right" height=140/>
+# fec16 <img src="data-raw/Sticker/hex_fec16.png" style="float: right; height: 140px;"></img>
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
