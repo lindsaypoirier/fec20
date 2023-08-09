@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/package=fec16)
 [![CRAN RStudio mirror
