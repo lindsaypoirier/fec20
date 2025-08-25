@@ -1,46 +1,33 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# fec16 <img src="data-raw/Sticker/hex_fec16.png" style="float: right; height: 140px;"></img>
+# fec20 <img src="data-raw/Sticker/hex_fec20.png" style="float: right; height: 140px;"></img>
 
-<!-- badges: start -->
+> Note that this is an updated version of the `fec16` package,
+> originally created by the [Baumer
+> Lab](https://github.com/baumer-lab/fec16).
 
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![CRAN
-status](https://r-pkg.org/badges/version/fec16)](https://CRAN.R-project.org/package=fec16)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/fec16)](https://www.r-pkg.org:443/pkg/fec16)
-[![R-CMD-check](https://github.com/baumer-lab/fec16/workflows/R-CMD-check/badge.svg)](https://github.com/baumer-lab/fec16/actions)
-<!-- badges: end -->
-
-**fec16** contains data from the [Federal Election Commission
+**fec20** contains data from the [Federal Election Commission
 (FEC)](https://www.fec.gov/) website pertaining to candidates,
 committees, results, contributions from committees and individuals, and
-other financial [data for the United States 2015-2016 election
+other financial [data for the United States 2019-2020 election
 cycle](https://www.fec.gov/data/browse-data/?tab=bulk-data).
 Additionally, for the datasets that are included as samples, the package
 includes functions that import the full versions.
 
 ## Installation
 
-Get the latest released version from CRAN:
-
-``` r
-install.packages("fec16")
-```
-
-Or the development version from GitHub:
+Get the development version from GitHub:
 
 ``` r
 # If you haven't installed the remotes package yet, do so:
 # install.packages("remotes")
-remotes::install_github("baumer-lab/fec16")
+remotes::install_github("lindsaypoirier/fec20")
 ```
 
 ``` r
 # Load package
-library(fec16)
+library(fec20)
 ```
 
 ## Datasets Included
@@ -62,9 +49,9 @@ library(fec16)
 ### Sample Datasets (with 1000 random rows each)
 
 - `individuals`: individual contributions to candidates/committees
-  during the 2016 election cycle
+  during the 2020 election cycle
 - `contributions`: candidates and their contributions from committees
-  during the 2016 election cycle
+  during the 2020 election cycle
 - `expenditures`: the operating expenditures
 - `transactions`: transactions between committees
 
@@ -76,10 +63,10 @@ calling each function is given for reference. All functions have an
 argument `n_max` which defaults to the entire dataset but the user can
 specify the max length of the dataset to be loaded via this argument.
 
-- `read_all_individuals()` ~ 1.45GB
-- `read_all_contributions()` ~ 15.4MB
-- `read_all_expenditures()` ~ 52.1MB
-- `read_all_transactions()` ~ 79.2MB
+- `read_all_individuals()` ~ 5GB
+- `read_all_contributions()` ~ 212MB
+- `read_all_expenditures()` ~ 757.8MB
+- `read_all_transactions()` ~ 2.4GB
 
 ## How is the data relational?
 
@@ -96,7 +83,7 @@ The diagram is built using the `dm` R package. The code can be found in
 
 ### Data Wrangling
 
-`fec16` can be used to summarize data in order see how many candidates
+`fec20` can be used to summarize data in order see how many candidates
 are running for elections (in all offices) for the two major parties:
 
 ``` r
@@ -111,8 +98,8 @@ data
 #> # A tibble: 2 × 2
 #>   cand_pty_affiliation  size
 #>   <chr>                <int>
-#> 1 DEM                   1270
-#> 2 REP                   1495
+#> 1 DEM                   1829
+#> 2 REP                   1862
 ```
 
 ### Data Visualization
@@ -146,3 +133,5 @@ packages:
 - [Irene Ryan](https://github.com/ireneryan)
 - [Rana Gahwagy](https://github.com/ranawg)
 - [Benjamin S. Baumer](https://github.com/beanumber)
+- [Lindsay Poirier](https://github.com/lindsaypoirier) updated the code
+  for 2020.

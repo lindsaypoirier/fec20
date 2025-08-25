@@ -15,8 +15,9 @@ knitr::opts_chunk$set(
 ```
 
 
-# fec12 <img src="data-raw/Sticker/hex_fec20.png" style="float: right; height: 140px;"></img>
+# fec20 <img src="data-raw/Sticker/hex_fec20.png" style="float: right; height: 140px;"></img>
 
+> Note that this is an updated version of the `fec16` package, originally created by the [Baumer Lab](https://github.com/baumer-lab/fec16).
 
 **fec20** contains data from the [Federal Election Commission (FEC)](https://www.fec.gov/) website pertaining to candidates, committees, results, contributions from committees and individuals, and other financial [data for the United States 2019-2020 election cycle](https://www.fec.gov/data/browse-data/?tab=bulk-data). Additionally, for the datasets that are included as samples, the package includes functions that import the full versions.
 
@@ -124,3 +125,4 @@ If you are interested in political data, check out the following related package
  - [Irene Ryan](https://github.com/ireneryan)
  - [Rana Gahwagy](https://github.com/ranawg)
  - [Benjamin S. Baumer](https://github.com/beanumber)
+ - [Lindsay Poirier](https://github.com/lindsaypoirier) updated the code for 2020.
