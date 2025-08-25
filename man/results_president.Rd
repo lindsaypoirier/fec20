@@ -5,7 +5,7 @@
 \alias{results_president}
 \title{Presidential Election Results}
 \format{
-A data frame with 619 rows and 6 columns providing information the House election results:
+A data frame with 499 rows and 7 columns providing information the House election results:
 \describe{
 \item{cand_id}{A code assigned to a candidate by the FEC}
 \item{state}{The state of the votes}
@@ -13,16 +13,17 @@ A data frame with 619 rows and 6 columns providing information the House electio
 \item{general_votes}{Number of votes in the general election}
 \item{general_percent}{Percentage of votes in the general election}
 \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
+\item{footnotes}{Footnotes}
 }
 }
 \source{
-\url{https://transition.fec.gov/general/FederalElections2016.shtml}, updated 2020-03-02
+\url{https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/}, updated 2020-03-02
 }
 \usage{
 results_president
 }
 \description{
-2016 House General Election Results
+2020 Presidential General Election Results
 }
 \seealso{
 \link{results_house}, \link{results_senate}

@@ -1,7 +1,7 @@
 library(tidyverse)
 
 dir <- usethis::use_zip(
-  "https://www.fec.gov/files/bulk-downloads/2016/oppexp16.zip",
+  "https://www.fec.gov/files/bulk-downloads/2020/oppexp20.zip",
   destdir = tempdir(), cleanup = TRUE
 )
 
@@ -25,7 +25,7 @@ oppexp_all <- read_delim(
 )
 
 expenditures <- oppexp_all %>%
-  select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num) %>%
+  select(-image_num, -sub_id, -memo_text, -memo_cd, -file_num, -X26) %>%
   sample_n(1000) %>%
   mutate(
     transaction_dt = lubridate::mdy(transaction_dt)

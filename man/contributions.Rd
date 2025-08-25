@@ -52,6 +52,6 @@ appearing in an FEC electronic file. A transaction ID is unique for a specific c
 contributions
 }
 \description{
-Provides data pertaining to each candidate and their contributions from committees during the 2016 general election.
+Provides data pertaining to each candidate and their contributions from committees during the 2020 general election.
 }
 \keyword{datasets}

@@ -1,3 +1,7 @@
+# fec20 0.0.1
+
+* Updated code for 2020 election data
+
 # fec16 0.1.3
 
 * Added `states` data frame

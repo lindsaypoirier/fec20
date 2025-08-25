@@ -1,11 +1,11 @@
 library(tidyverse)
 
 camp_dir <- usethis::use_zip(
-  "https://www.fec.gov/files/bulk-downloads/2016/webl16.zip",
+  "https://www.fec.gov/files/bulk-downloads/2020/webl20.zip",
   destdir = tempdir(), cleanup = TRUE
 )
 
-camp_path <- fs::path(camp_dir, "webl16.txt")
+camp_path <- fs::path(camp_dir, "webl20.txt")
 
 # no header file therefore manually typed in
 camp_names <- c("CAND_ID", "CAND_NAME", "CAND_ICI", "PTY_CD", "CAND_PTY_AFFILIATION", "TTL_RECEIPTS",

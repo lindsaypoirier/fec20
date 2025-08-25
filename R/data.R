@@ -2,7 +2,7 @@
 #'
 #' @description Basic information for each candidate.
 #'
-#' @format A data frame with 4648 rows and 15 columns, providing information
+#' @format A data frame with 5179 rows and 15 columns, providing information
 #' for each candidate:
 #' \describe{
 #'   \item{cand_id}{A 9-character alpha-numeric code assigned to a candidate by the FEC, which remains
@@ -28,7 +28,7 @@
 
 #' Committee contributions metadata
 #'
-#' @description Provides data pertaining to each candidate and their contributions from committees during the 2016 general election.
+#' @description Provides data pertaining to each candidate and their contributions from committees during the 2020 general election.
 #'
 #' @format A data frame with 1000 rows and 15 columns with information about candidate committee contributions.
 #' \describe{
@@ -76,7 +76,7 @@
 #'
 #' @description Provides data pertaining to each committee registered with the Federal Election Commission.
 #'
-#' @format A data frame with 17654 rows and 15 columns with information about FEC committees.
+#' @format A data frame with 18286 rows and 15 columns with information about FEC committees.
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}
@@ -132,8 +132,9 @@
 
 #' Individual Contributions Master metadata
 #'
-#' @description Information for a simple random sample of transactions from
-#' individuals to candidates/committees.
+#' @description Transactions from
+#' individuals to candidates/committees for a simple random sample
+#' of 1000 entries out of 15725359
 #'
 #' @format A data frame with 1000 rows and 16 columns providing information for each transaction:
 #' \describe{
@@ -179,9 +180,9 @@
 
 #' House Election Results
 #'
-#' @description 2016 House General Election Results
+#' @description 2020 House General Election Results
 #'
-#' @format A data frame with 2110 rows and 13 columns providing information the House election results:
+#' @format A data frame with 2526 rows and 13 columns providing information the House election results:
 #' \describe{
 #'   \item{state}{The state of the votes}
 #'   \item{district_id}{District ID}
@@ -198,14 +199,14 @@
 #'   \item{footnotes}{Footnotes}
 #' }
 #' @seealso [results_senate], [results_president]
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
+#' @source <https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/>, updated 2020-03-02
 "results_house"
 
 #' Senate Election Results
 #'
-#' @description 2016 House General Election Results
+#' @description 2020 House General Election Results
 #'
-#' @format A data frame with 377 rows and 10 columns providing information the House election results:
+#' @format A data frame with 353 rows and 10 columns providing information the House election results:
 #' \describe{
 #'   \item{state}{The state of the votes}
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
@@ -219,14 +220,14 @@
 #'   \item{footnotes}{Footnotes}
 #' }
 #' @seealso [results_house], [results_president]
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
+#' @source <https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/>, updated 2020-03-02
 "results_senate"
 
 #' Presidential Election Results
 #'
-#' @description 2016 House General Election Results
+#' @description 2020 Presidential General Election Results
 #'
-#' @format A data frame with 619 rows and 6 columns providing information the House election results:
+#' @format A data frame with 499 rows and 7 columns providing information the House election results:
 #' \describe{
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
 #'   \item{state}{The state of the votes}
@@ -234,16 +235,18 @@
 #'   \item{general_votes}{Number of votes in the general election}
 #'   \item{general_percent}{Percentage of votes in the general election}
 #'   \item{won}{A logical variable: TRUE if candidate won, FALSE if not}
+#'   \item{footnotes}{Footnotes}
+
 #' }
 #' @seealso [results_house], [results_senate]
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
+#' @source <https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/>, updated 2020-03-02
 "results_president"
 
 #' House/Senate Current Campaigns
 #'
 #' @description Summary financial information for each campaign.
 #'
-#' @format A data frame with 1898 rows and 25 columns, providing financial
+#' @format A data frame with 2638 rows and 25 columns, providing financial
 #' information for each House/Senate campaign:
 #' \describe{
 #'   \item{cand_id}{A code assigned to a candidate by the FEC}
@@ -273,13 +276,13 @@
 #'   \item{indiv_refunds}{Refunds to individuals}
 #'   \item{cmte_refunds}{Refunds to committees}
 #' }
-#' @source <https://transition.fec.gov/general/FederalElections2016.shtml>, updated 2020-03-02
+#' @source <https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/>, updated 2020-03-02
 "campaigns"
 
 #' Operating Expenditures
 #'
 #' @description Operating expenditure information for a simple random sample
-#' of 1000 entries out of 1744187
+#' of 1000 entries out of 2310524
 #'
 #' @format A data frame with 1000 rows and 20 columns:
 #' \describe{
@@ -379,7 +382,7 @@
 #'
 #' @description PAC and party summary financial information
 #'
-#' @format A data frame with 12049 rows and 27 columns:
+#' @format A data frame with 11539 rows and 27 columns:
 #' \describe{
 #'   \item{cmte_id}{A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission}
 #'   \item{cmte_nm}{Name of the committee}

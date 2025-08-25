@@ -1,9 +1,9 @@
 library(tidyverse)
 
-file <- fs::path(tempdir(), "results16.xlsx")
+file <- fs::path(tempdir(), "results24.xlsx")
 
 downloader::download(
-  "https://transition.fec.gov/pubrec/fe2016/federalelections2016_000.xlsx",
+  "https://www.fec.gov/documents/4228/federalelections2020.xlsx",
   destfile = file
 )
 
@@ -11,12 +11,13 @@ results_house <- readxl::read_excel(file, sheet = 13) %>%
    janitor::clean_names() %>%
    # delete unneccesary variables
    select(-x1, -state, -total_votes, -candidate_name, -contains("combined"),
-          -ends_with("_la"), -candidate_name_last, -candidate_name_first) %>%
+          -ends_with("_la"), -candidate_name_last, -candidate_name_first,
+          -pe_winner_indicator) %>%
    rename(
      state = state_abbreviation,
-     cand_id = fec_id_number,
-     district_id = d,
-     incumbent = i,
+     cand_id = fec_id,
+     district_id = district,
+     incumbent = i_incumbent_indicator,
      won = ge_winner_indicator,
    ) %>%
   filter(cand_id != 'n/a', !str_detect(cand_id, "FULL TERM")) %>%
@@ -38,15 +39,15 @@ results_senate <- readxl::read_excel(file, sheet = 12
   ) %>%
   janitor::clean_names() %>%
   # delete unneccesary variables
-  select(-x1, -state, -d, -total_votes, -candidate_name, -contains("combined"),
-         -ends_with("_la"), -candidate_name_last, -candidate_name_first, -runoff_votes, -runoff_percent) %>%
+  select(-x1, -state, -district, -total_votes, -candidate_name, -contains("combined"),
+         -ends_with("_la"), -candidate_name_last, -candidate_name_first, -runoff_votes, -runoff_percent, -pe_winner_indicator) %>%
   rename(
     state = state_abbreviation,
-    cand_id = fec_id_number,
-    incumbent = i,
+    cand_id = fec_id,
+    incumbent = i_incumbent_indicator,
     won = ge_winner_indicator
   ) %>%
-  str_trim(party) %>%
+  mutate(party = str_trim(party)) %>%
   filter(cand_id != 'n/a') %>%
   mutate(
     primary_votes = parse_number(primary_votes),
@@ -65,7 +66,8 @@ results_president <- readxl::read_excel(file, sheet = 9) %>%
   janitor::clean_names() %>%
   # delete unneccesary variables
   select(-x1, -state, -general_election_date, -total_votes, -total_votes_number,
-         -last_name_first, -last_name, -first_name) %>%
+         -last_name_first, -last_name, -first_name, -combined_ge_party_totals_ny,
+         -combined_percent_ny, -electoral_votes)%>%
   rename(
     state = state_abbreviation,
     cand_id = fec_id,

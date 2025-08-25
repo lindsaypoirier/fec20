@@ -5,7 +5,7 @@
 \alias{results_house}
 \title{House Election Results}
 \format{
-A data frame with 2110 rows and 13 columns providing information the House election results:
+A data frame with 2526 rows and 13 columns providing information the House election results:
 \describe{
 \item{state}{The state of the votes}
 \item{district_id}{District ID}
@@ -23,13 +23,13 @@ A data frame with 2110 rows and 13 columns providing information the House elect
 }
 }
 \source{
-\url{https://transition.fec.gov/general/FederalElections2016.shtml}, updated 2020-03-02
+\url{https://www.fec.gov/introduction-campaign-finance/election-results-and-voting-information/}, updated 2020-03-02
 }
 \usage{
 results_house
 }
 \description{
-2016 House General Election Results
+2020 House General Election Results
 }
 \seealso{
 \link{results_senate}, \link{results_president}
