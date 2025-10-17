@@ -34,14 +34,14 @@ library(fec20)
 
 ### Full Datasets
 
-- `candidates`: candidates registered with the FEC during the 2015-2016
+- `candidates`: candidates registered with the FEC during the 2019-2020
   election cycle
-- `committees`: committees registered with the FEC during the 2015-2016
+- `committees`: committees registered with the FEC during the 2019-2020
   election cycle
 - `campaigns`: the House/Senate current campaigns
-- `results_house`: the House results of the 2016 general election
-- `results_senate`: the Senate results of the 2016 general election
-- `results_president`: the final results of the 2016 general election
+- `results_house`: the House results of the 2020 general election
+- `results_senate`: the Senate results of the 2020 general election
+- `results_president`: the final results of the 2020 general election
 - `pac`: Political Action Committee (PAC) and party summary financial
   information
 - `states`: geographical information about the 50 states
